@@ -7,3 +7,5 @@ rapidfuzz
 fuzzywuzzy
 pillow
 discord_together
+requests
+bs4
