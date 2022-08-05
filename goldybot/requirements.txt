@@ -1,0 +1,10 @@
+discord
+disnake
+pyttsx3
+discord.py[voice]
+Cybernator
+rapidfuzz
+fuzzywuzzy
+pillow
+random
+sql3
