@@ -1,0 +1,2 @@
+# goldy_bot
+GoldyBot
