@@ -6,5 +6,4 @@ Cybernator
 rapidfuzz
 fuzzywuzzy
 pillow
-random
-sql3
+discord_together
