@@ -17,7 +17,7 @@ class Google(commands.Cog):
   
 # Creating soup from the fetched request
         soup = bs4.BeautifulSoup(request_result.text,"html.parser")
-        filter=soup.find_all("h3")
+        filter=soup.find_all()
         for i in range(0,len(filter)):
             await ctx.send(filter[i].get_text())
 
