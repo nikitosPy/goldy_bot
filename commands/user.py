@@ -24,6 +24,15 @@ class User(commands.Cog):
         response = Image.open(io.BytesIO(response.content))
         response = response.convert('RGBA')
         response = response.resize((100, 100), Image.ANTIALIAS)
+        img2=Image.open(response).convert("RGB")
+        npImage=np.array(img2)
+        h,w=img2.size
+        alpha = Image.new('L', img2.size,0)
+        draw = ImageDraw.Draw(alpha)
+        draw.pieslice([0,0,h,w],0,360,fill=255)
+        npAlpha=np.array(alpha)
+        npImage=np.dstack((npImage,npAlpha))
+        Image.fromarray(npImage).save('result.png')
         img.paste(response, (15, 15, 115, 115))
         idraw = ImageDraw.Draw(img)
         name = ctx.author.name 
@@ -34,22 +43,11 @@ class User(commands.Cog):
         idraw.text((145, 15), f'{name}#{tag}', font = headline) 
         idraw.text((145, 50), f'ID: {ctx.author.id}', font = undertext)
         filename = 'usercard.png'
-        
         img.save(filename)
         
-
-    img=Image.open(filename).convert("RGB")
-    npImage=np.array(img)
-    h,w=img.size
-    alpha = Image.new('L', img.size,0)
-    draw = ImageDraw.Draw(alpha)
-    draw.pieslice([0,0,h,w],0,360,fill=255)
-    npAlpha=np.array(alpha)
-    npImage=np.dstack((npImage,npAlpha))
-    Image.fromarray(npImage).save('result.png')
         await ctx.send(file = discord.File(fp = 'result.png'))
         os.remove(filename)
         os.remove('result.png')
-        
+
 def setup(bot):
     bot.add_cog(User(bot))
