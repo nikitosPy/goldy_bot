@@ -2,7 +2,7 @@ from distutils import extension
 import disnake as discord #Создание Клиента
 from disnake.utils import get #Поиск канала
 from disnake.ext import commands #Команды
-
+import os
 from config import * #Ключи
 from asyncio import sleep #Режим ожидания
 
