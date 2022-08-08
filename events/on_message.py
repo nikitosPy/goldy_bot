@@ -20,7 +20,7 @@ class Message(commands.Cog):
     Я многофункциольный :smiley:
     """)
         for wel in welcome:
-            if wel in message.content.lower:
+            if wel in message.content:
                 await message.channel.send(f"И тебе привет, <@{message.author.id}>!")
                 break
         
