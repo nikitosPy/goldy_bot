@@ -12,7 +12,13 @@ class Message(commands.Cog):
         if message.author == self.bot.user: 
             return
         if self.bot.user.mention in message.content:
-            await message.channel.send(f"""""")
+            await message.channel.send(f"""
+    Привет! Я бот {self.bot.user.name}!
+    В данный момент Бот на ОБТ (открытом бета-тестировании)
+    Если возникнут вопросы / пожелания / идеи - 
+    Пишите в Л / С и я это передам моим админам.
+    Я многофункциольный :smiley:
+    """)
         
         
         if isinstance(message.channel,discord.DMChannel): 
