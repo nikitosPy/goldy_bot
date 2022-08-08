@@ -33,9 +33,9 @@ class Message(commands.Cog):
                 await message.channel.send(f"Не упоминай пинги everyone и here")
         if isinstance(message.channel,discord.DMChannel): 
             for pref in prefix:
-            if not message.content.startswith(pref):
-                await message.channel.send("Отчёт отправлен!")
-                await admin1.send(f'\nТебе отправили отчёт в <t:{round(time())}:F>! \nПрочти его! \nОтчёт от {message.author.name} \n{message.content}')
-                await admin2.send(f'\nТебе отправили отчёт в <t:{round(time())}:F>! \nПрочти его! \nОтчёт от {message.author.name} \n{message.content}')
+                if not message.content.startswith(pref):
+                    await message.channel.send("Отчёт отправлен!")
+                    await admin1.send(f'\nТебе отправили отчёт в <t:{round(time())}:F>! \nПрочти его! \nОтчёт от {message.author.name} \n{message.content}')
+                    await admin2.send(f'\nТебе отправили отчёт в <t:{round(time())}:F>! \nПрочти его! \nОтчёт от {message.author.name} \n{message.content}')
 def setup(bot):
     bot.add_cog(Message(bot))
