@@ -24,7 +24,7 @@ class User(commands.Cog):
         response = Image.open(io.BytesIO(response.content))
         response = response.convert('RGBA')
         response = response.resize((100, 100), Image.ANTIALIAS)
-        img.paste(response, (0, 0, 115, 115))
+        img.paste(response, (15, 15, 115, 115))
         idraw = ImageDraw.Draw(img)
         name = ctx.author.name 
         tag = ctx.author.discriminator 
