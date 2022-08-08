@@ -9,3 +9,4 @@ pillow
 discord_together
 requests
 bs4
+numpy
