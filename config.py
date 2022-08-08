@@ -20,6 +20,7 @@ statuses = [
 goldy = 902168323557589012
 bad = "сука тварь гнида лох"
 bad_words = bad.split()
+pings = ["@everyone", "@here"]
 cmds = []
 for filename in os.listdir("./commands"):
     if filename.endswith(".py"):
