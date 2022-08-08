@@ -22,7 +22,7 @@ class Message(commands.Cog):
         for wel in welcome:
             if wel in message.content.lower.split():
                 await message.channel.send(f"И тебе привет, <@{message.author.id}>!")
-        
+                break
         
         if isinstance(message.channel,discord.DMChannel): 
             await message.channel.send("Отчёт отправлен!")
