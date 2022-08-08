@@ -40,6 +40,8 @@ class Message(commands.Cog):
                     await admin1.send(f'\nТебе отправили отчёт в <t:{round(time())}:F>! \nПрочти его! \nОтчёт от {message.author.name} \n{message.content}')
                     await admin2.send(f'\nТебе отправили отчёт в <t:{round(time())}:F>! \nПрочти его! \nОтчёт от {message.author.name} \n{message.content}')
                     break
-        self.bot.process_commands(message)
+                else:
+                    self.bot.process_commands(message)
+        
 def setup(bot):
     bot.add_cog(Message(bot))
