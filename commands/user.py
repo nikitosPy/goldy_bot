@@ -5,7 +5,7 @@ from disnake.ext import commands #Команды
 import os
 from config import * #Ключи
 from asyncio import sleep #Режим ожидания
-
+import numpy as np
 import requests #Загрузка Аватара
 from PIL import Image, ImageDraw, ImageFont, ImageOps #Создание изображений
 import io #Просмотр Аватара
@@ -34,9 +34,22 @@ class User(commands.Cog):
         idraw.text((145, 15), f'{name}#{tag}', font = headline) 
         idraw.text((145, 50), f'ID: {ctx.author.id}', font = undertext)
         filename = 'usercard.png'
+        
         img.save(filename)
-        await ctx.send(file = discord.File(fp = filename))
+        
+
+    img=Image.open(filename).convert("RGB")
+    npImage=np.array(img)
+    h,w=img.size
+    alpha = Image.new('L', img.size,0)
+    draw = ImageDraw.Draw(alpha)
+    draw.pieslice([0,0,h,w],0,360,fill=255)
+    npAlpha=np.array(alpha)
+    npImage=np.dstack((npImage,npAlpha))
+    Image.fromarray(npImage).save('result.png')
+        await ctx.send(file = discord.File(fp = 'result.png'))
         os.remove(filename)
+        os.remove('result.png')
         
 def setup(bot):
     bot.add_cog(User(bot))
