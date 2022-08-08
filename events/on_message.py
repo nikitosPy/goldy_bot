@@ -21,7 +21,7 @@ class Message(commands.Cog):
     """)
         for wel in welcome:
             if wel in str(message.content).lower():
-                await message.channel.send(f"И тебе привет, <@{message.author.id}>!")
+                await message.channel.send(f"И тебе {wel}, дорогой <@{message.author.id}>!")
                 break
         
         if isinstance(message.channel,discord.DMChannel): 
