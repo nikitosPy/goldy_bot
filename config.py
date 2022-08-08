@@ -3,7 +3,7 @@ import os
 
 prefix = ["gg.", "gg!", "gb.", "gb!"]
 with open("token.txt") as f:
-        token =  f.read()
+        token = f.read()
 intents = discord.Intents.all()
 logs_ch = 998598317774737409
 statuses = [
