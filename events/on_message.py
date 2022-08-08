@@ -11,6 +11,10 @@ class Message(commands.Cog):
         admin2 = self.bot.get_user(goldy)
         if message.author == self.bot.user: 
             return
+        if self.bot.user.mention in message.content:
+            await message.channel.send(f"""""")
+        
+        
         if isinstance(message.channel,discord.DMChannel): 
             await message.channel.send("Отчёт отправлен!")
             await admin1.send(f'\nТебе отправили отчёт в <t:{round(time())}:F>! \nПрочти его! \nОтчёт от {message.author.name} \n{message.content}')
