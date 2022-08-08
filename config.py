@@ -1,6 +1,6 @@
 import disnake as discord
 import os
-prefix = "gg."
+prefix = ["gg.", "gg!", "gb.", "gb!"]
 token =  'OTk0MjA5MzkyNTY2MjEwNTYw.GCDu3r.0yElEovGc991fo64-dAONQa9qVVvIAJlDj9sPw'
 intents = discord.Intents.all()
 logs_ch = 998598317774737409
