@@ -19,6 +19,9 @@ class Message(commands.Cog):
     Пишите в Л / С и я это передам моим админам.
     Я многофункциольный :smiley:
     """)
+        for wel in welcome:
+            if wel in message.content.lower.split():
+                await message.channel.send(f"И ебе привет, <@{message.author.id}>!
         
         
         if isinstance(message.channel,discord.DMChannel): 
