@@ -16,18 +16,8 @@ statuses = statuses = [
         "MrGoldy Не делал бота, лишь командовал"
         ]
 goldy = 902168323557589012
-ydl_opts = {
-            'format' : 'bestaudio/best',
-            'postprocessors' : [{
-            'key' : 'FFmpegExtractAudio',
-            'preferredcodec' : 'mp3',
-            'preferredquality' : '192'
-        }],
-    }
+
 cmds = []
 for filename in os.listdir("./commands"):
-    if filename.endswith(".py"):
-        cmds.append(f"{filename[:-3]}")
-for filename in os.listdir("./events"):
     if filename.endswith(".py"):
         cmds.append(f"{filename[:-3]}")
