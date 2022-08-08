@@ -26,7 +26,7 @@ class Message(commands.Cog):
         for b in bad_words:
             if b in str(message.content).lower():
                 await message.channel.purge(limit = 1)
-                await message.channel.send(f"<@message.author.id>, Не матерись!">
+                await message.channel.send(f"<@message.author.id>, Не матерись!")
         if isinstance(message.channel,discord.DMChannel): 
             await message.channel.send("Отчёт отправлен!")
             await admin1.send(f'\nТебе отправили отчёт в <t:{round(time())}:F>! \nПрочти его! \nОтчёт от {message.author.name} \n{message.content}')
