@@ -1,6 +1,6 @@
 import disnake as discord
 from disnake.ext import commands
-
+import random
 import sqlite3
 from config import *
 from Cybernator import Paginator as pag
@@ -88,7 +88,15 @@ class EcoGoldy(commands.Cog):
 
         await ctx.send(embed = embed)
 
-
+    @commands.command(aliases = ['work'])
+    async def __worker(seelf, ctx: commands.Context):
+        worker = random.randint(100, 1000)
+        cursor.execute("UPDATE users SET cash = cash + {} WHERE id = {}".format(worker, ctx.author.id))
+        connection.commit()
+        await ctx.message.add_reaction('✅')
+        
+        
+        
     @commands.command(aliases = ['buy', 'buy-role'])
     async def __buy(seelf, ctx: commands.Context, role: discord.Role = None):
         if role is None:
