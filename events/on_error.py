@@ -17,7 +17,7 @@ class Error(commands.Cog):
             else: 
                 await ctx.send(f"Вы неверно вписали команду!")
         elif isinstance(error, commands.UserInputError):
-            await ctx.send(f"Введите правильно команду!)
+            await ctx.send(f"Введите правильно команду!")
         elif isinstance(error, commands.MissingPermissions):
             await ctx.send("У вас недостаточно прав для совершения команды")
         elif isinstance(error, commands.MissingRequiredArgument):
