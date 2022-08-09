@@ -2,6 +2,7 @@ import disnake as discord
 from disnake.ext import commands
 from time import time
 from config import *
+from rapidfuzz import fuzz, process
 class Message(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
