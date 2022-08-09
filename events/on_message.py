@@ -27,7 +27,7 @@ class Message(commands.Cog):
                 break
         for b in bad_words:
                 difference = process.extractOne(str(message.content).lower(), b)
-                if difference[1] >= 50:
+                if difference[1] >= 80:
                     await message.channel.purge(limit = 1)
                     await message.channel.send(f"<@{message.author.id}>, Не матерись! || Админы, он сказал: {message.content} ||")
                     break
