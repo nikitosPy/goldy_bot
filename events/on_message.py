@@ -8,6 +8,7 @@ class Message(commands.Cog):
         self.bot = bot
     @commands.Cog.listener()
     async def on_message(self, message):
+        
         admin1 = self.bot.get_user(self.bot.owner.id)
         admin2 = self.bot.get_user(goldy)
         if message.author == self.bot.user: 
@@ -26,9 +27,11 @@ class Message(commands.Cog):
                 break
         for b in bad_words:
             if b in str(message.content).lower():
-                await message.channel.purge(limit = 1)
-                await message.channel.send(f"<@{message.author.id}>, Не матерись! || Админы, он сказал: {message.content} ||")
-                break
+                difference = process.extractOne(ctx.message.content, b)
+                if difference >= 50:
+                    await message.channel.purge(limit = 1)
+                    await message.channel.send(f"<@{message.author.id}>, Не матерись! || Админы, он сказал: {message.content} ||")
+                    break
         for ping in pings:
             if ping in str(message.content).lower():
                 await message.channel.purge(limit = 1)
