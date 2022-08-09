@@ -12,11 +12,19 @@ class Error(commands.Cog):
         if isinstance(error, commands.CommandNotFound):
             cmds.sort()
             difference = process.extractOne(ctx.message.content, cmds)
-            if difference[1] > 0: 
+            if difference[1] > 20: 
                 await ctx.send(f"Вы неверно вписали команду!\nЕсть похожая команда: {difference[0]}")  
             else: 
                 await ctx.send(f"Вы неверно вписали команду!")
+        elif isinstance(error, commands.UserInputError):
+            await ctx.send(f"Введите правильно команду!)
+        elif isinstance(error, commands.MissingPermissions):
+            await ctx.send("У вас недостаточно прав для совершения команды")
+        elif isinstance(error, commands.MissingRequiredArgument):
+            await ctx.send("Укажите необходимые аргументы!")
         else:
             await ctx.send(f"Ошибка: \n{error}")
+        
+    
 def setup(bot):
     bot.add_cog(Error(bot))
