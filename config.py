@@ -18,7 +18,7 @@ statuses = [
         "MrGoldy Не делал бота, лишь командовал"
         ]
 goldy = 902168323557589012
-bad = "сука тварь гнида лох"
+bad = "сука тварь гнида лох ахуел гнида хуй блять"
 bad_words = bad.split()
 pings = ["@everyone", "@here"]
 cmds = []
