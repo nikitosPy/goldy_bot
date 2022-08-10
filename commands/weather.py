@@ -30,7 +30,7 @@ class Weather(commands.Cog):
       pr = w.pressure['press']
       vd = w.visibility_distance
       
-      value = "В городе " + str(place) + " температура " + str(t1) + " °C" + "\n" + 
+      value = ("В городе " + str(place) + " температура " + str(t1) + " °C" + "\n" + 
 				"Максимальная температура " + str(t3) + " °C" +"\n" + 
 				"Минимальная температура " + str(t4) + " °C" + "\n" + 
 				"Ощущается как" + str(t2) + " °C" + "\n" +
