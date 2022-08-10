@@ -10,7 +10,7 @@ class Weather(commands.Cog):
   @commands.command()
   async def weather(ctx: commands.Context, city: str):
     try:
-        observation = mgr.weather_at_place(message.text)
+        observation = mgr.weather_at_place(city)
         w = observation.weather
         oblaka = w.clouds
         temp = w.temperature('celsius')["temp"]
