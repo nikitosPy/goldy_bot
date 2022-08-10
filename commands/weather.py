@@ -26,3 +26,5 @@ class Weather(commands.Cog):
         await ctx.send(answer)
     except:
         await ctx.send("Такого города не существует.")
+def setup(bot):
+  bot.add_cog(Weather(bot))
