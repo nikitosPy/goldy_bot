@@ -26,5 +26,5 @@ class Weather(commands.Cog):
             else:
                 answer += 'Температура норм. Ходи в чем хочешь!'
             await ctx.send(answer)
-        except:
+    except:
             await ctx.send("Такого города не существует.")
