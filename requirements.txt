@@ -11,3 +11,4 @@ requests
 bs4
 numpy
 pyowm
+python_weather
