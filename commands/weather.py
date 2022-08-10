@@ -13,7 +13,7 @@ class Weather(commands.Cog):
   def __init__(self, bot):
       self.bot = bot
   @commands.command()
-  async def weather(ctx: commands.Context, city: str): 
+  async def weather(ctx: commands.Context, city): 
       observation = mgr.weather_at_place(city)
       w = observation.weather
       t = w.temperature("celsius")
@@ -29,8 +29,8 @@ class Weather(commands.Cog):
       ti = w.reference_time('iso')
       pr = w.pressure['press']
       vd = w.visibility_distance
-
-      await ctx.send("В городе " + str(place) + " температура " + str(t1) + " °C" + "\n" + 
+      
+      value = "В городе " + str(place) + " температура " + str(t1) + " °C" + "\n" + 
 				"Максимальная температура " + str(t3) + " °C" +"\n" + 
 				"Минимальная температура " + str(t4) + " °C" + "\n" + 
 				"Ощущается как" + str(t2) + " °C" + "\n" +
@@ -39,6 +39,7 @@ class Weather(commands.Cog):
 				"Влажность " + str(humi) + " %" + "\n" + 
 				"Видимость " + str(vd) + "  метров" + "\n" +
 				"Описание " + str(st) + "\n\n" + str(dt))
+      await ctx.send(value)
 
 def setup(bot):
   bot.add_cog(Weather(bot))
