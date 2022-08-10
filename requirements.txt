@@ -10,3 +10,4 @@ discord_together
 requests
 bs4
 numpy
+pyowm
