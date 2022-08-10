@@ -27,4 +27,4 @@ class Weather(commands.Cog):
                 answer += 'Температура норм. Ходи в чем хочешь!'
             await ctx.send(answer)
         except:
-            bot.send_message(message.chat.id, "Такого города не существует.")
+            await ctx.send("Такого города не существует.")
