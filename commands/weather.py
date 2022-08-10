@@ -39,7 +39,7 @@ class Weather(commands.Cog):
 				"Влажность " + str(humi) + " %" + "\n" + 
 				"Видимость " + str(vd) + "  метров" + "\n" +
 				"Описание " + str(st) + "\n\n" + str(dt))
-      await ctx.send(value)
+      await ctx.send(str(value))
 
 def setup(bot):
   bot.add_cog(Weather(bot))
