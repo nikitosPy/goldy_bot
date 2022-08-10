@@ -19,11 +19,11 @@ class Weather(commands.Cog):
 
 	t = w.temperature("celsius")
 	t1 = t['temp']
-  t2 = t['feels_like']
-  t3 = t['tem_max']
+  	t2 = t['feels_like']
+  	t3 = t['tem_max']
 	t4 = t['temp_min']
 	wi = w.wind()['speed']
-  humi = w.humidity
+  	humi = w.humidity
 	cl = w.clouds
 	st = w.status
 	dt = w.detailed_status
@@ -31,7 +31,7 @@ class Weather(commands.Cog):
 	pr = w.pressure['press']
 	vd = w.visibility_distance
 
-		await ctx.send("В городе " + str(place) + " температура " + str(t1) + " °C" + "\n" + 
+	await ctx.send("В городе " + str(place) + " температура " + str(t1) + " °C" + "\n" + 
 				"Максимальная температура " + str(t3) + " °C" +"\n" + 
 				"Минимальная температура " + str(t4) + " °C" + "\n" + 
 				"Ощущается как" + str(t2) + " °C" + "\n" +
