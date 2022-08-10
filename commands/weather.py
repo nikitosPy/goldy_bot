@@ -11,12 +11,11 @@ owm = OWM(owm_token, config_dict)
 mgr = owm.weather_manager()
 class Weather(commands.Cog):
   def __init__(self, bot):
-    self.bot = bot
+    	self.bot = bot
   @commands.command()
   async def weather(ctx: commands.Context, city: str): 
-  observation = mgr.weather_at_place(city)
-  w = observation.weather
-
+  	observation = mgr.weather_at_place(city)
+ 	w = observation.weather
 	t = w.temperature("celsius")
 	t1 = t['temp']
   	t2 = t['feels_like']
