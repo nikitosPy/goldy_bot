@@ -15,12 +15,12 @@ class Weather(commands.Cog):
         oblaka = w.clouds
         temp = w.temperature('celsius')["temp"]
         vlazhnost = w.humidity
-        answer = 'В городе ' + message.text + ' сейчас ' + w.detailed_status + '\n'
+        answer = 'В городе ' + city + ' сейчас ' + w.detailed_status + '\n'
         answer += 'Температура ' + ' - ' + str(temp) + ' градусов' + '\n'
         if temp < 10:
-            answer += 'Сейчас на улице очень холодно.Лучше сиди дома!'
+            answer += 'Сейчас на улице очень холодно. Лучше сиди дома!'
         if temp < 20:
-            answer += 'Воздух снаружи холодный.Одевайся теплее!'
+            answer += 'Воздух снаружи холодный. Одевайся теплее!'
         else:
             answer += 'Температура норм. Ходи в чем хочешь!'
         await ctx.send(answer)
