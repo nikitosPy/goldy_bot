@@ -14,7 +14,7 @@ class Weather(commands.Cog):
       self.bot = bot
   @commands.command()
   async def weather(ctx: commands.Context, city): 
-	try:
+       try:
 	      observation = mgr.weather_at_place(city)
 	      w = observation.weather
 	      t = w.temperature("celsius")
