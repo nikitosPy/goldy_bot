@@ -17,29 +17,29 @@ class Weather(commands.Cog):
   observation = mgr.weather_at_place(city)
   w = observation.weather
 
-  t = w.temperature("celsius")
-  t1 = t['temp']
+	t = w.temperature("celsius")
+	t1 = t['temp']
   t2 = t['feels_like']
-  t3 = t['temp_max']
-  t4 = t['temp_min']
-
-  wi = w.wind()['speed']
+  t3 = t['tem_max']
+	t4 = t['temp_min']
+	wi = w.wind()['speed']
   humi = w.humidity
-  cl = w.clouds
-  st = w.status
-  dt = w.detailed_status
-  ti = w.reference_time('iso')
-  pr = w.pressure['press']
-  vd = w.visibility_distance
+	cl = w.clouds
+	st = w.status
+	dt = w.detailed_status
+	ti = w.reference_time('iso')
+	pr = w.pressure['press']
+	vd = w.visibility_distance
 
-  await ctx.send("В городе " + str(place) + " температура " + str(t1) + " °C" + "\n" + 
-    "Максимальная температура " + str(t3) + " °C" +"\n" + 
-    "Минимальная температура " + str(t4) + " °C" + "\n" + 
-    "Ощущается как" + str(t2) + " °C" + "\n" +
-    "Скорость ветра " + str(wi) + " м/с" + "\n" + 
-    "Давление " + str(pr) + " мм.рт.ст" + "\n" + 
-    "Влажность " + str(humi) + " %" + "\n" + 
-    "Видимость " + str(vd) + "  метров" + "\n" +
-    "Описание " + str(st) + "\n\n" + str(dt))
+		await ctx.send("В городе " + str(place) + " температура " + str(t1) + " °C" + "\n" + 
+				"Максимальная температура " + str(t3) + " °C" +"\n" + 
+				"Минимальная температура " + str(t4) + " °C" + "\n" + 
+				"Ощущается как" + str(t2) + " °C" + "\n" +
+				"Скорость ветра " + str(wi) + " м/с" + "\n" + 
+				"Давление " + str(pr) + " мм.рт.ст" + "\n" + 
+				"Влажность " + str(humi) + " %" + "\n" + 
+				"Видимость " + str(vd) + "  метров" + "\n" +
+				"Описание " + str(st) + "\n\n" + str(dt))
+
 def setup(bot):
   bot.add_cog(Weather(bot))
