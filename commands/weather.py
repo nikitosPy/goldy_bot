@@ -14,7 +14,6 @@ class Weather(commands.Cog):
       self.bot = bot
   @commands.command()
   async def weather(self, ctx: commands.Context, city): 
-       try:
 	      observation = mgr.weather_at_place(city)
 	      w = observation.weather
 	      t = w.temperature("celsius")
@@ -39,10 +38,8 @@ class Weather(commands.Cog):
 					"Давление " + str(pr) + " мм.рт.ст" + "\n" + 
 					"Влажность " + str(humi) + " %" + "\n" + 
 					"Видимость " + str(vd) + "  метров" + "\n" +
-					"Описание " + str(st) + "\n\n" + str(dt))
+	             			"Описание " + str(st) + "\n\n" + str(dt))
               await ctx.send(str(value))
-      except: 
-	      await ctx.send("Не найден город")
 
 def setup(bot):
   bot.add_cog(Weather(bot))
