@@ -11,7 +11,7 @@ owm = OWM(owm_token, config_dict)
 mgr = owm.weather_manager()
 class Weather(commands.Cog):
   def __init__(self, bot):
-        self.bot = bot
+              self.bot = bot
   @commands.command()
   async def weather(self, ctx: commands.Context, city): 
 	      observation = mgr.weather_at_place(city)
@@ -39,7 +39,7 @@ class Weather(commands.Cog):
 					"Влажность " + str(humi) + " %" + "\n" + 
 					"Видимость " + str(vd) + "  метров" + "\n" +
 	             			"Описание " + str(st) + "\n\n" + str(dt))
-         await ctx.send(str(value))
+              await ctx.send(str(value))
 
 def setup(bot):
   bot.add_cog(Weather(bot))
