@@ -24,7 +24,8 @@ class User(commands.Cog):
         response = Image.open(io.BytesIO(response.content))
         response = response.convert('RGBA')
         response = response.resize((100, 100), Image.ANTIALIAS)
-        img2=Image.open(io.BytesIO(response.content)).convert("RGB")
+        response.save("reponse.png")
+        img2=Image.open("response.png").convert("RGB")
         npImage=np.array(img2)
         h,w=img2.size
         alpha = Image.new('L', img2.size,0)
