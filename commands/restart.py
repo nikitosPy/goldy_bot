@@ -7,7 +7,10 @@ class Restart(commands.Cog):
         self.bot = bot
     @commands.command()
     async def restart(self, ctx: commands.Context):
-        await ctx.send(f"Бот перезапущен!")
-        os.system("python bot.py")
+        if ctx.author == self.bot.owner:
+            await ctx.send(f"Бот перезапущен!")
+            os.system("python bot.py")
+        else:
+            await ctx.send("Вы не разработчик бота...")
 def setup(bot):
     bot.add_cog(Restart(bot))
