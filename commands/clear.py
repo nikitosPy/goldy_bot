@@ -5,7 +5,10 @@ class Clear(commands.Cog):
         self.bot = bot
     @commands.command()
     async def clear(self, ctx: commands.Context, n: int):
-        await ctx.channel.purge(limit = n+1)
-        await ctx.send(f"Очищено {n} сообщений")
+        if n:
+            await ctx.channel.purge(limit = n+1)
+            await ctx.send(f"Очищено {n} сообщений")
+        else:
+            print("Укажите количество сообщений...")
 def setup(bot):
     bot.add_cog(Clear(bot))
