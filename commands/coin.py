@@ -13,6 +13,7 @@ class Coin(commands.Cog):
         self.bot = bot
     @commands.command()
     async def coin(self, ctx: commands.Context):
-        await ctx.send(f"Я подбросил монетку и получил: {coin}", file = discord.File(file))
+        await ctx.send(embed = discord.Embed(title = f"Я подбросил монетку и получил: {coin}") 
+        await ctx.send(file = discord.File(file))
 def setup(bot):
     bot.add_cog(Coin(bot))
