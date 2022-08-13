@@ -13,7 +13,7 @@ class Message(commands.Cog):
         admin2 = self.bot.get_user(goldy)
         if message.author == self.bot.user: 
             return
-        if self.bot.user.mention in message.content:
+        elif self.bot.user.mention in message.content:
             await message.channel.send(f"""
     Привет! Я бот {self.bot.user.name}!
     В данный момент Бот на ОБТ (открытом бета-тестировании)
@@ -37,7 +37,7 @@ class Message(commands.Cog):
                 await message.channel.purge(limit = 1)
                 await message.channel.send(f"Не упоминай пинги everyone и here")
                 break
-        if isinstance(message.channel,discord.DMChannel): 
+        elif isinstance(message.channel,discord.DMChannel): 
             for pref in prefix:
                 if not message.content.startswith(pref):
                     await message.channel.send("Отчёт отправлен!")
