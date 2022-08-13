@@ -26,11 +26,12 @@ class Message(commands.Cog):
                 await message.channel.send(f"И тебе {wel}, дорогой <@{message.author.id}>!")
                 break
             for b in bad_words:
-                difference = process.extractOne(str(message.content).lower(), b)
-                if difference[1] >= 90:
-                    await message.channel.purge(limit = 1)
-                    await message.channel.send(f"<@{message.author.id}>, Не матерись! || Админы, он сказал: {message.content} ||")
-                    break
+                for content in str(message.content).lower().split():
+                    difference = process.extractOne(content, b)
+                    if difference[1] >= 90:
+                        await message.channel.purge(limit = 1)
+                        await message.channel.send(f"<@{message.author.id}>, Не матерись! || Админы, он сказал: {message.content} ||")
+                        break
         for ping in pings:
             if ping in str(message.content).lower():
                 await message.channel.purge(limit = 1)
