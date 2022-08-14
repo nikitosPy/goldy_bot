@@ -34,6 +34,7 @@ class User(commands.Cog):
         npAlpha=np.array(alpha)
         npImage=np.dstack((npImage,npAlpha))
         Image.fromarray(npImage).save('result.png')
+        del response
         response = Image.open(fp = 'result.png')
         img.paste(response, (15, 15, 115, 115))
         idraw = ImageDraw.Draw(img)
@@ -47,7 +48,7 @@ class User(commands.Cog):
         filename = 'usercard.png'
         img.save(filename)
         
-        await ctx.send(file = discord.File(fp = 'result.png'))
+        await ctx.send(file = discord.File(fp = filename))
         os.remove(filename)
         os.remove('result.png')
 
