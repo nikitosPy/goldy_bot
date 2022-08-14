@@ -16,9 +16,6 @@ class User(commands.Cog):
     @commands.command()
     async def user(self, ctx: commands.Context):
         
-        await ctx.channel.purge(limit = 1)
-        img = Image.open(fp = "user.jpg")
-        
         url = str(ctx.author.avatar.url)[:-10]
         response = requests.get(url, stream = True)
         response = Image.open(io.BytesIO(response.content))
@@ -35,6 +32,7 @@ class User(commands.Cog):
         npImage=np.dstack((npImage,npAlpha))
         Image.fromarray(npImage).save('result.png')
         del response
+        img = Image.open(fp = "user.jpg")
         response = Image.open(fp = 'result.png')
         img.paste(response, (15, 15, 115, 115))
         idraw = ImageDraw.Draw(img)
