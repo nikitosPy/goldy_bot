@@ -38,7 +38,7 @@ class Message(commands.Cog):
             difference = process.extract(content, bad_words)
             if difference[1] >= 95:
                 await message.channel.purge(limit = 1)
-                await message.channel.send(f"<@{message.author.id}>, Не матерись! || Админы, он сказал: {message.content}, я подумал что {difference[0]} ||")
+                await message.channel.send(f"<@{message.author.id}>, Не матерись! || Админы, он сказал: {message.content}, я подумал что {difference[0]}, Шанс: {difference[1]} ||")
                 break
         for ping in pings:
             if ping in str(message.content).lower():
