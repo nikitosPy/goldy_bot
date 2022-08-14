@@ -3,7 +3,7 @@ import disnake as discord #Создание Клиента
 from disnake.utils import get #Поиск канала
 from disnake.ext import commands #Команды
 from config import *
-from discord_together import DiscprdTogether
+from discord_together import DiscordTogether
 class Watch(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
