@@ -14,7 +14,7 @@ class Ready(commands.Cog):
         print('Бот запущен!')
         print('Готов под именем ---->', self.bot.user)
         print('ID:', self.bot.user.id)
-        self.bot.togetherControl = await DiscordTogether(token)
+        
         print(datetime.datetime.now())
         global logs, admin1, admin2
         guildList = []
