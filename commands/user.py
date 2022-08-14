@@ -34,6 +34,7 @@ class User(commands.Cog):
         npAlpha=np.array(alpha)
         npImage=np.dstack((npImage,npAlpha))
         Image.fromarray(npImage).save('result.png')
+        response = Image.open(fp = 'result.png')
         img.paste(response, (15, 15, 115, 115))
         idraw = ImageDraw.Draw(img)
         name = ctx.author.name 
