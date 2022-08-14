@@ -9,8 +9,8 @@ class Watch(commands.Cog):
         self.bot = bot
     @commands.command()
     async def watch(self, ctx: commands.Context):
-        channel = ctx.author.voice.channel
-        await channel.connect()
+        # channel = ctx.author.voice.channel
+        # await channel.connect()
         self.bot.togetherControl = await DiscordTogether(token)
         link = await self.bot.togetherControl.create_link(ctx.author.voice.channel.id, 'youtube')
         await ctx.send(f"Click the blue link!\n{link}")
