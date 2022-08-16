@@ -26,8 +26,8 @@ class Message(commands.Cog):
             for pref in prefix:
                 if not message.content.startswith(pref):
                     await message.channel.send("Отчёт отправлен!")
-                    await admin1.send(f'\nТебе отправили отчёт в <t:{round(time())}:F>! \nПрочти его! \nОтчёт от {message.author.name} \n{message.content}')
-                    await admin2.send(f'\nТебе отправили отчёт в <t:{round(time())}:F>! \nПрочти его! \nОтчёт от {message.author.name} \n{message.content}')
+                    await admin1.send(f'\nТебе отправили отчёт в <t:{round(time())}:F>! \nПрочти его! \nОтчёт от {message.author.mention} \n{message.content}')
+                    await admin2.send(f'\nТебе отправили отчёт в <t:{round(time())}:F>! \nПрочти его! \nОтчёт от {message.author.mention} \n{message.content}')
                     break
                     
         for wel in welcome:
