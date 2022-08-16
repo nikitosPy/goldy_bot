@@ -1,7 +1,7 @@
 import disnake as discord
 from disnake.ext import commands
 import json, aiohttp
-joke = ''
+joke = 'https://geek-jokes.sameerkumar.website/api?format=json'
 class Cat(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
