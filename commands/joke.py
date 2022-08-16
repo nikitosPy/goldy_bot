@@ -6,7 +6,7 @@ class Joke(commands.Cog):
         self.bot = bot
     @commands.command()
     async def joke(self, ctx: commands.Context):
-      with open('jokes.txt') as j:
+      with open('./jokes.txt') as j:
           joke = choice(j.readLines())
       await ctx.send(f'Случайная шутка: \n{joke}')
 def setup(bot):
