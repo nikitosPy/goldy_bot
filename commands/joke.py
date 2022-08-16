@@ -10,11 +10,12 @@ class Joke(commands.Cog):
     @commands.command()
     async def joke(self, ctx: commands.Context):
         async with aiohttp.ClientSession() as cs:
-            async with cs.get(joke) as r:
-                if r.status == 200:
-                    js = await r.json()
-                    joke_t = translator.translate(js['joke'])
-            await ctx.send(joke_t)
+            for i in range(5):
+                async with cs.get(joke) as r:
+                    if r.status == 200:
+                        js = await r.json()
+                        joke_t = translator.translate(js['joke'])
+                await ctx.send(joke_t)
                     
 def setup(bot):
     bot.add_cog(Joke(bot))
