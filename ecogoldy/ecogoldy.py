@@ -89,12 +89,20 @@ class EcoGoldy(commands.Cog):
         await ctx.send(embed = embed)
 
     @commands.command(aliases = ['work'])
-    async def __worker(seelf, ctx: commands.Context):
+    async def __worker(self, ctx: commands.Context):
         worker = random.randint(100, 1000)
         cursor.execute("UPDATE users SET cash = cash + {} WHERE id = {}".format(worker, ctx.author.id))
         connection.commit()
         await ctx.message.add_reaction('✅')
-        
+        await ctx.send(f"Вы поработали и получили {worker} монет. ")
+    
+    @commands.command(aliases = ['add_money'])
+    async def __add_money(self, ctx: commands.Context, id: int):
+        worker = random.randint(100, 1000)
+        cursor.execute("UPDATE users SET cash = cash + {} WHERE id = {}".format(worker, id))
+        connection.commit()
+        await ctx.message.add_reaction('✅')
+        await ctx.send(f"Вы передали {worker} <@{id}>")
         
         
     @commands.command(aliases = ['buy', 'buy-role'])
