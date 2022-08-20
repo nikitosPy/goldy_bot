@@ -10,7 +10,7 @@ class GitHub(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command(aliases=['gh'])
+    @commands.command(aliases=['github'])
     async def github(self, ctx, arg):
         """Fetch repository info"""
 
