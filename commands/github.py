@@ -13,7 +13,7 @@ class GitHub(commands.Cog):
     @commands.command(aliases=['github'])
     async def __github(self, ctx, arg):
         """Fetch repository info"""
-        with open("new.txt", w) as n:
+        with open("new.txt", 'w') as n:
             if req.status_code == 200:
                 req = requests.get(f'https://api.github.com/repos/{arg}')
                 apijson = json.loads(req.text)
