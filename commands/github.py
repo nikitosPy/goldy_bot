@@ -11,7 +11,7 @@ class GitHub(commands.Cog):
         self.bot = bot
 
     @commands.command(aliases=['github'])
-    async def github(self, ctx, arg):
+    async def __github(self, ctx, arg):
         """Fetch repository info"""
 
         req = requests.get(f'https://api.github.com/repos/{arg}')
