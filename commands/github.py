@@ -1,5 +1,5 @@
 import json
-
+import disnake as discord
 import requests
 from bs4 import BeautifulSoup
 from disnake.ext import commands
