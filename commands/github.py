@@ -20,16 +20,6 @@ class GitHub(commands.Cog):
           description = apijson)
         if req.status_code == 200:
             await ctx.send(embed=em)
-        elif req.status_code == 404:
-            """if repository not found"""
-            await ctx.send(embed=teapot.messages.notfound("repository"))
-        elif req.status_code == 503:
-            """GithubAPI down"""
-            await ctx.send("GithubAPI down")
-            await ctx.send(embed=teapot.messages.notfound("Fetch repository info"))
-        else:
-            """some error occurred while fetching repository info"""
-            await ctx.send(embed=teapot.messages.error("Fetch repository info"))
 
 
 def setup(bot):
