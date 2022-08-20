@@ -1,7 +1,7 @@
 import disnake as discord
 from disnake.ext import commands
 from asyncio import sleep
-import random.randint as rand
+from random import randint as rand
 class Role(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
