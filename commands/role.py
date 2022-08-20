@@ -1,6 +1,7 @@
 import disnake as discord
 from disnake.ext import commands
 from asyncio import sleep
+import random.randint as rand
 class Role(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
@@ -10,6 +11,7 @@ class Role(commands.Cog):
         if role not in ctx.guild.roles:
             await ctx.guild.create_role(name = ctx.author.name)
             role = discord.utils.get(ctx.guild.roles, name = ctx.author.name)
+            await role.edit(colour=discord.Colour(int(rand(1,100), 16)), name=name)
             await ctx.message.author.add_roles(role) 
             await sleep(300)
             await ctx.message.author.remove_roles(role)
