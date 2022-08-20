@@ -2,7 +2,7 @@ import json
 
 import requests
 from bs4 import BeautifulSoup
-from discord.ext import commands
+from disnake.ext import commands
 
 class GitHub(commands.Cog):
     """Get repository info"""
