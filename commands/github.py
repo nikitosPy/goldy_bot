@@ -14,8 +14,8 @@ class GitHub(commands.Cog):
     async def __github(self, ctx, arg):
         """Fetch repository info"""
         with open("new.txt", 'w') as n:
+            req = requests.get(f'https://api.github.com/repos/{arg}')
             if req.status_code == 200:
-                req = requests.get(f'https://api.github.com/repos/{arg}')
                 apijson = json.loads(req.text)
                 n.write(apijson)
         await ctx.send(discord.File(fp = "new.txt"))
