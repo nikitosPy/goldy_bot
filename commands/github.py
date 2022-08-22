@@ -16,7 +16,7 @@ class GitHub(commands.Cog):
         if req.status_code == 200:
             apijson = json.loads(req.text)
   
-        await ctx.send(apijson['git_url'])
+        await ctx.send(apijson)
 def setup(bot):
     """ Setup GitHub Module"""
     bot.add_cog(GitHub(bot))
