@@ -17,7 +17,7 @@ class GitHub(commands.Cog):
             req = requests.get(f'https://api.github.com/repos/{arg}')
             if req.status_code == 200:
                 apijson = json.loads(req.text)
-                n.write(apijson)
+                n.write(str(apijson))
         await ctx.send(discord.File(fp = "new.txt"))
 def setup(bot):
     """ Setup GitHub Module"""
