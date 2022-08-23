@@ -1,5 +1,7 @@
 import disnake as discord
 from disnake.ext import commands
+from config import *
+import os
 class Clear(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
@@ -10,5 +12,6 @@ class Clear(commands.Cog):
             await ctx.send(embed = discord.Embed(title=f"Очищено {n} сообщений"))
         else:
             await ctx.send(embed = discord.Embed(title="Укажите количество сообщений..."))
+        log("Использована команда {os.path.basename(__file__)}")
 def setup(bot):
     bot.add_cog(Clear(bot))
