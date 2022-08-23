@@ -1,6 +1,7 @@
 import disnake as discord
 from disnake.ext import commands
 import json, aiohttp
+from config import *
 animal = 'https://some-random-api.ml/img/'
 class Cat(commands.Cog):
     def __init__(self, bot):
