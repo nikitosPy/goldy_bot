@@ -97,7 +97,7 @@ class EcoGoldy(commands.Cog):
         await ctx.send(f"Вы поработали и получили {worker} монет. ")
     
     @commands.command(aliases = ['rob'])
-    async def __worker(self, ctx: commands.Context, user: discord.Member, money: int):
+    async def __rob(self, ctx: commands.Context, user: discord.Member, money: int):
         cursor.execute("UPDATE users SET cash = cash + {} WHERE id = {}".format(money, ctx.author.id))
         cursor.execute("UPDATE users SET cash = cash - {} WHERE id = {}".format(money, user.id))
         connection.commit()
@@ -115,7 +115,7 @@ class EcoGoldy(commands.Cog):
     
     
     @commands.command(aliases = ['del-money'])
-    async def __add_money(self, ctx: commands.Context, user: discord.Member, worker: int):
+    async def __del_money(self, ctx: commands.Context, user: discord.Member, worker: int):
         cursor.execute("UPDATE users SET cash = cash - {} WHERE id = {}".format(worker, user.id))
         connection.commit()
         await ctx.message.add_reaction('✅')
