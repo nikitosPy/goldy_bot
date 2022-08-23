@@ -8,6 +8,6 @@ class Logs(commands.Cog):
   @commands.command()
   async def logs(self, ctx: commands.Context):
     file = discord.File(fp = "./logs.txt")
-    await ctx.send(fp = file)
+    await ctx.send(file = file)
 def setup(bot):
   bot.add_cog(Logs(bot))
