@@ -45,4 +45,4 @@ for filename in os.listdir("./ecogoldy"):
         bot.load_extension(f"ecogoldy.{filename[:-3]}")
 #Запуск
 bot.run(token)
-client.run(token)
+
