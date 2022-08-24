@@ -1,7 +1,7 @@
 from distutils import extension
 import disnake as discord #Создание Клиента
-from disnake.utils import get #Поиск канала
 from disnake.ext import commands #Команды
+from config import *
 class Echo(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
@@ -13,5 +13,6 @@ class Echo(commands.Cog):
             await ctx.send(args)
         else:
             await ctx.send("Укажите фразу, которую мне надо сказать...")
+        log("echo")
 def setup(bot):
     bot.add_cog(Echo(bot))
