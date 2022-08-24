@@ -12,6 +12,6 @@ class Clear(commands.Cog):
             await ctx.send(embed = discord.Embed(title=f"Очищено {n} сообщений"))
         else:
             await ctx.send(embed = discord.Embed(title="Укажите количество сообщений..."))
-        log("Использована команда {os.path.basename(__file__)}")
+        log("clear")
 def setup(bot):
     bot.add_cog(Clear(bot))
