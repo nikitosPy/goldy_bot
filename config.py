@@ -27,6 +27,6 @@ for filename in os.listdir("./commands"):
     if filename.endswith(".py"):
         cmds.append(f"{filename[:-3]}")
 welcome = [ "приветик", "привет",  "здравствуйте", "здравствуй", "добрый день", "доброе утро", "добрый вечер"]
-def log(*args):
+def log(args):
         with open("logs.txt") as l:
                 l.write(args)
