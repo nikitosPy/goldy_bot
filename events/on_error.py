@@ -23,8 +23,9 @@ class Error(commands.Cog):
         elif isinstance(error, commands.MissingRequiredArgument):
             await ctx.send("Укажите необходимые аргументы!")
         else:
-            await ctx.send(f"Ошибка: \n{error}")
-        
-    
+            emb = discord.Embed(title = "Ошибка: ", description = f"{error}")
+            await ctx.send(embed = emb)
+            owner = self.bot.get_user(self.bot.owner.id)
+            await owner.send(embed = emb) 
 def setup(bot):
     bot.add_cog(Error(bot))
