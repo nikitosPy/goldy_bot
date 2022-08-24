@@ -13,5 +13,6 @@ class Cat(commands.Cog):
                 if r.status == 200:
                     js = await r.json()
                     await ctx.send(js['link'])
+                    log("cat")
 def setup(bot):
     bot.add_cog(Cat(bot))
