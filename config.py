@@ -29,4 +29,4 @@ for filename in os.listdir("./commands"):
 welcome = [ "приветик", "привет",  "здравствуйте", "здравствуй", "добрый день", "доброе утро", "добрый вечер"]
 def log(args):
         with open("logs.txt", "a+") as l:
-                l.write(f"Использована команда {args}")
+                l.write(f"\nИспользована команда {args}")
