@@ -40,6 +40,8 @@ class Message(commands.Cog):
                 await message.channel.purge(limit = 1)
                 await message.channel.send(f"<@{message.author.id}>, Не матерись! || Админы, он сказал: {message.content}, я подумал что {difference[0]}, Шанс: {difference[1]} ||")
                 break
+        if "как дела" in str(message.content).lower():
+            await message.channel.send("У меня нормально, а у тебя?")
         for ping in pings:
             if ping in str(message.content).lower():
                 await message.channel.purge(limit = 1)
