@@ -119,7 +119,7 @@ class EcoGoldy(commands.Cog):
         cursor.execute("UPDATE users SET cash = cash - {} WHERE id = {}".format(worker, user.id))
         connection.commit()
         await ctx.message.add_reaction('✅')
-        await ctx.send(f"Вы удалили {worker} :leaves: у <@{id}>")
+        await ctx.send(f"Вы удалили {worker} :leaves: у <@{user.id}>")
         
     @commands.command(aliases = ['buy', 'buy-role'])
     async def __buy(seelf, ctx: commands.Context, role: discord.Role = None):
