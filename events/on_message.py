@@ -2,6 +2,7 @@ import disnake as discord
 from disnake.ext import commands
 from time import time
 from config import *
+import random
 from rapidfuzz import fuzz, process
 class Message(commands.Cog):
     def __init__(self, bot):
@@ -41,7 +42,7 @@ class Message(commands.Cog):
                 await message.channel.send(f"<@{message.author.id}>, Не матерись! || Админы, он сказал: {message.content}, я подумал что {difference[0]}, Шанс: {difference[1]} ||")
                 break
         if "как дела" in str(message.content).lower():
-            await message.channel.send("У меня нормально, а у тебя?")
+            await message.channel.send(random.choice(["У меня нормально, а у тебя?", "К сожаленью плохо :(", "Всё супер!"]))
         for ping in pings:
             if ping in str(message.content).lower():
                 await message.channel.purge(limit = 1)
