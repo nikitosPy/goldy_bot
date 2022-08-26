@@ -41,9 +41,14 @@ class Message(commands.Cog):
                 await message.channel.purge(limit = 1)
                 await message.channel.send(f"<@{message.author.id}>, Не матерись! || Админы, он сказал: {message.content}, я подумал что {difference[0]}, Шанс: {difference[1]} ||")
                 break
-        for content in str(message.content).lower().split():
+        for content in str(message.content).lower():
             if "как дела" in content:
                 await message.channel.send(random.choice(["У меня нормально, а у тебя?", "К сожаленью плохо :(", "Всё супер!"]))
+                break
+        for bye in ends:
+            if bye in str(message.content).lower():
+                await message.channel.send(f"И тебе {bye}, дорогой <@{message.author.id}>!")
+                break
         for ping in pings:
             if ping in str(message.content).lower():
                 await message.channel.purge(limit = 1)
