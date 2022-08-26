@@ -1,6 +1,6 @@
 import disnake as discord
 from disnake.ext import commands
-from disnake.ui import Button
+from disnake.ui import Button, View
 class Test(commands.Cog):
   def __init__(self, bot):
     self.bot = bot
