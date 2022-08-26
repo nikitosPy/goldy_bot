@@ -89,7 +89,7 @@ class EcoGoldy(commands.Cog):
         await ctx.send(embed = embed)
 
     @commands.command(aliases = ['work'])
-    async def __worker(self, ctx: commands.Context):
+    async def __work(self, ctx: commands.Context):
         worker = random.randint(100, 1000)
         cursor.execute("UPDATE users SET cash = cash + {} WHERE id = {}".format(worker, ctx.author.id))
         connection.commit()
