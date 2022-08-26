@@ -29,8 +29,8 @@ async def reload(ctx, extension):
     else:
         await ctx.send("Не похож ты на моего разработчика...")
 
-#При Ошибке
-
+with open("logs.txt", "a+") as f:
+    f.write("\n")
 
 for filename in os.listdir("./commands"):
     if filename.endswith(".py"):
