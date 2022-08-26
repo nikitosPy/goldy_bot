@@ -16,11 +16,11 @@ class Message(commands.Cog):
             return
         elif self.bot.user.mention in message.content:
             await message.channel.send(f"""
-    Привет! Я бот {self.bot.user.name}!
-    В данный момент Бот на ОБТ (открытом бета-тестировании)
-    Если возникнут вопросы / пожелания / идеи - 
-    Пишите в Л / С и я это передам моим админам.
-    Я многофункциольный :smiley:
+Привет! Я бот {self.bot.user.name}!
+В данный момент Бот на ОБТ (открытом бета-тестировании)
+Если возникнут вопросы / пожелания / идеи - 
+Пишите в Л / С и я это передам моим админам.
+Я многофункциольный :smiley:
     """)
         
         elif isinstance(message.channel,discord.DMChannel): 
