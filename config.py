@@ -28,5 +28,5 @@ for filename in os.listdir("./commands"):
         cmds.append(f"{filename[:-3]}")
 welcome = [ "приветик", "привет",  "здравствуйте", "здравствуй", "добрый день", "доброе утро", "добрый вечер"]
 def log(args):
-        with open("logs.txt") as l:
+        with open("logs.txt", "a+") as l:
                 l.write(f"Использована команда {args}")
