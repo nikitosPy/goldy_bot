@@ -4,8 +4,8 @@ from disnake.ui import Button
 class Test(commands.Cog):
   def __init__(self, bot):
     self.bot = bot
-  @bot.command()
-  async def test(ctx):
+  @commands.command()
+  async def test(self, ctx: commands.Context):
     await ctx.send('Hello World!', view=View(
         Button(custom_id='button1', label='WOW button!', style=discord.ButtonStyle.green)
         ))
