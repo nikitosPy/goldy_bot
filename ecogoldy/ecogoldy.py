@@ -58,6 +58,7 @@ class EcoGoldy(commands.Cog):
             ))  
 
     @commands.command(aliases = ['add-shop'])
+    @commands.has_permissions(administrator=True)
     async def __add_shop(self, ctx: commands.Context, role: discord.Role = None, cost: int = None):
         if role is None:
             await ctx.send(f"**{ctx.author}**, укажите роль, которую вы желаете внести в магазин")
@@ -108,6 +109,7 @@ class EcoGoldy(commands.Cog):
     
     
     @commands.command(aliases = ['add-money'])
+    @commands.has_permissions(administrator=True)
     async def __add_money(self, ctx: commands.Context, user: discord.Member, worker: int):
         cursor.execute("UPDATE users SET cash = cash + {} WHERE id = {}".format(worker, user.id))
         connection.commit()
@@ -116,6 +118,7 @@ class EcoGoldy(commands.Cog):
     
     
     @commands.command(aliases = ['del-money'])
+    @commands.has_permissions(administrator=True)
     async def __del_money(self, ctx: commands.Context, user: discord.Member, worker: int):
         cursor.execute("UPDATE users SET cash = cash - {} WHERE id = {}".format(worker, user.id))
         connection.commit()
