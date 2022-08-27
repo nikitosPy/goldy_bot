@@ -5,7 +5,7 @@ import sqlite3
 from config import *
 from Cybernator import Paginator as pag
 
-connection = sqlite3.connect('server.db', host = "localhost")
+connection = sqlite3.connect('server.db')
 cursor = connection.cursor()
 class EcoGoldy(commands.Cog):
     def __init__(self, bot):
