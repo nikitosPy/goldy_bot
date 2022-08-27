@@ -97,7 +97,8 @@ class EcoGoldy(commands.Cog):
         await ctx.send(f"Вы поработали и получили {worker} монет. ")
     
     @commands.command(aliases = ['rob'])
-    async def __rob(self, ctx: commands.Context, user: discord.Member, money: int):
+    async def __rob(self, ctx: commands.Context, user: discord.Member):
+        money = random.randint(1,1001)
         cursor.execute("UPDATE users SET cash = cash + {} WHERE id = {}".format(money, ctx.author.id))
         cursor.execute("UPDATE users SET cash = cash - {} WHERE id = {}".format(money, user.id))
         connection.commit()
