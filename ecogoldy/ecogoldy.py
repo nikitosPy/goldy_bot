@@ -153,9 +153,25 @@ class EcoGoldy(commands.Cog):
                 await ctx.message.add_reaction('✅')
 
 
-    @commands.command(aliases = ['leaderboard', 'lb'])
+    @commands.command(aliases = ['lb'])
     async def __leaderboard(self, ctx: commands.Context):
         embed = discord.Embed(title = 'Топ 10 сервера')
+        counter = 0
+
+        for row in cursor.execute("SELECT name, cash FROM users WHERE server_id = {} ORDER BY cash DESC LIMIT 10".format(ctx.guild.id)):
+            counter += 1
+            embed.add_field(
+                name = f'# {counter} | `{row[0]}`',
+                value = f'Баланс: {row[1]}',
+                inline = False
+            )
+
+        await ctx.send(embed = embed)
+    
+    
+    @commands.command(aliases = ['global-lb'])
+    async def __leaderboard(self, ctx: commands.Context):
+        embed = discord.Embed(title = 'Топ 10')
         counter = 0
 
         for row in cursor.execute("SELECT name, cash FROM users ORDER BY cash DESC LIMIT 10"):
