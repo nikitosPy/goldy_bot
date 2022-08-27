@@ -44,7 +44,7 @@ class Message(commands.Cog):
         if "как дела" in content:
             result = ["У меня нормально, а у тебя?", "К сожаленью плохо :(", "Всё супер!"]
             await message.channel.send(random.choice(result))
-            break
+
         for bye in ends:
             if bye in str(message.content).lower():
                 await message.channel.send(f"И тебе {bye}, дорогой <@{message.author.id}>!")
