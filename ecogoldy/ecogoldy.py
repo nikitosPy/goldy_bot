@@ -157,7 +157,7 @@ class EcoGoldy(commands.Cog):
 
 
     @commands.command(aliases = ['lb'])
-    async def __leaderboard(self, ctx: commands.Context):
+    async def __lb(self, ctx: commands.Context):
         embed = discord.Embed(title = 'Топ 10 сервера')
         counter = 0
 
