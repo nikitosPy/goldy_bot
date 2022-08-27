@@ -29,7 +29,6 @@ class Message(commands.Cog):
                     await message.channel.send("Отчёт отправлен!")
                     await admin1.send(f'\nТебе отправили отчёт в <t:{round(time())}:F>! \nПрочти его! \nОтчёт от {message.author.mention} \n{message.content}')
                     await admin2.send(f'\nТебе отправили отчёт в <t:{round(time())}:F>! \nПрочти его! \nОтчёт от {message.author.mention} \n{message.content}')
-                    break
                     
         for wel in welcome:
             if wel in str(message.content).lower():
