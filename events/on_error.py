@@ -12,7 +12,7 @@ class Error(commands.Cog):
         if isinstance(error, commands.CommandNotFound):
             cmds.sort()
             difference = process.extractOne(ctx.message.content, cmds)
-            if difference[1] > 20: 
+            if difference[1] > 70: 
                 await ctx.send(f"Вы неверно вписали команду!\nЕсть похожая команда: {difference[0]}")  
             else: 
                 await ctx.send(f"Вы неверно вписали команду!")
