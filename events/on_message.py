@@ -14,7 +14,7 @@ class Message(commands.Cog):
         admin2 = self.bot.get_user(goldy)
         if message.author == self.bot.user: 
             return
-        elif self.bot.user.mention in message.content:
+        elif self.bot.user.mention in message.content or "бот" in message.content:
             await message.channel.send(f"""
 Привет! Я бот {self.bot.user.name}!
 В данный момент Бот на ОБТ (открытом бета-тестировании)
