@@ -26,7 +26,7 @@ class Ready(commands.Cog):
         owners = [admin1.id, admin2.id]
         while True:
             for status in statuses:
-                await self.bot.change_presence(activity = discord.Activity(type=discord.ActivityType.streaming, name=status, status = discord.Status.idle))
+                await self.bot.change_presence(activity = discord.Activity(type=discord.ActivityType.listening, name=status, status = 'idle'))
                 await sleep(5)
 def setup(bot):
     bot.add_cog(Ready(bot))
