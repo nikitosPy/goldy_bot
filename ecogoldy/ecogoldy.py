@@ -158,7 +158,7 @@ class EcoGoldy(commands.Cog):
         embed = discord.Embed(title = 'Топ 10 сервера')
         counter = 0
 
-        for row in cursor.execute("SELECT name, cash FROM users WHERE server_id = {} ORDER BY cash DESC LIMIT 10".format(ctx.guild.id)):
+        for row in cursor.execute("SELECT name, cash FROM users ORDER BY cash DESC LIMIT 10"):
             counter += 1
             embed.add_field(
                 name = f'# {counter} | `{row[0]}`',
