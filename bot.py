@@ -1,4 +1,4 @@
-print("Загрузка...")
+print("Запуск...")
 try: 
     import disnake as discord #Создание Клиента
     from disnake.ext import commands #Команды
