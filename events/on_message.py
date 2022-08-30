@@ -4,12 +4,19 @@ from time import time
 from config import *
 import random
 from rapidfuzz import fuzz, process
+ticket = 0
+admin_connected = False
 class Message(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
+    @commands.command()
+    async def ticket(self, ctx: commands.Context, number: int):
+        channel = await ctx.guild.create_text_channel(f"ticket-{number}")
+        admin_connected = True
     @commands.Cog.listener()
     async def on_message(self, message):
-        
+        if message.channel.name.startswith("ticket"):
+            await ticketer.send(f"**{message.author.name}**: {message.content}")
         admin1 = self.bot.get_user(self.bot.owner.id)
         admin2 = self.bot.get_user(goldy)
         if message.author == self.bot.user: 
@@ -26,7 +33,12 @@ class Message(commands.Cog):
         elif isinstance(message.channel,discord.DMChannel): 
             for pref in prefix:
                 if not message.content.startswith(pref):
-                    await message.channel.send("Отчёт отправлен!")
+                    await message.channel.send("Создаю сессию...")
+                    ticket += 1
+                    await message.channel.send(f"Ваш номер тикета - `{ticket}`\nОжидайте связи с оператором")
+                    if admin_connected:
+                        await message.channel.send("К вам подключился агент обратной связи")
+                    ticketer = message.author
                     await admin1.send(f'\nТебе отправили отчёт в <t:{round(time())}:F>! \nПрочти его! \nОтчёт от {message.author.mention} \n{message.content}')
                     await admin2.send(f'\nТебе отправили отчёт в <t:{round(time())}:F>! \nПрочти его! \nОтчёт от {message.author.mention} \n{message.content}')
                     
