@@ -16,13 +16,14 @@ class Message(commands.Cog):
         admin_connected = True
     @commands.Cog.listener()
     async def on_message(self, message):
+        admin1 = self.bot.get_user(self.bot.owner.id)
+        admin2 = self.bot.get_user(goldy)
+        
         if message.author == self.bot.user: 
             return
         elif message.channel.name.startswith("ticket"):
             await ticketer.send(f"**{message.author.name}**: {message.content}")
-        admin1 = self.bot.get_user(self.bot.owner.id)
-        admin2 = self.bot.get_user(goldy)
-        elif self.bot.user.mention in message.content or "бот" in message.content:
+        elif self.bot.user.mention in message.content:
             await message.channel.send(f"""
 Привет! Я бот {self.bot.user.name}!
 В данный момент Бот на ОБТ (открытом бета-тестировании)
