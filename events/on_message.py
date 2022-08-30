@@ -18,7 +18,6 @@ class Message(commands.Cog):
         admin2 = self.bot.get_user(goldy)
         ticket = 0
         admin_connected = False
-        ticketer = None
         if message.author == self.bot.user: 
             return
         elif isinstance(message.channel,discord.DMChannel):
