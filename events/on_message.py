@@ -4,7 +4,7 @@ from time import time
 from config import *
 import random
 from rapidfuzz import fuzz, process
-
+ticket = 0
 class Message(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
@@ -12,11 +12,14 @@ class Message(commands.Cog):
     async def ticket(self, ctx: commands.Context, number: int):
         channel = await ctx.guild.create_text_channel(f"ticket-{number}")
         admin_connected = True
+    @commands.command()
+    async def ticket(self, ctx: commands.Context, number: int):
+        await discord.utils.get(ctx.guild.channels, name=f"ticket-{number}").delete()
+        admin_connected = False
     @commands.Cog.listener()
     async def on_message(self, message):
         admin1 = self.bot.get_user(self.bot.owner.id)
         admin2 = self.bot.get_user(goldy)
-        ticket = 0
         admin_connected = False
         if message.author == self.bot.user: 
             return
@@ -26,7 +29,7 @@ class Message(commands.Cog):
             global amogus
             amogus = message.author.id
             await message.channel.send(f"Ваш номер тикета - `{ticket}`\nОжидайте связи с оператором")    
-        elif message.channel.name.startswith("ticket"):
+        elif message.channel.name.startswith("ticket-"):
             await self.bot.get_user(amogus).send(f"**{message.author.name}**: {message.content}")
         elif self.bot.user.mention in message.content:
             await message.channel.send(f"""
