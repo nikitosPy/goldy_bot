@@ -8,12 +8,12 @@ class Message(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
     @commands.command()
-    async def ticket(self, ctx: commands.Context, number: int):
-        channel = await ctx.guild.create_text_channel(f"ticket-{number}")
+    async def ticket(self, ctx: commands.Context):
+        channel = await ctx.guild.create_text_channel(f"ticket")
         admin_connected = True
     @commands.command()
-    async def close(self, ctx: commands.Context, number: int):
-        await discord.utils.get(ctx.guild.channels, name=f"ticket-{number}").delete()
+    async def close(self, ctx: commands.Context):
+        await discord.utils.get(ctx.guild.channels, name=f"ticket").delete()
         admin_connected = False
     @commands.Cog.listener()
     async def on_message(self, message):
@@ -26,7 +26,9 @@ class Message(commands.Cog):
             await message.channel.send("Создаю сессию...")
             global amogus
             amogus = message.author.id
-            await message.channel.send(f"Вы создали тикет. Ожидайте связи с оператором")    
+            await message.channel.send(f"Вы создали тикет. Ожидайте связи с оператором")  
+            if admin_connected:
+                await discord.utils.get(ctx.guild.channels, name=f"ticket").send(f"**{message.author.name}**: {message.content}")
         elif message.channel.name.startswith("ticket-"):
             await self.bot.get_user(amogus).send(f"**{message.author.name}**: {message.content}")
         elif self.bot.user.mention in message.content:
