@@ -23,6 +23,7 @@ class Message(commands.Cog):
         elif isinstance(message.channel,discord.DMChannel):
             await message.channel.send("Создаю сессию...")
             ticket += 1
+            global amogus
             amogus = message.author.id
             await message.channel.send(f"Ваш номер тикета - `{ticket}`\nОжидайте связи с оператором")    
         elif message.channel.name.startswith("ticket"):
