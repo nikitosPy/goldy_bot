@@ -21,6 +21,15 @@ class Message(commands.Cog):
         
         if message.author == self.bot.user: 
             return
+        elif isinstance(message.channel,discord.DMChannel): 
+            for pref in prefix:
+                if not message.content.startswith(pref):
+                    await message.channel.send("Создаю сессию...")
+                    ticket += 1
+                    await message.channel.send(f"Ваш номер тикета - `{ticket}`\nОжидайте связи с оператором")
+                    if admin_connected:
+                        await message.channel.send("К вам подключился агент обратной связи")
+                    ticketer = message.author
         elif message.channel.name.startswith("ticket"):
             await ticketer.send(f"**{message.author.name}**: {message.content}")
         elif self.bot.user.mention in message.content:
@@ -31,17 +40,7 @@ class Message(commands.Cog):
 Пишите в Л / С и я это передам моим админам.
 Я многофункциольный :smiley:
     """)
-        
-        elif isinstance(message.channel,discord.DMChannel): 
-            for pref in prefix:
-                if not message.content.startswith(pref):
-                    await message.channel.send("Создаю сессию...")
-                    ticket += 1
-                    await message.channel.send(f"Ваш номер тикета - `{ticket}`\nОжидайте связи с оператором")
-                    if admin_connected:
-                        await message.channel.send("К вам подключился агент обратной связи")
-                    ticketer = message.author
-                    
+
         for wel in welcome:
             if wel in str(message.content).lower():
                 await message.channel.send(f"И тебе {wel}, дорогой <@{message.author.id}>!")
