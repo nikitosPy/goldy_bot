@@ -4,6 +4,7 @@ from time import time
 from config import *
 import random
 from rapidfuzz import fuzz, process
+global ticket, ticketer, admin_connected
 ticket = 0
 admin_connected = False
 ticketer = None
