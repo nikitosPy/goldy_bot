@@ -6,6 +6,7 @@ import random
 from rapidfuzz import fuzz, process
 ticket = 0
 admin_connected = False
+ticketer = None
 class Message(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
