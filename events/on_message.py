@@ -19,7 +19,6 @@ class Message(commands.Cog):
     async def on_message(self, message):
         admin1 = self.bot.get_user(self.bot.owner.id)
         admin2 = self.bot.get_user(goldy)
-        admin_connected = False
         if message.author == self.bot.user: 
             return
         elif isinstance(message.channel,discord.DMChannel):
