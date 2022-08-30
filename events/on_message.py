@@ -4,10 +4,7 @@ from time import time
 from config import *
 import random
 from rapidfuzz import fuzz, process
-global ticket, ticketer, admin_connected
-ticket = 0
-admin_connected = False
-ticketer = None
+
 class Message(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
@@ -29,9 +26,10 @@ class Message(commands.Cog):
                     ticket += 1
                     ticketer = message.author
                     await message.channel.send(f"Ваш номер тикета - `{ticket}`\nОжидайте связи с оператором")
+                    ticket = 0
+                    admin_connected = False
+                    ticketer = None
                     
-                    if admin_connected:
-                        await message.channel.send("К вам подключился агент обратной связи")
                     
         elif message.channel.name.startswith("ticket"):
             await ticketer.send(f"**{message.author.name}**: {message.content}")
