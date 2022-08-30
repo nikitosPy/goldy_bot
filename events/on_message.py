@@ -5,6 +5,7 @@ from config import *
 import random
 from rapidfuzz import fuzz, process
 class Message(commands.Cog):
+    global ticket
     ticket = 0
     def __init__(self, bot):
         self.bot = bot
@@ -13,7 +14,7 @@ class Message(commands.Cog):
         channel = await ctx.guild.create_text_channel(f"ticket-{number}")
         admin_connected = True
     @commands.command()
-    async def ticket(self, ctx: commands.Context, number: int):
+    async def close(self, ctx: commands.Context, number: int):
         await discord.utils.get(ctx.guild.channels, name=f"ticket-{number}").delete()
         admin_connected = False
     @commands.Cog.listener()
