@@ -27,10 +27,12 @@ class Message(commands.Cog):
                 if not message.content.startswith(pref):
                     await message.channel.send("Создаю сессию...")
                     ticket += 1
+                    ticketer = message.author
                     await message.channel.send(f"Ваш номер тикета - `{ticket}`\nОжидайте связи с оператором")
+                    
                     if admin_connected:
                         await message.channel.send("К вам подключился агент обратной связи")
-                    ticketer = message.author
+                    
         elif message.channel.name.startswith("ticket"):
             await ticketer.send(f"**{message.author.name}**: {message.content}")
         elif self.bot.user.mention in message.content:
