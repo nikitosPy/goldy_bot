@@ -24,10 +24,10 @@ class Message(commands.Cog):
         elif isinstance(message.channel,discord.DMChannel):
             await message.channel.send("Создаю сессию...")
             ticket += 1
-            ticketer = message.author
+            ticketer = message.author.id
             await message.channel.send(f"Ваш номер тикета - `{ticket}`\nОжидайте связи с оператором")    
         elif message.channel.name.startswith("ticket"):
-            await ticketer.send(f"**{message.author.name}**: {message.content}")
+            await self.bot.get_user(ticketer).send(f"**{message.author.name}**: {message.content}")
         elif self.bot.user.mention in message.content:
             await message.channel.send(f"""
 Привет! Я бот {self.bot.user.name}!
