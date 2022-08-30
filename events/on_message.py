@@ -15,12 +15,12 @@ class Message(commands.Cog):
         admin_connected = True
     @commands.Cog.listener()
     async def on_message(self, message):
-        if message.channel.name.startswith("ticket"):
+        if message.author == self.bot.user: 
+            return
+        elif message.channel.name.startswith("ticket"):
             await ticketer.send(f"**{message.author.name}**: {message.content}")
         admin1 = self.bot.get_user(self.bot.owner.id)
         admin2 = self.bot.get_user(goldy)
-        if message.author == self.bot.user: 
-            return
         elif self.bot.user.mention in message.content or "бот" in message.content:
             await message.channel.send(f"""
 Привет! Я бот {self.bot.user.name}!
@@ -39,8 +39,6 @@ class Message(commands.Cog):
                     if admin_connected:
                         await message.channel.send("К вам подключился агент обратной связи")
                     ticketer = message.author
-                    await admin1.send(f'\nТебе отправили отчёт в <t:{round(time())}:F>! \nПрочти его! \nОтчёт от {message.author.mention} \n{message.content}')
-                    await admin2.send(f'\nТебе отправили отчёт в <t:{round(time())}:F>! \nПрочти его! \nОтчёт от {message.author.mention} \n{message.content}')
                     
         for wel in welcome:
             if wel in str(message.content).lower():
