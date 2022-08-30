@@ -29,7 +29,7 @@ class Message(commands.Cog):
             ticket += 1
             global amogus
             amogus = message.author.id
-            await message.channel.send(f"Ваш номер тикета - `{ticket}`\nОжидайте связи с оператором")    
+            await message.channel.send(f"Вы создали тикет. Ожидайте связи с оператором")    
         elif message.channel.name.startswith("ticket-"):
             await self.bot.get_user(amogus).send(f"**{message.author.name}**: {message.content}")
         elif self.bot.user.mention in message.content:
