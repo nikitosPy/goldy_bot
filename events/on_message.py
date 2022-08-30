@@ -5,8 +5,6 @@ from config import *
 import random
 from rapidfuzz import fuzz, process
 class Message(commands.Cog):
-    global ticket
-    ticket = 0
     def __init__(self, bot):
         self.bot = bot
     @commands.command()
@@ -26,7 +24,6 @@ class Message(commands.Cog):
             return
         elif isinstance(message.channel,discord.DMChannel):
             await message.channel.send("Создаю сессию...")
-            ticket += 1
             global amogus
             amogus = message.author.id
             await message.channel.send(f"Вы создали тикет. Ожидайте связи с оператором")    
