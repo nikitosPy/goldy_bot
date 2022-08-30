@@ -4,9 +4,8 @@ from time import time
 from config import *
 import random
 from rapidfuzz import fuzz, process
-global ticket
-ticket = 0
 class Message(commands.Cog):
+    ticket = 0
     def __init__(self, bot):
         self.bot = bot
     @commands.command()
