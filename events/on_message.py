@@ -28,8 +28,9 @@ class Message(commands.Cog):
             amogus = message.author.id
             await message.channel.send(f"Вы создали тикет. Ожидайте связи с оператором")  
             if admin_connected:
-                await discord.utils.get(ctx.guild.channels, name=f"ticket").send(f"**{message.author.name}**: {message.content}")
-        elif message.channel.name.startswith("ticket-"):
+                channel = discord.utils.get(self.bot.get_all_channels(), name="ticket")
+                await channel.send(f"**{message.author.name}**: {message.content}")
+        elif message.channel.name.startswith("ticket"):
             await self.bot.get_user(amogus).send(f"**{message.author.name}**: {message.content}")
         elif self.bot.user.mention in message.content:
             await message.channel.send(f"""
