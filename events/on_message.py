@@ -16,21 +16,16 @@ class Message(commands.Cog):
     async def on_message(self, message):
         admin1 = self.bot.get_user(self.bot.owner.id)
         admin2 = self.bot.get_user(goldy)
-        
+        ticket = 0
+        admin_connected = False
+        ticketer = None
         if message.author == self.bot.user: 
             return
-        elif isinstance(message.channel,discord.DMChannel): 
-            for pref in prefix:
-                if not message.content.startswith(pref):
-                    await message.channel.send("Создаю сессию...")
-                    ticket += 1
-                    ticketer = message.author
-                    await message.channel.send(f"Ваш номер тикета - `{ticket}`\nОжидайте связи с оператором")
-                    ticket = 0
-                    admin_connected = False
-                    ticketer = None
-                    
-                    
+        elif isinstance(message.channel,discord.DMChannel):
+            await message.channel.send("Создаю сессию...")
+            ticket += 1
+            ticketer = message.author
+            await message.channel.send(f"Ваш номер тикета - `{ticket}`\nОжидайте связи с оператором")    
         elif message.channel.name.startswith("ticket"):
             await ticketer.send(f"**{message.author.name}**: {message.content}")
         elif self.bot.user.mention in message.content:
