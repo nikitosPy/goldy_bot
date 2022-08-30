@@ -20,8 +20,8 @@ class Ready(commands.Cog):
         admin1 = self.bot.get_user(self.bot.owner.id)
         admin2 = self.bot.get_user(goldy)
         logs = self.bot.get_channel(logs_ch)
-        await admin1.send(f"Я перезапущен под именем {self.bot.user.name} в <t:{start}:F>")
-        await admin2.send(f"Я перезапущен под именем {self.bot.user.name} в <t:{start}:F>\nМои сервера:")
+        await admin1.send(f"Я перезапущен под именем {self.bot.user.name}: <t:{start}:R>")
+        await admin2.send(f"Я перезапущен под именем {self.bot.user.name}: <t:{start}:R>")
         global owners
         owners = [admin1.id, admin2.id]
         while True:
