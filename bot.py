@@ -11,7 +11,7 @@ bot = commands.Bot(command_prefix = prefix, intents = intents, case_insensitive 
 bot.remove_command("help")
 client = discord.Client()
 #Создание бота
-
+# ?
 #Логи disnake
 logger = logging.getLogger('disnake')
 logger.setLevel(logging.INFO)
