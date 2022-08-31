@@ -34,7 +34,10 @@ class Message(commands.Cog):
                 await message.channel.send(f"Вы создали тикет. Ожидайте связи с оператором")  
             
         elif message.channel.name.startswith("ticket"):
-            await self.bot.get_user(amogus).send(f"**{message.author.name}**: {message.content}")
+            try:
+              await self.bot.get_user(amogus).send(f"**{message.author.name}**: {message.content}")
+            except:
+              pass
         elif self.bot.user.mention in message.content:
             await message.channel.send(f"""
 Привет! Я бот {self.bot.user.name}!
