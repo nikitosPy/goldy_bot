@@ -7,12 +7,25 @@ class Echo(commands.Cog):
         self.bot = bot
 
     @commands.command()
-    async def echo(self, ctx: commands.Context, *, args):
-        if args:
-            await ctx.channel.purge(limit = 1)
-            await ctx.send(args)
+    async def echo(self, ctx: commands.Context, member: discord.Member, *, content):
+        await ctx.message.delete()  # We don't want users to see who initiated the command, to make it more realistic :P
+        # We fetch the channel's webhooks.
+        channel = ctx.channel
+        if not isinstance(channel, disnake.TextChannel):
+            return
+        channel_webhooks = await channel.webhooks()
+        # We check if the bot's webhook already exists in the channel.
+        for webhook in channel_webhooks:
+            # We will check if the creator of the webhook is the same as the bot, and if the name is the same.
+            if webhook.user == self.bot.user and webhook.name == "Bot Webhook":
+                break
         else:
-            await ctx.send("Укажите фразу, которую мне надо сказать...")
+            # If the webhook does not exist, it will be created.
+            webhook = await channel.create_webhook(name="Bot Webhook")
+        # Finally, sending the message via the webhook, using the user's display name and avatar.
+        await webhook.send(
+            content=content, username=member.display_name, avatar_url=member.display_avatar.url
+        )
         log("echo")
 def setup(bot):
     bot.add_cog(Echo(bot))
