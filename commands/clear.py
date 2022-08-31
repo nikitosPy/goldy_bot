@@ -2,6 +2,7 @@ import disnake as discord
 from disnake.ext import commands
 from config import *
 import os
+#
 class Clear(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
