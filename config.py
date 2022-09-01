@@ -1,5 +1,6 @@
 import disnake as discord
 import os
+from disnake.ext import commands
 
 prefix = ["gg.", "gg!", "gb.", "gb!"]
 with open("token.txt") as f:
