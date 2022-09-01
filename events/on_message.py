@@ -5,10 +5,10 @@ from config import *
 import random
 from rapidfuzz import fuzz, process
 class Message(commands.Cog):
+    admin_connected = True
     def __init__(self, bot):
         self.bot = bot
     global admin_connected
-    admin_connected = False
     @commands.command()
     async def ticket(self, ctx: commands.Context):
         channel = await ctx.guild.create_text_channel(f"ticket")
