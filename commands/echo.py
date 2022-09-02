@@ -7,7 +7,8 @@ class Echo(commands.Cog):
         self.bot = bot
 
     @commands.command()
-    async def echo(self, ctx: commands.Context, member: discord.Member, *, content):
+    async def echo(self, ctx: commands.Context, member: str, *, content):
+        
         await ctx.message.delete()  # We don't want users to see who initiated the command, to make it more realistic :P
         # We fetch the channel's webhooks.
         channel = ctx.channel
@@ -23,8 +24,10 @@ class Echo(commands.Cog):
             # If the webhook does not exist, it will be created.
             webhook = await channel.create_webhook(name="Bot Webhook")
         # Finally, sending the message via the webhook, using the user's display name and avatar.
+        if not member:
+            member = ctx.author.display_name
         await webhook.send(
-            content=content, username=member.display_name, avatar_url=member.display_avatar.url
+            content=content, username=member, avatar_url=member.display_avatar.url
         )
         log("echo")
 def setup(bot):
