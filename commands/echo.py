@@ -26,8 +26,9 @@ class Echo(commands.Cog):
         # Finally, sending the message via the webhook, using the user's display name and avatar.
         if not member:
             member = ctx.author.display_name
+            avatar_url = ctx.display_avatar.url
         await webhook.send(
-            content=content, username=member, avatar_url=member.display_avatar.url
+            content=content, username=member, avatar_url = self.bot.display_avatar.url
         )
         log("echo")
 def setup(bot):
