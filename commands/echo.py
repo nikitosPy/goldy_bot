@@ -28,7 +28,7 @@ class Echo(commands.Cog):
             member = ctx.author.display_name
             avatar_url = ctx.display_avatar.url
         await webhook.send(
-            content=content, username=member, avatar_url = self.bot.display_avatar.url
+            content=content, username=member, avatar_url = self.bot.avatar.url 
         )
         log("echo")
 def setup(bot):
