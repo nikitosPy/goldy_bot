@@ -27,8 +27,10 @@ class Echo(commands.Cog):
         if not member:
             member = ctx.author.display_name
             avatar_url = ctx.display_avatar.url
+        else:
+            avatar_url = self.bot.avatar.url
         await webhook.send(
-            content=content, username=member, avatar_url = self.bot.avatar_url 
+            content=content, username=member, avatar_url = avatar_url
         )
         log("echo")
 def setup(bot):
