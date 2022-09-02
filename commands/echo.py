@@ -7,7 +7,7 @@ class Echo(commands.Cog):
         self.bot = bot
 
     @commands.command()
-    async def echo(self, ctx: commands.Context, member: str, *, content):
+    async def echo(self, ctx: commands.Context, member: str = None, content):
         
         await ctx.message.delete()  # We don't want users to see who initiated the command, to make it more realistic :P
         # We fetch the channel's webhooks.
@@ -28,7 +28,7 @@ class Echo(commands.Cog):
             member = ctx.author.display_name
             avatar_url = ctx.display_avatar.url
         else:
-            avatar_url = self.bot.avatar.url
+            avatar_url = self.bot.avatar.u
         await webhook.send(
             content=content, username=member, avatar_url = avatar_url
         )
