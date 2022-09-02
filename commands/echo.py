@@ -12,7 +12,7 @@ class Echo(commands.Cog):
         await ctx.message.delete()  # We don't want users to see who initiated the command, to make it more realistic :P
         # We fetch the channel's webhooks.
         channel = ctx.channel
-        avatar_url = self.bot.avatar.url
+        avatar_url = self.bot.user.avatar.url
         if not isinstance(channel, discord.TextChannel):
             return
         channel_webhooks = await channel.webhooks()
