@@ -174,18 +174,18 @@ class EcoGoldy(commands.Cog):
     
     @commands.command(aliases = ['global-lb'])
     async def __leaderboard(self, ctx: commands.Context):
-        embed = discord.Embed(title = 'Топ 10')
+        emb = discord.Embed(title = 'Топ 10')
         counter = 0
 
         for row in cursor.execute("SELECT name, cash FROM users ORDER BY cash DESC LIMIT 10"):
             counter += 1
-            embed.add_field(
+            emb.add_field(
                 name = f'# {counter} | `{row[0]}`',
                 value = f'Баланс: {row[1]}',
                 inline = False
             )
 
-        await ctx.send(embed = embed)
+        await ctx.send(embed = emb)
 
 def setup(bot):
     bot.add_cog(EcoGoldy(bot))
