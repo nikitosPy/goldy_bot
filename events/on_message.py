@@ -11,6 +11,7 @@ class Message(commands.Cog):
     global connection, cursor
     connection = sqlite3.connect('ecogoldy/server.db')
     cursor = connection.cursor()
+    #
     def __init__(self, bot):
         self.bot = bot
     @commands.command()
