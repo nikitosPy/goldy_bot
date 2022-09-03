@@ -22,7 +22,9 @@ class Message(commands.Cog):
         admin_connected = False
     @commands.Cog.listener()
     async def on_message(self, message):
-        
+        exp = random.randint(10, 100)
+        cursor.execute("UPDATE users SET lvl = lvl + {} WHERE id = {}".format(exp, message.author.id))
+        connection.commit()
         admin1 = self.bot.get_user(self.bot.owner.id)
         admin2 = self.bot.get_user(goldy)
         if message.author == self.bot.user: 
