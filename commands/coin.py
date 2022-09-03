@@ -2,7 +2,7 @@
 from disnake.ext import commands
 from config import *
 import random
-rand = random.randint(0,2)
+rand = random.randrange(0,2)
 if rand == 0:
     coin = "Орёл"
     file = "coin1.jpg"
