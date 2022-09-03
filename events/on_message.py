@@ -3,6 +3,7 @@ from disnake.ext import commands
 from time import time
 from config import *
 import random
+import sqlite3
 from rapidfuzz import fuzz, process
 class Message(commands.Cog):
     global admin_connected
