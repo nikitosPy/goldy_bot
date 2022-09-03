@@ -6,7 +6,9 @@ import random
 from rapidfuzz import fuzz, process
 class Message(commands.Cog):
     global admin_connected
-    admin_connected = True
+    admin_connected = False
+    connection = sqlite3.connect('ecogoldy/server.db')
+    cursor = connection.cursor()
     def __init__(self, bot):
         self.bot = bot
     @commands.command()
@@ -19,6 +21,7 @@ class Message(commands.Cog):
         admin_connected = False
     @commands.Cog.listener()
     async def on_message(self, message):
+        
         admin1 = self.bot.get_user(self.bot.owner.id)
         admin2 = self.bot.get_user(goldy)
         if message.author == self.bot.user: 
