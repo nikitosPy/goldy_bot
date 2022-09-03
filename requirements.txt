@@ -13,3 +13,4 @@ numpy
 pyowm
 python_weather
 translate
+disnake-ext-menus
