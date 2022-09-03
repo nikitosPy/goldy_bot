@@ -12,7 +12,7 @@ class EcoGoldy(commands.Cog):
         self.bot = bot
     @commands.Cog.listener()
     async def on_message(self, message):
-        lvl = cursor.execute("SELECT lvl FROM users WHERE id = {}".format(message.author.id))
+        lvl = cursor.execute("SELECT lvl FROM users WHERE id = {}".format(message.author.id)).fetchone()
         await message.channel.send(lvl)
     @commands.Cog.listener()
     async def on_ready(self):
