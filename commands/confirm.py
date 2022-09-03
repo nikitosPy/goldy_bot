@@ -23,7 +23,7 @@ class Confirm(menus.Menu):
     async def prompt(self, ctx):
         await self.start(ctx, wait=True)
         return self.result
-class Confirm(commands.Cog):
+class Vonfirm(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
     @commands.command()
@@ -32,4 +32,4 @@ class Confirm(commands.Cog):
         if confirm:
             await ctx.send('deleted...')
 def setup(bot):
-    bot.add_cog(Confirm(bot))
+    bot.add_cog(Vonfirm(bot))
