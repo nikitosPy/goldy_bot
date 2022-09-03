@@ -25,7 +25,7 @@ class Message(commands.Cog):
         exp = random.randint(10, 100)
         cursor.execute("UPDATE users SET lvl = lvl + {} WHERE id = {}".format(exp, message.author.id))
         connection.commit()
-        await ctx.send(cursor.execute("SELECT lvl FROM users WHERE id = {}".format(message.author.id).fetchone())
+        await message.channel.send(cursor.execute("SELECT lvl FROM users WHERE id = {}".format(message.author.id).fetchone()))
         admin1 = self.bot.get_user(self.bot.owner.id)
         admin2 = self.bot.get_user(goldy)
         if message.author == self.bot.user: 
