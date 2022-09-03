@@ -8,9 +8,6 @@ from rapidfuzz import fuzz, process
 class Message(commands.Cog):
     global admin_connected
     admin_connected = False
-    global connection, cursor
-    connection = sqlite3.connect('ecogoldy/server.db')
-    cursor = connection.cursor()
     #
     def __init__(self, bot):
         self.bot = bot
@@ -25,6 +22,9 @@ class Message(commands.Cog):
     @commands.Cog.listener()
     async def on_message(self, message):
         exp = random.randint(10, 100)
+        global connection, cursor
+        connection = sqlite3.connect('ecogoldy/server.db')
+        cursor = connection.cursor()
         cursor.execute("UPDATE users SET lvl = lvl + {} WHERE id = {}".format(exp, message.author.id))
         connection.commit()
         await message.channel.send(cursor.execute("SELECT lvl FROM users WHERE id = {}".format(message.author.id).fetchone()))
