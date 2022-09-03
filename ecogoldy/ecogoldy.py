@@ -11,6 +11,10 @@ class EcoGoldy(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
     @commands.Cog.listener()
+    async def on_message(self, message):
+        lvl = cursor.execute("SELECT lvl FROM users WHERE id = {}".format(message.author.id).fetchone())
+        await message.channel.send(lvl)
+    @commands.Cog.listener()
     async def on_ready(self):
         cursor.execute("""CREATE TABLE IF NOT EXISTS users (
             name TEXT,
