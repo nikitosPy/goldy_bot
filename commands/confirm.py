@@ -28,8 +28,8 @@ class Confirm(commands.Cog):
         self.bot = bot
     @commands.command()
     async def confirm(self, ctx: commands.Context):
-    confirm = await Confirm('Delete everything?').prompt(ctx)
-    if confirm:
-        await ctx.send('deleted...')
+        confirm = await Confirm('Delete everything?').prompt(ctx)
+        if confirm:
+            await ctx.send('deleted...')
 def setup(bot):
     bot.add_cog(Confirm(bot))
