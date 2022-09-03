@@ -8,7 +8,7 @@ from rapidfuzz import fuzz, process
 class Message(commands.Cog):
     global admin_connected
     admin_connected = False
-    #
+    ##
     def __init__(self, bot):
         self.bot = bot
     @commands.command()
