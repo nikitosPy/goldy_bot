@@ -195,4 +195,6 @@ class EcoGoldy(commands.Cog):
 
 def setup(bot):
     os.system("git add server.db")
+    os.system('git commit -m "DESCRIBE COMMIT IN A FEW WORDS"')
+    os.system("git push goldy_bot main")
     bot.add_cog(EcoGoldy(bot))
