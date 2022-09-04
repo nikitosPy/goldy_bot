@@ -47,6 +47,7 @@ class EcoGoldy(commands.Cog):
         os.system('git config --global init.defaultBranch main')
         os.system('git config --list')
         os.system("git init")
+        os.system('git remote add goldy_bot')
         os.system("git add server.db")
         os.system("git status")
         os.system('git commit -m "DESCRIBE COMMIT IN A FEW WORDS"')
