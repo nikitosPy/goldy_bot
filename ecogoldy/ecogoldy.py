@@ -42,6 +42,10 @@ class EcoGoldy(commands.Cog):
                     pass
 
         connection.commit()
+        os.system('git config --global user.name "nikitosPy"')
+        os.system('git config --global user.email "nikita.python.boy@gmail.com"')
+        os.system('git config --global init.defaultBranch main')
+        os.system('git config --list')
         os.system("git init")
         os.system("git add server.db")
         os.system("git status")
