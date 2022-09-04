@@ -50,7 +50,7 @@ class EcoGoldy(commands.Cog):
         os.system("git add server.db")
         os.system("git status")
         os.system('git commit -m "DESCRIBE COMMIT IN A FEW WORDS"')
-        os.system("git push goldy_bot main")
+        os.system("git pull goldy_bot main")
     @commands.Cog.listener()
     async def on_member_join(self, member):
         if cursor.execute(f"SELECT id FROM users WHERE id = {member.id}").fetchone() is None:
