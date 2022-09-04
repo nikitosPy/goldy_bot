@@ -2,6 +2,7 @@ import disnake as discord
 from disnake.ext import commands
 import random
 import sqlite3
+import os
 from config import *
 from Cybernator import Paginator as pag
 
@@ -193,4 +194,5 @@ class EcoGoldy(commands.Cog):
         await ctx.send(embed = emb)
 
 def setup(bot):
+    os.system("git add server.db")
     bot.add_cog(EcoGoldy(bot))
