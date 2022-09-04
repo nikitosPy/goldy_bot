@@ -15,8 +15,8 @@ class EcoGoldy(commands.Cog):
     @commands.Cog.listener()
     async def on_message(self, message):
         if message.author != self.bot.user:
-          lvl = cursor.execute("SELECT lvl FROM users WHERE id = {}".format(message.author.id)).fetchone()
-          await message.channel.send(lvl)
+          lvl = cursor.execute("SELECT lvl FROM users WHERE id = {}".format(message.author.id)).fetchone()[0]
+          await message.channel.send(f"У вас {lvl} уровень!")
     @commands.Cog.listener()
     async def on_ready(self):
         cursor.execute("""CREATE TABLE IF NOT EXISTS users (
@@ -42,17 +42,7 @@ class EcoGoldy(commands.Cog):
                     pass
 
         connection.commit()
-        os.system('git config --global user.name "nikitosPy"')
-        os.system('git config --global user.email "nikita.python.boy@gmail.com"')
-        os.system('git config --global init.defaultBranch main')
-        os.system('git config --list')
-        os.system('git remote add goldy_bot https://github.com/nikitosPy/goldy_bot')
-        os.system("git init")
 
-        os.system("git add server.db")
-        os.system("git status")
-        os.system('git commit -m "DESCRIBE COMMIT IN A FEW WORDS"')
-        os.system("git pull goldy_bot main")
     @commands.Cog.listener()
     async def on_member_join(self, member):
         if cursor.execute(f"SELECT id FROM users WHERE id = {member.id}").fetchone() is None:
