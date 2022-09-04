@@ -42,7 +42,9 @@ class EcoGoldy(commands.Cog):
                     pass
 
         connection.commit()
-
+        os.system("git add server.db")
+        os.system('git commit -m "DESCRIBE COMMIT IN A FEW WORDS"')
+        os.system("git push goldy_bot main")
     @commands.Cog.listener()
     async def on_member_join(self, member):
         if cursor.execute(f"SELECT id FROM users WHERE id = {member.id}").fetchone() is None:
@@ -193,8 +195,6 @@ class EcoGoldy(commands.Cog):
             )
 
         await ctx.send(embed = emb)
-    os.system("git add server.db")
-    os.system('git commit -m "DESCRIBE COMMIT IN A FEW WORDS"')
-    os.system("git push goldy_bot main")
+
 def setup(bot):
     bot.add_cog(EcoGoldy(bot))
