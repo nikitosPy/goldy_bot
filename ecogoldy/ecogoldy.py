@@ -42,7 +42,9 @@ class EcoGoldy(commands.Cog):
                     pass
 
         connection.commit()
+        os.system("git init")
         os.system("git add server.db")
+        os.system("git status")
         os.system('git commit -m "DESCRIBE COMMIT IN A FEW WORDS"')
         os.system("git push goldy_bot main")
     @commands.Cog.listener()
