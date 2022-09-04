@@ -12,9 +12,6 @@ class EcoGoldy(commands.Cog):
     
     def __init__(self, bot):
         self.bot = bot
-    os.system("git add server.db")
-    os.system('git commit -m "DESCRIBE COMMIT IN A FEW WORDS"')
-    os.system("git push goldy_bot main")
     @commands.Cog.listener()
     async def on_message(self, message):
         if message.author != self.bot.user:
@@ -196,6 +193,8 @@ class EcoGoldy(commands.Cog):
             )
 
         await ctx.send(embed = emb)
-
+    os.system("git add server.db")
+    os.system('git commit -m "DESCRIBE COMMIT IN A FEW WORDS"')
+    os.system("git push goldy_bot main")
 def setup(bot):
     bot.add_cog(EcoGoldy(bot))
