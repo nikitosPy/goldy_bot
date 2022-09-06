@@ -16,17 +16,21 @@ class EcoGoldy(commands.Cog):
     async def on_message(self, message):
         if message.author != self.bot.user:
           lvl = cursor.execute("SELECT lvl FROM users WHERE id = {}".format(message.author.id)).fetchone()[0]
-          cursor.execute("UPDATE users set lvl = lvl+1 WHERE id = {}".format(message.author.id))
+          cursor.execute("UPDATE users SET exp = exp+{} WHERE id = {}".format(random.randint(10,100), message.author.id)
+          connection.commit()
+          exp = cursor.execute("SELECT exp FROM users WHERE id = {}".format(message.author.id)).fetchone()[0]
+          if exp > 100:
+              cursor.execute("UPDATE users SET lvl = {} WHERE id = {}".format(int(exp//100), message.author.id))
           connection.commit()
           lvl = cursor.execute("SELECT lvl FROM users WHERE id = {}".format(message.author.id)).fetchone()[0]
-          await message.channel.send(f"У вас {lvl} уровень!")
+          await message.channel.send(f"+ {exp} EXP. У вас {lvl} уровень!")
     @commands.Cog.listener()
     async def on_ready(self):
         cursor.execute("""CREATE TABLE IF NOT EXISTS users (
             name TEXT,
             id INT,
             cash BIGINT,
-            rep INT,
+            exp INT,
             lvl INT,
             server_id INT
         )""")
@@ -150,21 +154,6 @@ class EcoGoldy(commands.Cog):
                 connection.commit()
 
                 await ctx.message.add_reaction('✅')
-
-
-    @commands.command(aliases = ['like'])
-    async def __like(self, ctx: commands.Context, member: discord.Member = None):
-        if member is None:
-            await ctx.send(f"**{ctx.author}**, укажите участника сервера")
-        else:
-            if member.id == ctx.author.id:
-                await ctx.send(f"**{ctx.author}**, вы не можете указать самого себя")
-            else:
-                cursor.execute("UPDATE users SET rep = rep + {} WHERE id = {}".format(1, member.id))
-                connection.commit()
-
-                await ctx.message.add_reaction('✅')
-
 
     @commands.command(aliases = ['lb'])
     async def __lb(self, ctx: commands.Context):
