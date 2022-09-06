@@ -17,7 +17,7 @@ class EcoGoldy(commands.Cog):
         if message.author != self.bot.user:
           lvl = cursor.execute("SELECT lvl FROM users WHERE id = {}".format(message.author.id)).fetchone()[0]
           randexp = random.randint(10,100)
-          cursor.execute("UPDATE users SET exp = exp+{} WHERE id = {}".format(randexp, message.author.id)
+          cursor.execute("UPDATE users SET exp = exp+{} WHERE id = {}".format(randexp, message.author.id))
           connection.commit()
           exp = cursor.execute("SELECT exp FROM users WHERE id = {}".format(message.author.id)).fetchone()[0]
           if exp > 100:
