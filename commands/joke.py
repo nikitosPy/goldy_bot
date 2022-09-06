@@ -1,5 +1,5 @@
 import discord
-from disscord.ext import commands
+from discord.ext import commands
 import json, aiohttp
 joke = 'https://geek-jokes.sameerkumar.website/api?format=json'
 from translate import Translator
