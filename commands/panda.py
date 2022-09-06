@@ -1,5 +1,5 @@
-import disnake as discord
-from disnake.ext import commands
+import discord
+from discord.ext import commands
 import json, aiohttp
 animal = 'https://some-random-api.ml/img/'
 class Panda(commands.Cog):
@@ -12,5 +12,6 @@ class Panda(commands.Cog):
                 if r.status == 200:
                     js = await r.json()
                     await ctx.send(js['link'])
+        log("panda")
 def setup(bot):
     bot.add_cog(Panda(bot))
