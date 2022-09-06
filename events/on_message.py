@@ -1,5 +1,5 @@
-import disnake as discord
-from disnake.ext import commands
+import discord
+from discord.ext import commands
 from time import time
 from config import *
 import random
