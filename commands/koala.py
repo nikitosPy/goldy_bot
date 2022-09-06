@@ -13,6 +13,6 @@ class Koala(commands.Cog):
                 if r.status == 200:
                     js = await r.json()
                     await ctx.send(js['link'])
-    log("koala")
+        log("koala")
 def setup(bot):
     bot.add_cog(Koala(bot))
