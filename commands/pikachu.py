@@ -13,6 +13,6 @@ class Pikachu(commands.Cog):
                 if r.status == 200:
                     js = await r.json()
                     await ctx.send(js['link'])
-        log("pickachu")
+        log("pikachu")
 def setup(bot):
     bot.add_cog(Pikachu(bot))
