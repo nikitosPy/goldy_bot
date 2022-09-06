@@ -1,5 +1,5 @@
-import disnake as discord
-from disnake.ext import commands
+import discord
+from discord.ext import commands
 import datetime
 from discord_together import DiscordTogether
 from config import *
