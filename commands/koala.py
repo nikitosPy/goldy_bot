@@ -1,6 +1,7 @@
-import disnake as discord
-from disnake.ext import commands
+import discord
+from discord.ext import commands
 import json, aiohttp
+from config import *
 animal = 'https://some-random-api.ml/img/'
 class Koala(commands.Cog):
     def __init__(self, bot):
@@ -12,5 +13,6 @@ class Koala(commands.Cog):
                 if r.status == 200:
                     js = await r.json()
                     await ctx.send(js['link'])
+    log("koala")
 def setup(bot):
     bot.add_cog(Koala(bot))
