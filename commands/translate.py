@@ -1,7 +1,7 @@
-import disnake as discord
-from disnake.ext import commands
+import discord
+from discord.ext import commands
 import json, aiohttp
-joke = 'https://geek-jokes.sameerkumar.website/api?format=json'
+from config import *
 from translate import Translator
 translator= Translator(to_lang="ru")
 class Translate(commands.Cog):
@@ -11,5 +11,6 @@ class Translate(commands.Cog):
     async def translate(self, ctx: commands.Context, *, words):
          trans = translator.translate(words)
          await ctx.send(trans)
+        log("translate")
 def setup(bot):
     bot.add_cog(Translate(bot))
