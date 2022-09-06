@@ -1,5 +1,5 @@
-import disnake as discord
-from disnake.ext import commands
+import discord
+from discord.ext import commands
 import json, aiohttp
 from config import *
 animal = 'https://some-random-api.ml/img/'
