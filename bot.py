@@ -9,6 +9,7 @@ try:
     import logging
     from typing import List
 except:
+    import os
     os.system("pip install -r requirements.txt")
 bot = commands.Bot(command_prefix = prefix, intents = intents, case_insensitive = True)
 bot.remove_command("help")
