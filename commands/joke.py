@@ -16,6 +16,6 @@ class Joke(commands.Cog):
                         js = await r.json()
                         joke_t = translator.translate(js['joke'])
                 await ctx.send(joke_t)
-    log("joke")
+        log("joke")
 def setup(bot):
     bot.add_cog(Joke(bot))
