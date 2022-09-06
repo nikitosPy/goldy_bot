@@ -1,6 +1,6 @@
 from distutils import extension
-import disnake as discord #Создание Клиента
-from disnake.ext import commands #Команды
+import discord #Создание Клиента
+from discord.ext import commands #Команды
 from config import *
 class BotEcho(commands.Cog):
     def __init__(self, bot):
