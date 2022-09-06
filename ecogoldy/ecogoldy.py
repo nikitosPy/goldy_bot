@@ -16,10 +16,10 @@ class EcoGoldy(commands.Cog):
     async def on_message(self, message):
         if message.author != self.bot.user:
           lvl = cursor.execute("SELECT lvl FROM users WHERE id = {}".format(message.author.id)).fetchone()[0]
-          cursor.execute("UPDATE lvl FROM users WHERE id = {}".format(message.author.id))
+          cursor.execute("UPDATE users set lvl = lvl+1 WHERE id = {}".format(message.author.id))
           connection.commit()
-          await message.channel.send(f"У вас {lvl} уровень!")
           lvl = cursor.execute("SELECT lvl FROM users WHERE id = {}".format(message.author.id)).fetchone()[0]
+          await message.channel.send(f"У вас {lvl} уровень!")
     @commands.Cog.listener()
     async def on_ready(self):
         cursor.execute("""CREATE TABLE IF NOT EXISTS users (
