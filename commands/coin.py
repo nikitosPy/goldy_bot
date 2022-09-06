@@ -1,5 +1,5 @@
-﻿import disnake as discord
-from disnake.ext import commands
+import discord
+from discord.ext import commands
 from config import *
 import random
 rand = random.randrange(0,2)
