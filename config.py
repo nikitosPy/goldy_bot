@@ -1,6 +1,6 @@
 import discord
 import os
-from disnake.ext import commands
+from discord.ext import commands
 from typing import List
 prefix = ["gg.", "gg!", "gb.", "gb!"]
 with open("token.txt") as f:
