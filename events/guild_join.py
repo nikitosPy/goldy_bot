@@ -1,6 +1,6 @@
-import disnake as discord
-from disnake.ext import commands
-from disnake.utils import find
+import discord
+from discord.ext import commands
+from discord.utils import find
 from asyncio import sleep
 class Guild(commands.Cog):
     def __init__(self, bot):
