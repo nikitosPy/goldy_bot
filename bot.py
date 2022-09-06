@@ -1,8 +1,8 @@
 print("Запуск...") 
 ###
 try: 
-    import disnake as discord #Создание Клиента
-    from disnake.ext import commands #Команды
+    import discord #Создание Клиента
+    from discord.ext import commands #Команды
     from config import *
     from config import TicTacToe #Ключи
     import os #Тоже генераторы
