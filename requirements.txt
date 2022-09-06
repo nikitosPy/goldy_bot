@@ -1,16 +1,13 @@
 discord
-disnake
 pyttsx3
 discord.py[voice]
 Cybernator
 rapidfuzz
 fuzzywuzzy
 pillow
-discord_together
 requests
 bs4
 numpy
 pyowm
 python_weather
 translate
-disnake-ext-menus
