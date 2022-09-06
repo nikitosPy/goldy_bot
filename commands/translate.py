@@ -11,6 +11,6 @@ class Translate(commands.Cog):
     async def translate(self, ctx: commands.Context, *, words):
          trans = translator.translate(words)
          await ctx.send(trans)
-        log("translate")
+         log("translate")
 def setup(bot):
     bot.add_cog(Translate(bot))
