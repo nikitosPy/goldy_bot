@@ -1,8 +1,9 @@
 from distutils import extension
-import disnake as discord #Создание Клиента
-from disnake.utils import get #Поиск канала
-from disnake.ext import commands #Команды
+import discord #Создание Клиента
+from discord.utils import get #Поиск канала
+from discord.ext import commands #Команды
 from Cybernator import Paginator as pag
+from config import *
 class Help(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
@@ -39,5 +40,6 @@ class Help(commands.Cog):
         msg = await ctx.send(embed = emb1)
         page = pag(self.bot, msg, only = ctx.author, embeds = embs)
         await page.start()
+        log("help")
 def setup(bot):
     bot.add_cog(Help(bot))
