@@ -24,7 +24,7 @@ class EcoGoldy(commands.Cog):
               cursor.execute("UPDATE users SET lvl = {} WHERE id = {}".format(int(exp//100), message.author.id))
           connection.commit()
           lvl = cursor.execute("SELECT lvl FROM users WHERE id = {}".format(message.author.id)).fetchone()[0]
-          await message.channel.send(f"У вас {int(exp//100)} EXP и {lvl} уровень!")
+          await message.channel.send(f"+ {randexp} EXP! У вас {int(exp//100)} EXP и {lvl} уровень!")
     @commands.Cog.listener()
     async def on_ready(self):
         cursor.execute("""CREATE TABLE IF NOT EXISTS users (
