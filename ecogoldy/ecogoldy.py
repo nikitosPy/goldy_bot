@@ -24,7 +24,7 @@ class EcoGoldy(commands.Cog):
           if lvl > 1:
             if exp >= 100:
               cursor.execute("UPDATE users SET lvl = {} WHERE id = {}".format(int(exp//100), message.author.id))
-
+              lvl = cursor.execute("SELECT lvl FROM users WHERE id = {}".format(message.author.id)).fetchone()[0]
           connection.commit()
           await message.channel.send(f"+ {randexp} EXP! У вас {lvl} уровень!")
     @commands.Cog.listener()
