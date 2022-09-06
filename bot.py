@@ -4,13 +4,13 @@ try:
     import discord #Создание Клиента
     from discord.ext import commands #Команды
     from config import *
-    from config import TicTacToe #Ключи
     import os #Тоже генераторы
     import logging
     from typing import List
 except:
     import os
     os.system("pip install -r requirements.txt")
+from config import prefix, intents, TOKEN
 bot = commands.Bot(command_prefix = prefix, intents = intents, case_insensitive = True)
 bot.remove_command("help")
 client = discord.Client()
