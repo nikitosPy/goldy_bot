@@ -1,5 +1,5 @@
-import disnake as discord
-from disnake.ext import commands
+import discord
+from disscord.ext import commands
 import json, aiohttp
 joke = 'https://geek-jokes.sameerkumar.website/api?format=json'
 from translate import Translator
@@ -16,6 +16,6 @@ class Joke(commands.Cog):
                         js = await r.json()
                         joke_t = translator.translate(js['joke'])
                 await ctx.send(joke_t)
-                    
+    log("joke")
 def setup(bot):
     bot.add_cog(Joke(bot))
