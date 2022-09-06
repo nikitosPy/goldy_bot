@@ -13,7 +13,7 @@ except:
 from config import prefix, intents, TOKEN
 bot = commands.Bot(command_prefix = prefix, intents = intents, case_insensitive = True)
 bot.remove_command("help")
-client = discord.Client()
+
 #Создание бота
 ### ?
 #Логи disnake
