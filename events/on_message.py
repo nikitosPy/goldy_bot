@@ -21,7 +21,7 @@ class Message(commands.Cog):
         admin_connected = False
     @commands.Cog.listener()
     async def on_message(self, message):
-        admin1 = self.bot.get_user(self.bot.owner.id)
+        admin1 = self.bot.get_user(self.bot.owner_id)
         admin2 = self.bot.get_user(goldy)
         if message.author == self.bot.user: 
             return
