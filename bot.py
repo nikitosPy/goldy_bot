@@ -23,24 +23,6 @@ logger.setLevel(logging.INFO)
 handler = logging.FileHandler(filename='disnake.log', encoding='utf-8', mode='w')
 handler.setFormatter(logging.Formatter('%(asctime)s:%(levelname)s:%(name)s: %(message)s'))
 logger.addHandler(handler)
-
-#Reload
-@bot.command()
-async def reload(ctx, extension):
-    if ctx.author.id == bot.owner.id:
-        bot.unload_extension(f"commands.{extension}")
-        bot.load_extension(f"commands.{extension}")
-        await ctx.send(f"Обновлен cog {extension}!")
-    else:
-        await ctx.send("Не похож ты на моего разработчика...")
-
-@bot.command()
-async def tic(ctx: commands.Context):
-    await ctx.send('Tic Tac Toe: X goes first', view=TicTacToe())
-
-        
-with open("logs.txt", "a+") as f:
-    f.write("\n")
 async def load_extensions():
     for filename in os.listdir("./commands"):
         if filename.endswith(".py"):
@@ -53,12 +35,24 @@ async def load_extensions():
     for filename in os.listdir("./ecogoldy"):
         if filename.endswith(".py"):
             await bot.load_extension(f"ecogoldy.{filename[:-3]}")
-            
-async def main():
-    async with bot:
-        await load_extensions()
-        await client.start(token)
+#Reload
+@bot.command()
+async def reload(ctx, extension):
+    if ctx.author.id == bot.owner.id:
+        bot.unload_extension(f"commands.{extension}")
+        bot.load_extension(f"commands.{extension}")
+        await ctx.send(f"Обновлен cog {extension}!")
+    else:
+        await ctx.send("Не похож ты на моего разработчика...")
 
-asyncio.run(main())
+@bot.command()
+async def on_ready():
+    await load_extensions()
+
+        
+with open("logs.txt", "a+") as f:
+    f.write("\n")           
+
+bot.run(token)
 
 
