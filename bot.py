@@ -41,7 +41,7 @@ async def load_extensions():
 #Reload
 @bot.command()
 async def reload(ctx, extension):
-    if ctx.author.id == bot.owner.id:
+    if ctx.author.id == bot.owner_id:
         bot.unload_extension(f"commands.{extension}")
         bot.load_extension(f"commands.{extension}")
         await ctx.send(f"Обновлен cog {extension}!")
