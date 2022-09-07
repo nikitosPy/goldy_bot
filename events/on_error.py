@@ -27,5 +27,5 @@ class Error(commands.Cog):
             await ctx.send(embed = emb)
             owner = self.bot.get_user(self.bot.owner.id)
             await owner.send(embed = emb) 
-def setup(bot):
-    bot.add_cog(Error(bot))
+async def setup(bot):
+   await bot.add_cog(Error(bot))
