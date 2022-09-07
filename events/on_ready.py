@@ -28,5 +28,5 @@ class Ready(commands.Cog):
             for status in statuses:
                 await self.bot.change_presence(status=discord.Status.idle, activity = discord.Activity(type=discord.ActivityType.listening, name=status))
                 await sleep(5)
-def setup(bot):
-    bot.add_cog(Ready(bot))
+async def setup(bot):
+    await bot.add_cog(Ready(bot))
