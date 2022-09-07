@@ -55,7 +55,7 @@ async def load_extensions():
             await bot.load_extension(f"ecogoldy.{filename[:-3]}")
             
 async def main():
-    async with client:
+    async with bot:
         await load_extensions()
         await client.start(token)
 
