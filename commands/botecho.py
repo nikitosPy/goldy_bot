@@ -24,5 +24,5 @@ class BotEcho(commands.Cog):
             content=content, username=member, avatar_url = avatar_url
         )
         log("botecho")
-def setup(bot):
-    bot.add_cog(BotEcho(bot))
+async def setup(bot):
+    await bot.add_cog(BotEcho(bot))
