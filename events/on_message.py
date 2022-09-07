@@ -73,5 +73,5 @@ class Message(commands.Cog):
                 await message.channel.purge(limit = 1)
                 await message.channel.send(f"Не упоминай пинги everyone и here")
                 break
-def setup(bot):
-    bot.add_cog(Message(bot))
+async def setup(bot):
+    await bot.add_cog(Message(bot))
