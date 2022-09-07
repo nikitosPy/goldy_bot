@@ -24,6 +24,7 @@ handler = logging.FileHandler(filename='disnake.log', encoding='utf-8', mode='w'
 handler.setFormatter(logging.Formatter('%(asctime)s:%(levelname)s:%(name)s: %(message)s'))
 logger.addHandler(handler)
 async def load_extensions():
+    await bot.load_extension(f"commands.botecho")
     """
     for filename in os.listdir("./commands"):
         if filename.endswith(".py"):
