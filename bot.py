@@ -7,6 +7,7 @@ try:
     import os #Тоже генераторы
     import logging
     from typing import List
+    import asyncio
 except:
     import os
     os.system("pip install -r requirements.txt")
@@ -40,19 +41,24 @@ async def tic(ctx: commands.Context):
         
 with open("logs.txt", "a+") as f:
     f.write("\n")
+async def load_extensions():
+    for filename in os.listdir("./commands"):
+        if filename.endswith(".py"):
+            await bot.load_extension(f"commands.{filename[:-3]}")
 
-for filename in os.listdir("./commands"):
-    if filename.endswith(".py"):
-        bot.load_extension(f"commands.{filename[:-3]}")
+    for filename in os.listdir("./events"):
+        if filename.endswith(".py"):
+            await bot.load_extension(f"events.{filename[:-3]}")
 
-for filename in os.listdir("./events"):
-    if filename.endswith(".py"):
-        bot.load_extension(f"events.{filename[:-3]}")
+    for filename in os.listdir("./ecogoldy"):
+        if filename.endswith(".py"):
+            await bot.load_extension(f"ecogoldy.{filename[:-3]}")
+            
+async def main():
+    async with client:
+        await load_extensions()
+        await client.start(token)
 
-for filename in os.listdir("./ecogoldy"):
-    if filename.endswith(".py"):
-        bot.load_extension(f"ecogoldy.{filename[:-3]}")
+asyncio.run(main())
 
-#Запуск
-bot.run(token)
 
