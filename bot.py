@@ -45,7 +45,7 @@ async def reload(ctx, extension):
     else:
         await ctx.send("Не похож ты на моего разработчика...")
 #
-@bot.event()
+@bot.event
 async def on_ready():
     await load_extensions()
 
