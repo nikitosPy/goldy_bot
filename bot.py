@@ -10,7 +10,7 @@ try:
 except:
     import os
     os.system("pip install -r requirements.txt")
-from config import prefix, intents, TOKEN
+from config import prefix, intents, token
 bot = commands.Bot(command_prefix = prefix, intents = intents, case_insensitive = True)
 bot.remove_command("help")
 
