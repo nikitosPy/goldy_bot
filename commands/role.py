@@ -1,5 +1,5 @@
-import disnake as discord
-from disnake.ext import commands
+import discord
+from discord.ext import commands
 from asyncio import sleep
 from random import randint as rand
 class Role(commands.Cog):
