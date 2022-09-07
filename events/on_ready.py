@@ -16,7 +16,7 @@ class Ready(commands.Cog):
         
         print(datetime.datetime.now())
         global logs, admin1, admin2
-        admin1 = self.bot.get_user(self.bot.owner.id)
+        admin1 = self.bot.get_user(self.bot.owner_id)
         admin2 = self.bot.get_user(goldy)
         logs = self.bot.get_channel(logs_ch)
         await admin1.send(f"Я перезапущен под именем {self.bot.user.name}: <t:{start}:R>")
