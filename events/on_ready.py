@@ -1,7 +1,6 @@
 import discord
 from discord.ext import commands
 import datetime
-from discord_together import DiscordTogether
 from config import *
 import time
 from asyncio import sleep
