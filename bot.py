@@ -25,8 +25,8 @@ class GoldyBot(commands.Bot):
     async def on_ready(self):
         await self.wait_until_ready()	
         await load_extensions()
-    async def setup_hook(self):
-        await tree.sync()
+    '''async def setup_hook(self):
+        await tree.sync()'''
 bot = GoldyBot()
 bot.remove_command("help")
 tree = app_commands.CommandTree(bot)
