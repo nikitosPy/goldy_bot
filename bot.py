@@ -41,9 +41,9 @@ logger.addHandler(handler)
     for filename in os.listdir("./commands"):
         if filename.endswith(".py"):
             await bot.load_extension(f"commands.{filename[:-3]}")
-     """
     
-"""
+    
+
     for filename in os.listdir("./ecogoldy"):
         if filename.endswith(".py"):
             await bot.load_extension(f"ecogoldy.{filename[:-3]}")
