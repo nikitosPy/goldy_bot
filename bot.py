@@ -14,6 +14,9 @@ except:
 from config import prefix, intents, token
 async def load_extensions():
     await bot.load_extension(f"commands.botecho")
+    for filename in os.listdir("./events"):
+         if filename.endswith(".py"):
+            await bot.load_extension(f"events.{filename[:-3]}")
 class GoldyBot(commands.Bot):
     def __init__(self):
         super.__init__(command_prefix = prefix, intents = intents, case_insensitive = True)
@@ -27,21 +30,19 @@ bot.remove_command("help")
 
 #Создание бота
 ### ?
-#Логи disnake
+#Логи discord
 logger = logging.getLogger('discord')
 logger.setLevel(logging.INFO)
 handler = logging.FileHandler(filename='disnake.log', encoding='utf-8', mode='w')
 handler.setFormatter(logging.Formatter('%(asctime)s:%(levelname)s:%(name)s: %(message)s'))
 logger.addHandler(handler)
 
-    """
+"""
     for filename in os.listdir("./commands"):
         if filename.endswith(".py"):
             await bot.load_extension(f"commands.{filename[:-3]}")
- """
-    for filename in os.listdir("./events"):
-        if filename.endswith(".py"):
-            await bot.load_extension(f"events.{filename[:-3]}")
+     """
+    
 """
     for filename in os.listdir("./ecogoldy"):
         if filename.endswith(".py"):
