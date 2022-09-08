@@ -14,7 +14,7 @@ except:
 from config import prefix, intents, token
 async def load_extensions():
     await bot.load_extension(f"commands.botecho")
-class Bot(commands.Bot):
+class GoldyBot(commands.Bot):
     def __init__(self):
         super.__init__(command_prefix = prefix, intents = intents, case_insensitive = True)
     async def on_ready(self):
@@ -22,7 +22,7 @@ class Bot(commands.Bot):
     async def startup(self):
         await self.wait_until_ready()	
         await self.tree.sync()
-bot = commands.Bot(command_prefix = prefix, intents = intents, case_insensitive = True)
+bot = GoldyBot()
 bot.remove_command("help")
 
 #Создание бота
