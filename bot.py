@@ -21,10 +21,13 @@ async def load_extensions():
 class GoldyBot(commands.Bot):
     def __init__(self):
         super().__init__(command_prefix = prefix, intents = intents, case_insensitive = True)
+        self.synced = False
     async def on_ready(self):
         await self.wait_until_ready()	
         await load_extensions()
-        await tree.sync()
+        if not self.synced:
+            await tree.sync()
+            self.synced = True
 bot = GoldyBot()
 bot.remove_command("help")
 tree = app_commands.CommandTree(bot)
