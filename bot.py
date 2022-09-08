@@ -12,19 +12,28 @@ except:
     import os
     os.system("pip install -r requirements.txt")
 from config import prefix, intents, token
+async def load_extensions():
+    await bot.load_extension(f"commands.botecho")
+class Bot(commands.Bot):
+    def __init__(self):
+        super.__init__(command_prefix = prefix, intents = intents, case_insensitive = True)
+    async def on_ready(self):
+        await load_extensions()
+    async def startup(self):
+		wait self.wait_until_ready()	
+        await self.tree.sync()
 bot = commands.Bot(command_prefix = prefix, intents = intents, case_insensitive = True)
 bot.remove_command("help")
 
 #Создание бота
 ### ?
 #Логи disnake
-logger = logging.getLogger('disnake')
+logger = logging.getLogger('discord')
 logger.setLevel(logging.INFO)
 handler = logging.FileHandler(filename='disnake.log', encoding='utf-8', mode='w')
 handler.setFormatter(logging.Formatter('%(asctime)s:%(levelname)s:%(name)s: %(message)s'))
 logger.addHandler(handler)
-async def load_extensions():
-    await bot.load_extension(f"commands.botecho")
+
     """
     for filename in os.listdir("./commands"):
         if filename.endswith(".py"):
@@ -48,9 +57,7 @@ async def reload(ctx, extension):
     else:
         await ctx.send("Не похож ты на моего разработчика...")
 #
-@bot.event
-async def on_ready():
-    await load_extensions()
+
 
         
 with open("logs.txt", "a+") as f:
