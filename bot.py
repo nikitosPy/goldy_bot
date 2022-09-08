@@ -21,15 +21,18 @@ async def load_extensions():
 class GoldyBot(commands.Bot):
     def __init__(self):
         super().__init__(command_prefix = prefix, intents = intents, case_insensitive = True)
-        self.synced = False
+        self.tree = app_commands.CommandTree(self)
     async def on_ready(self):
         await self.wait_until_ready()	
         await load_extensions()
-    '''async def setup_hook(self):
-        await tree.sync()'''
+    async def setup_hook(self):
+        try:
+            await tree.sync()
+        except:
+            pass
 bot = GoldyBot()
 bot.remove_command("help")
-tree = app_commands.CommandTree(bot)
+
 #Создание бота
 ### ?
 #Логи discord
