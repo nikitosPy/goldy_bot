@@ -21,7 +21,10 @@ async def load_extensions():
 class GoldyBot(commands.Bot):
     def __init__(self):
         super().__init__(command_prefix = prefix, intents = intents, case_insensitive = True)
-        self.tree = app_commands.CommandTree(self)
+        try:
+            self.tree = app_commands.CommandTree(self)
+        except:
+            pass
     async def on_ready(self):
         await self.wait_until_ready()	
         await load_extensions()
