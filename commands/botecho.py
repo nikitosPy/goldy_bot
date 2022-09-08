@@ -7,7 +7,7 @@ class BotEcho(commands.Cog):
         self.bot = bot
 
     @commands.hybrid_command(name = "botecho", with_app_command = True)
-    async def botecho(self, ctx: commands.Context, member, *, content):
+    async def botecho(self, ctx: commands.Context, member: str, *, content: str):
         
         await ctx.message.delete()
         channel = ctx.channel
