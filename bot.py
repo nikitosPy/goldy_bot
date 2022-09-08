@@ -20,7 +20,7 @@ class Bot(commands.Bot):
     async def on_ready(self):
         await load_extensions()
     async def startup(self):
-		wait self.wait_until_ready()	
+        await self.wait_until_ready()	
         await self.tree.sync()
 bot = commands.Bot(command_prefix = prefix, intents = intents, case_insensitive = True)
 bot.remove_command("help")
