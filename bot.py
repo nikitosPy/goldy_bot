@@ -4,6 +4,7 @@ try:
     import discord #Создание Клиента
     from discord.ext import commands #Команды
     from config import *
+    from discord import app_commands
     import os #Тоже генераторы
     import logging
     from typing import List
@@ -21,13 +22,12 @@ class GoldyBot(commands.Bot):
     def __init__(self):
         super().__init__(command_prefix = prefix, intents = intents, case_insensitive = True)
     async def on_ready(self):
-        await load_extensions()
-    async def startup(self):
         await self.wait_until_ready()	
-        tree = await self.bot.tree.sync()
+        await load_extensions()
+        await tree.sync()
 bot = GoldyBot()
 bot.remove_command("help")
-
+tree = app_commands.CommandTree(bot)
 #Создание бота
 ### ?
 #Логи discord
