@@ -50,7 +50,7 @@ class GoldyBot(commands.Bot):
             await tree.sync()
         except:
             print('sync')
-   async def get_context(self, message, *, cls=MyContext):
+    async def get_context(self, message, *, cls=MyContext):
         # when you override this method, you pass your new Context
         # subclass to the super() method, which tells the bot to
         # use the new MyContext class
