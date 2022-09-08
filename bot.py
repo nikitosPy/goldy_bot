@@ -19,7 +19,7 @@ async def load_extensions():
             await bot.load_extension(f"events.{filename[:-3]}")
 class GoldyBot(commands.Bot):
     def __init__(self):
-        super.__init__(command_prefix = prefix, intents = intents, case_insensitive = True)
+        super().__init__(command_prefix = prefix, intents = intents, case_insensitive = True)
     async def on_ready(self):
         await load_extensions()
     async def startup(self):
