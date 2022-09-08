@@ -24,7 +24,7 @@ class GoldyBot(commands.Bot):
         try:
             self.tree = app_commands.CommandTree(self)
         except:
-            pass
+            print('tree')
     async def on_ready(self):
         await self.wait_until_ready()	
         await load_extensions()
@@ -32,7 +32,7 @@ class GoldyBot(commands.Bot):
         try:
             await tree.sync()
         except:
-            pass
+            print('sync')
 bot = GoldyBot()
 bot.remove_command("help")
 
