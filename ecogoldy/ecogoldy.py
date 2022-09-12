@@ -21,7 +21,7 @@ class EcoGoldy(commands.Cog):
           connection.commit()
           exp = cursor.execute("SELECT exp FROM users WHERE id = {}".format(message.author.id)).fetchone()[0]
           lvl = cursor.execute("SELECT lvl FROM users WHERE id = {}".format(message.author.id)).fetchone()[0]
-          if lvl > 1:
+          if lvl >= 0:
             if exp >= 100:
               cursor.execute("UPDATE users SET lvl = {} WHERE id = {}".format(int(exp//100), message.author.id))
               lvl = cursor.execute("SELECT lvl FROM users WHERE id = {}".format(message.author.id)).fetchone()[0]
@@ -189,5 +189,5 @@ class EcoGoldy(commands.Cog):
 
         await ctx.send(embed = emb)
 
-def setup(bot):
-    bot.add_cog(EcoGoldy(bot))
+async def setup(bot):
+    await bot.add_cog(EcoGoldy(bot))
