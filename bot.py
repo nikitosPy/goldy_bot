@@ -18,6 +18,9 @@ async def load_extensions():
     for filename in os.listdir("./events"):
          if filename.endswith(".py"):
             await bot.load_extension(f"events.{filename[:-3]}")
+    for filename in os.listdir("./ecogoldy"):
+         if filename.endswith(".py"):
+            await bot.load_extension(f"ecogoldy.{filename[:-3]}")
 class MyContext(commands.Context):
     async def tick(self, value):
         # reacts to the message with an emoji
