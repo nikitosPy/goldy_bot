@@ -25,6 +25,7 @@ class BotEcho(commands.Cog):
         )
     @commands.hybrid_command(with_app_command = True)
     async def commands(self, ctx: commands.Context):
-        await ctx.send(f"[c.name for c in self.bot.commands]")
+        cmnds = '\n- '.join([c.name for c in self.bot.commands])
+        await ctx.send(f"```\n{cmnds}\n```")
 async def setup(bot):
     await bot.add_cog(BotEcho(bot))
