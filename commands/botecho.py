@@ -23,6 +23,8 @@ class BotEcho(commands.Cog):
         await webhook.send(
             content=content, username=member, avatar_url = avatar_url
         )
-        log("botecho")
+    @commands.hybrid_command(with_app_command = True)
+    async def commands(self, ctx: commands.Context):
+        await ctx.send([c.name for c in self.bot.commands)
 async def setup(bot):
     await bot.add_cog(BotEcho(bot))
