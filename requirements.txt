@@ -1,5 +1,4 @@
-discord
-pyttsx3
+discord.py
 discord.py[voice]
 Cybernator
 rapidfuzz
