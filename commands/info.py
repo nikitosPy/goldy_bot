@@ -10,6 +10,6 @@ class Botinfo(commands.Cog):
             title = f"Информация о Боте {self.bot.user.name}!",
             description = f"http://goldybot.gq \nВладельцы бота:  <@{goldy}> и <@{self.bot.owner.id}> \nБот создан: \nВ начале июля 2022 \nВ боте обновления каждый день!")
         await ctx.send(embed = embed)
-        log("botinfo")
+    @
 async def setup(bot):
     await bot.add_cog(Botinfo(bot))
