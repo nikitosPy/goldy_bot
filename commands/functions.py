@@ -8,6 +8,10 @@ class Functions(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
     @commands.command()
+    async def clear(self, ctx: commands.Context, n: int):
+        await ctx.channel.purge(limit = n+1)
+        await ctx.send(embed = discord.Embed(title=f"Очищено {n} сообщений"))
+    @commands.command()
     async def translate(self, ctx: commands.Context, *, words):
          trans = translator.translate(words)
          await ctx.send(trans)
