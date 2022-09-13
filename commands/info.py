@@ -46,6 +46,10 @@ class Info(commands.Cog):
             description = "Ждите обновлений..."
         )
 
+        await ctx.send(embed = emb1)
+        
+        emb1.add_field(name="Fiel1", value="hi", inline=True)
+        await ctx.send(embed = emb1)
         embs = [emb1, emb2, emb3, emb4, emb5, emb6]
 async def setup(bot):
     await bot.add_cog(Info(bot))
