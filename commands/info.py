@@ -4,21 +4,21 @@ from config import *
 class Info(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
-    @commands.hybrid_command(with_app_command = True)
+    @commands.command()
     async def botinfo(self, ctx: commands.Context):
         embed = discord.Embed(
             title = f"Информация о Боте {self.bot.user.name}!",
             description = f"http://goldybot.gq \nВладельцы бота:  <@{goldy}> и <@{self.bot.owner.id}> \nБот создан: \nВ начале июля 2022 \nВ боте обновления каждый день!")
         await ctx.send(embed = embed)
-    @commands.hybrid_command(with_app_command = True)
+    @commands.command()
     async def commands(self, ctx: commands.Context):
         cmnds = '\n- '.join([c.name for c in self.bot.commands])
         await ctx.send(f"```\n{cmnds}\n```")
-    @commands.hybrid_command(with_app_command = True)
+    @commands.command()
     async def ping(self, ctx: commands.Context):
         await ctx.channel.purge(limit = 1)
         await ctx.send(f'Задержка бота: {round(self.bot.latency*1000)/1000} секунд')
-    @commands.hybrid_command(with_app_command = True)
+    @commands.command()
     async def help(self, ctx: commands.Context):
         title = 'Команды Бота'
         emb1 = discord.Embed(
