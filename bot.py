@@ -14,7 +14,9 @@ except:
     os.system("pip install -r requirements.txt")
 from config import prefix, intents, token
 async def load_extensions():
-    await bot.load_extension(f"commands.botecho")
+    for filename in os.listdir("./commands"):
+         if filename.endswith(".py"):
+            await bot.load_extension(f"commands.{filename[:-3]}")
     for filename in os.listdir("./events"):
          if filename.endswith(".py"):
             await bot.load_extension(f"events.{filename[:-3]}")
