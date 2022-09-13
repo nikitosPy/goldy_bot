@@ -14,11 +14,11 @@ class Info(commands.Cog):
     async def commands(self, ctx: commands.Context):
         cmnds = '\n- '.join([c.name for c in self.bot.commands])
         await ctx.send(f"```\n{cmnds}\n```")
-    @commands.command()
+    @commands.hybrid_command(with_app_command = True)
     async def ping(self, ctx: commands.Context):
         await ctx.channel.purge(limit = 1)
         await ctx.send(f'Задержка бота: {round(self.bot.latency*1000)/1000} секунд')
-    @commands.command()
+    @commands.hybrid_command(with_app_command = True)
     async def help(self, ctx: commands.Context):
         title = 'Команды Бота'
         emb1 = discord.Embed(
