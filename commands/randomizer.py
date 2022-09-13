@@ -48,5 +48,5 @@ class Randomizer(commands.Cog):
                 if r.status == 200:
                     js = await r.json()
                     await ctx.send(js['link'])
-def setup(bot):
-    bot.add_cog(Randomizer(bot))
+async def setup(bot):
+    await bot.add_cog(Randomizer(bot))
