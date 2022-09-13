@@ -52,7 +52,7 @@ class GoldyBot(commands.Bot):
         try:
             await tree.sync()
         except:
-            await self.bot.tree.sync()
+            await self.tree.sync()
             print('sync')
     async def get_context(self, message, *, cls=MyContext):
         # when you override this method, you pass your new Context
