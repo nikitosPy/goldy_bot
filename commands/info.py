@@ -16,40 +16,15 @@ class Info(commands.Cog):
         await ctx.send(f"```\n{cmnds}\n```")
     @commands.command()
     async def ping(self, ctx: commands.Context):
-        await ctx.channel.purge(limit = 1)
         await ctx.send(f'Задержка бота: {round(self.bot.latency*1000)/1000} секунд')
     @commands.command()
     async def help(self, ctx: commands.Context):
         title = 'Команды Бота'
         emb1 = discord.Embed(
-            title = title,
-            description = "help - Покажет это сообщение \nping - Задержка Бота \nclear - Очистка сообщений в Чате \necho - Сказать от Имени Бота"
-        )
-        emb2 = discord.Embed(
-            title = title,
-            description = "user - Карточка пользователя \nrole - Получить личную роль на 5 минут"
-        )
-        emb3 = discord.Embed(
-            title = title,
-            description = "join - Присоединить бот к Голосовому каналу \nwatch - Начать Активность Youtube" 
-        )
-        emb4 = discord.Embed(
-            title = title,
-            description = "cat - Рандом Кот \ndog - Рандом Собака \nfox - Рандом Лиса \nkoala - Рандом Коала\npanda - Рандом Панда\npikachu - Рандом Пикачу"
-        )
-        emb5 = discord.Embed(
-            title = title,
-            description = "cash | balance - Проверка Баланса \nshop - Магазин Ролей \nadd-shop - Добавить роль в Магазин ролей \n buy | buy-role - купить роль в Магазине Ролей \n like - Лайкнуть Пользователя\n leaderboard | lb - Список Лидеров на Сервере"
-        )
-        emb6 = discord.Embed(
-            title = title,
-            description = "Ждите обновлений..."
-        )
-
+            title = title)
+        emb1.add_field(name="help", value="Покажет это сообщение", inline=True)
+        emb1.add_field(name = "ping", value = "Задержка бота", inline = True)
+        emb1.add_field(name = "botecho", value = "Сказать от имени бота", inline = True)
         await ctx.send(embed = emb1)
-        
-        emb1.add_field(name="Fiel1", value="hi", inline=True)
-        await ctx.send(embed = emb1)
-        embs = [emb1, emb2, emb3, emb4, emb5, emb6]
 async def setup(bot):
     await bot.add_cog(Info(bot))
