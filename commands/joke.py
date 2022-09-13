@@ -27,6 +27,7 @@ class Fun(commands.Cog):
         role = discord.utils.get(ctx.guild.roles, name = ctx.author.name)
         await role.edit(colour=discord.Color.random())
         await ctx.message.author.add_roles(role) 
+        await ctx.send("Вам выдана персональная роль на 5 минут")
         await sleep(300)
         await ctx.message.author.remove_roles(role)
         await role.delete()
