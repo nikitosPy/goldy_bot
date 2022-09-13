@@ -34,5 +34,12 @@ class Randomizer(commands.Cog):
                 if r.status == 200:
                     js = await r.json()
                     await ctx.send(js['link'])
+    @commands.command()
+    async def panda(self, ctx: commands.Context):
+        async with aiohttp.ClientSession() as cs:
+            async with cs.get(animal + 'panda') as r:
+                if r.status == 200:
+                    js = await r.json()
+                    await ctx.send(js['link'])
 def setup(bot):
     bot.add_cog(Randomizer(bot))
