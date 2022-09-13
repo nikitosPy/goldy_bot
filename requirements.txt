@@ -1,5 +1,6 @@
-discord.py
-discord.py[voice]
+py-cord
+py-cord[voice]
+py-cord[speed]
 Cybernator
 rapidfuzz
 fuzzywuzzy
