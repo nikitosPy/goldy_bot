@@ -28,6 +28,13 @@ class Randomizer(commands.Cog):
                     js = await r.json()
                     await ctx.send(js['link'])
     @commands.command()
+    async def koala(self, ctx: commands.Context):
+        async with aiohttp.ClientSession() as cs:
+            async with cs.get(animal + 'koala') as r:
+                if r.status == 200:
+                    js = await r.json()
+                    await ctx.send(js['link'])
+    @commands.command()
     async def fox(self, ctx: commands.Context):
         async with aiohttp.ClientSession() as cs:
             async with cs.get(animal + 'fox') as r:
