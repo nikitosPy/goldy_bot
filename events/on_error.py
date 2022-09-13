@@ -10,7 +10,7 @@ class Error(commands.Cog):
     async def on_command_error(self, ctx: commands.Context, error):
         print()
         if isinstance(error, commands.CommandNotFound):
-            cmds = [c.name cor c in self.bot.commands)
+            cmds = [c.name cor c in self.bot.commands]
             cmds.sort()
             difference = process.extractOne(ctx.message.content, cmds)
             if difference[1] > 70: 
