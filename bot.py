@@ -40,19 +40,16 @@ class MyContext(commands.Context):
 
 class GoldyBot(commands.Bot):
     def __init__(self):
-        super().__init__(command_prefix = prefix, intents = intents, case_insensitive = True)
-        try:
-            self.tree = app_commands.CommandTree(self)
-        except:
-            print('tree')
+        super().__init__(command_prefix = prefix, 
+                         intents = intents, 
+                         case_insensitive = True)
     async def on_ready(self):
         await self.wait_until_ready()	
         await load_extensions()
     async def setup_hook(self):
         try:
-            await tree.sync()
-        except:
             await self.tree.sync()
+        except:
             print('sync')
     async def get_context(self, message, *, cls=MyContext):
         # when you override this method, you pass your new Context
