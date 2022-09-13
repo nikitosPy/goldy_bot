@@ -48,6 +48,7 @@ class GoldyBot(commands.Bot):
     async def on_ready(self):
         await self.wait_until_ready()	
         await load_extensions()
+        print("ready!")
     async def setup_hook(self):
         try:
             await self.tree.sync()
@@ -59,8 +60,6 @@ class GoldyBot(commands.Bot):
         # use the new MyContext class
         return await super().get_context(message, cls=cls)
 bot = GoldyBot()
-bot.remove_command("help")
-
 #Создание бота
 ### ?
 #Логи discord
@@ -70,24 +69,13 @@ handler = logging.FileHandler(filename='disnake.log', encoding='utf-8', mode='w'
 handler.setFormatter(logging.Formatter('%(asctime)s:%(levelname)s:%(name)s: %(message)s'))
 logger.addHandler(handler)
 
-"""
-    for filename in os.listdir("./commands"):
-        if filename.endswith(".py"):
-            await bot.load_extension(f"commands.{filename[:-3]}")
-    
-    
-
-    for filename in os.listdir("./ecogoldy"):
-        if filename.endswith(".py"):
-            await bot.load_extension(f"ecogoldy.{filename[:-3]}")
-            """
 #Reload
 @bot.command()
-async def reload(ctx, extension):
+async def reload(ctx):
     if ctx.author.id == bot.owner_id:
-        bot.unload_extension(f"commands.{extension}")
-        bot.load_extension(f"commands.{extension}")
-        await ctx.send(f"Обновлен cog {extension}!")
+        async with ctx.typing():
+            await load_extensions()
+        await ctx.send("logs updated")
     else:
         await ctx.send("Не похож ты на моего разработчика...")
 #
