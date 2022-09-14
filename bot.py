@@ -3,7 +3,7 @@ print("Запуск...")
 def sup():
     import discord #Создание Клиента
     from discord.ext import commands #Команды
-    from config import *
+    from config import goldy
     import os #Тоже генераторы
     import logging
     from typing import List
