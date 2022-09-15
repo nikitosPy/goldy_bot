@@ -22,9 +22,9 @@ class Info(commands.Cog):
         title = 'Команды Бота'
         emb1 = discord.Embed(
             title = title)
-        emb1.add_field(name="🆘️ help", value = "test1", inline=False)
-        emb1.add_field(name = "🏓 ping", value = "test2", inline = True)
-        emb1.add_field(name = "🗣 botecho", value = "test3", inline = True)
+        emb1.add_field(name="🆘️ help", value = "Покажет это сообщение", inline = True)
+        emb1.add_field(name = "🏓 ping", value = "Покажет задержку бота", inline = True)
+        emb1.add_field(name = "🗣 botecho", value = "Сказать от имени бота", inline = True)
         await ctx.send(embed = emb1)
 def setup(bot):
     bot.add_cog(Info(bot))
