@@ -173,6 +173,5 @@ class EcoGoldy(commands.Cog):
             )
 
         await ctx.send(embed = emb)
-
-async def setup(bot):
-    await bot.add_cog(EcoGoldy(bot))
+def setup(bot):
+    bot.add_cog(EcoGoldy(bot))
