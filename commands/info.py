@@ -20,11 +20,19 @@ class Info(commands.Cog):
     @commands.command()
     async def help(self, ctx: commands.Context):
         title = 'Команды Бота'
-        emb1 = discord.Embed(
+        emb = discord.Embed(
             title = title)
-        emb1.add_field(name="🆘️ help", value = "Покажет это сообщение", inline = True)
-        emb1.add_field(name = "🏓 ping", value = "Задержка бота", inline = True)
-        emb1.add_field(name = "ℹ botinfo", value = "Информация о боте", inline = True)
-        await ctx.send(embed = emb1)
+        emb.add_field(name="🆘️ help", value = "Покажет это сообщение", inline = True)
+        emb.add_field(name = "🏓 ping", value = "Задержка бота", inline = True)
+        emb.add_field(name = "ℹ botinfo", value = "Информация о боте", inline = True)
+        
+        emb.add_field(name = "🗣 botecho", value = "Сказать от имени бота", inline = True)
+        emb.add_field(name = "🇬🇧 translate", value = "Перевод фразы", inline = True)
+        emb.add_field(name = "🧹 clear", value = "Очистка сообщений в чате", inline = True)
+        
+        emb.add_field(name = "🐸 cat/dog/fox/pikachu/panda/koala", value = "Случайное фото  животного", inline = True)
+        emb.add_field(name = "🤡 joke", value = "Случайная шутка", inline = True)
+        emb.add_field(name = "👑 role", value = "Получение личной роли", inline = True)
+        await ctx.send(embed = emb)
 def setup(bot):
     bot.add_cog(Info(bot))
