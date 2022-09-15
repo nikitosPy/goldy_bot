@@ -23,8 +23,8 @@ class Info(commands.Cog):
         emb1 = discord.Embed(
             title = title)
         emb1.add_field(name="🆘️ help", value = "Покажет это сообщение", inline = True)
-        emb1.add_field(name = "🏓 ping", value = "Покажет задержку бота", inline = True)
-        emb1.add_field(name = "🗣 botecho", value = "Сказать от имени бота", inline = True)
+        emb1.add_field(name = "🏓 ping", value = "Задержка бота", inline = True)
+        emb1.add_field(name = "ℹ botinfo", value = "Информация о боте", inline = True)
         await ctx.send(embed = emb1)
 def setup(bot):
     bot.add_cog(Info(bot))
