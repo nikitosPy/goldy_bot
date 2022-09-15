@@ -3,7 +3,7 @@ print("Запуск...")
 try:
     import discord #Создание Клиента
     from discord.ext import commands #Команды
-    
+    import pretty_errors
     from typing import List
     import asyncio
 
