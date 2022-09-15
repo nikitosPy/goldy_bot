@@ -33,4 +33,4 @@ class Functions(commands.Cog):
             content=content, username=member, avatar_url = avatar_url
         )
 def setup(bot):
-    await bot.add_cog(Functions(bot))
+    bot.add_cog(Functions(bot))
