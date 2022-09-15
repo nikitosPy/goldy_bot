@@ -14,7 +14,7 @@ import os #Тоже генераторы
 import logging
 pretty_errors.activate()
 from config import prefix, intents, token
-async def load_extensions():
+def load_extensions():
     for filename in os.listdir("./commands"):
          if filename.endswith(".py"):
             bot.load_extension(f"commands.{filename[:-3]}")
@@ -34,7 +34,7 @@ class GoldyBot(commands.Bot):
                          case_insensitive = True)
     async def on_ready(self):
         await self.wait_until_ready()	
-        await load_extensions()
+        load_extensions()
         print("ready!")
     async def setup_hook(self):
         try:
@@ -58,7 +58,7 @@ logger.addHandler(handler)
 async def reload(ctx):
     if ctx.author.id == bot.owner_id:
         async with ctx.typing():
-            await load_extensions()
+            load_extensions()
         await ctx.send("logs updated")
     else:
         await ctx.send("Не похож ты на моего разработчика...")
