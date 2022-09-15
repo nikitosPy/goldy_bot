@@ -42,6 +42,7 @@ class GoldyBot(commands.Bot):
             print('sync')
 
 bot = GoldyBot()
+bot.remove_command('help')
 #Создание бота
 ### ?
 #Логи discord
