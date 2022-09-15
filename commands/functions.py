@@ -15,7 +15,7 @@ class Functions(commands.Cog):
     async def translate(self, ctx: commands.Context, *, words):
          trans = translator.translate(words)
          await ctx.send(trans)
-    @commands.hybrid_command(name = "botecho", with_app_command = True)
+    @commands.command()
     async def botecho(self, ctx: commands.Context, member: str, *, content: str):
         
         await ctx.message.delete()
@@ -32,5 +32,5 @@ class Functions(commands.Cog):
         await webhook.send(
             content=content, username=member, avatar_url = avatar_url
         )
-async def setup(bot):
+def setup(bot):
     await bot.add_cog(Functions(bot))
