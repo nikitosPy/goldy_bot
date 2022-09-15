@@ -20,7 +20,7 @@ class Info(commands.Cog):
         await ctx.send(f'Задержка бота: {round(self.bot.latency*1000)/1000} секунд')
     @commands.command()
     async def help(self, ctx: commands.Context):
-        title = 'Команды Бота'
+        title = 'Меню помощи'
         emb = discord.Embed(
             title = title)
         emb.add_field(name="🆘️ help", value = "Покажет это сообщение", inline = True)
@@ -42,7 +42,7 @@ class Info(commands.Cog):
         emb.set_author(name=ctx.author.display_name, icon_url=ctx.author.avatar.url)
         emb.set_thumbnail(url=self.bot.user.avatar.url)
         emb.timestamp = datetime.datetime.utcnow()
-        emb.set_footer(text=ctx.author.name)
+        emb.set_footer(text=self.bot.user.name)
         
         await ctx.send(embed = emb)
     @commands.command()
