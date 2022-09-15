@@ -2,6 +2,7 @@ py-cord
 py-cord[voice]
 py-cord[speed]
 Cybernator
+pretty-errors
 rapidfuzz
 fuzzywuzzy
 pillow
