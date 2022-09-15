@@ -39,7 +39,7 @@ class Info(commands.Cog):
         emb.add_field(name = "🎲 random", value = "Случайное число", inline = True)
         emb.add_field(name = "❓ bug", value = "Репорт о баге", inline = True)
         
-        emb.set_author(name=ctx.author.display_name, icon_url=ctx.author.avatar_url)
+        emb.set_author(name=ctx.author.display_name, icon_url=ctx.author.avatar.url)
         emb.set_thumbnail(url=self.bot.avatar.url)
         emb.set_footer(ctx.author.name)
         emb.timestamp = datetime.datetime.utcnow()
