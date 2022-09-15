@@ -22,7 +22,7 @@ class Info(commands.Cog):
         title = 'Команды Бота'
         emb1 = discord.Embed(
             title = title)
-        emb1.add_field(name="🆘️ help", value = "test1", inline=True)
+        emb1.add_field(name="🆘️ help", value = "test1", inline=False)
         emb1.add_field(name = "🏓 ping", value = "test2", inline = True)
         emb1.add_field(name = "🗣 botecho", value = "test3", inline = True)
         await ctx.send(embed = emb1)
