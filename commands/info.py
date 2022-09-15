@@ -42,6 +42,7 @@ class Info(commands.Cog):
         emb.set_author(name=ctx.author.display_name, icon_url=ctx.author.avatar.url)
         emb.set_thumbnail(url=self.bot.user.avatar.url)
         emb.timestamp = datetime.datetime.utcnow()
+        emb.set_footer(text=ctx.author.name)
         
         await ctx.send(embed = emb)
     @commands.command()
