@@ -36,6 +36,12 @@ class Info(commands.Cog):
         
         emb.add_field(name = "🎴 coin", value = "Подбросить монетку", inline = True)
         emb.add_field(name = "🎲 random", value = "Случайное число", inline = True)
+        emb.add_field(name = "❓ bug", value = "Репорт о баге", inline = True)
         await ctx.send(embed = emb)
+    @commands.command()
+    async def bug(self, ctx: commands.Context, *, bug):
+        async with ctx.typing():
+            await self.bot.get_user(self.bot.owner_id).send(bug)
+        await ctx.send(f'Отчёт о баге отправлен \n{bug}')
 def setup(bot):
     bot.add_cog(Info(bot))
