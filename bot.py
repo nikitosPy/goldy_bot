@@ -12,6 +12,7 @@ except:
     os.system("pip install -r requirements.txt")
 import os #Тоже генераторы
 import logging
+pretty_errors.activate()
 from config import prefix, intents, token
 async def load_extensions():
     for filename in os.listdir("./commands"):
