@@ -1,18 +1,17 @@
 print("Запуск...") 
 ###
-def importall():
+try:
     import discord #Создание Клиента
     from discord.ext import commands #Команды
-    import os #Тоже генераторы
-    import logging
+    
     from typing import List
     import asyncio
-try: 
-    importall()
+
 except:
     import os
     os.system("pip install -r requirements.txt")
-    importall()
+import os #Тоже генераторы
+import logging
 from config import prefix, intents, token
 async def load_extensions():
     for filename in os.listdir("./commands"):
