@@ -12,7 +12,7 @@ try:
 except:
     import os
     os.system("pip install -r requirements.txt")
-    imporr all()
+    importall()
 from config import prefix, intents, token
 async def load_extensions():
     for filename in os.listdir("./commands"):
