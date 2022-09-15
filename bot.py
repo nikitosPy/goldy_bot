@@ -23,21 +23,7 @@ async def load_extensions():
     for filename in os.listdir("./ecogoldy"):
          if filename.endswith(".py"):
             await bot.load_extension(f"ecogoldy.{filename[:-3]}")
-class MyContext(commands.Context):
-    async def tick(self, value):
-        # reacts to the message with an emoji
-        # depending on whether value is True or False
-        # if its True, it'll add a green check mark
-        # otherwise, it'll add a red cross mark
-        emoji = '\N{WHITE HEAVY CHECK MARK}' if value else '\N{CROSS MARK}'
-        try:
-            # this will react to the command author's message
-            await self.message.add_reaction(emoji)
-        except discord.HTTPException:
-            # sometimes errors occur during this, for example
-            # maybe you don't have permission to do that
-            # we don't mind, so we can just ignore them
-            pass
+
 
 
 class GoldyBot(commands.Bot):
@@ -54,11 +40,7 @@ class GoldyBot(commands.Bot):
             await self.tree.sync()
         except:
             print('sync')
-    async def get_context(self, message, *, cls=MyContext):
-        # when you override this method, you pass your new Context
-        # subclass to the super() method, which tells the bot to
-        # use the new MyContext class
-        return await super().get_context(message, cls=cls)
+
 bot = GoldyBot()
 #Создание бота
 ### ?
