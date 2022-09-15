@@ -33,6 +33,9 @@ class Info(commands.Cog):
         emb.add_field(name = "🐸 cat/dog/fox/pikachu/panda/koala", value = "Случайное фото  животного", inline = True)
         emb.add_field(name = "🤡 joke", value = "Случайная шутка", inline = True)
         emb.add_field(name = "👑 role", value = "Получение личной роли", inline = True)
+        
+        emb.add_field(name = "🎴 coin", value = "Подбросить монетку", inline = True)
+        emb.add_field(name = "🎲 random", value = "Случайное число", inline = True)
         await ctx.send(embed = emb)
 def setup(bot):
     bot.add_cog(Info(bot))
