@@ -1,7 +1,8 @@
 import discord
 from discord.ext import commands
 import datetime
-from discord.ui import Button, View, ButtonStyle
+from discord.ui import Button, View
+from discord import ButtonStyle
 from config import *
 class Info(commands.Cog):
     def __init__(self, bot):
@@ -46,7 +47,7 @@ class Info(commands.Cog):
         emb.set_footer(text=self.bot.user.name)
         
         view = View()
-        button =Button(label = 'test', style = ButtonStyle.grey)
+        button =Button(label = 'test', style = ButtonStyle.gray)
         view.add_item(button)
         
         await ctx.send(embed = emb, view = view)
