@@ -16,7 +16,7 @@ pretty_errors.activate()
 from config import prefix, intents, token
 def load_extensions():
     for filename in os.listdir("./commands"):
-         if filename.endswith(".py"):
+         if filename.endswith(".py") and not filename.startswith('view'):
             bot.load_extension(f"commands.{filename[:-3]}")
     for filename in os.listdir("./events"):
          if filename.endswith(".py"):
