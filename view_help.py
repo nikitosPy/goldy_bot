@@ -8,11 +8,11 @@ class Select(discord.ui.Select):
             discord.SelectOption(label="Полезные Функции",emoji="🤔",description="Очень полезные!"),
             discord.SelectOption(label="Экономика",emoji= "💰",description="Команды для бизнеса!")
             ]
-        super().__init__(placeholder="Select an option",max_values=1,min_values=1,options=options)
+        super().__init__(placeholder="Выберите категорию...",max_values=1,min_values=1,options=options)
     async def callback(self, interaction: discord.Interaction):
         if self.values[0] == "Весёлости":
             await interaction.response.send_message("Команды веселья!", ephemeral=True)
-        elif self.values[0] == "Полезные функции":
+        elif self.values[0] == "Полезные Функции":
             await interaction.response.send_message("Полезные функции!",ephemeral=True)
         elif self.values[0] == "Экономика":
             await interaction.response.send_message("Бизнес!",ephemeral=True)
