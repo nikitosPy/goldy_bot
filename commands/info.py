@@ -3,7 +3,7 @@ from discord.ext import commands
 import datetime
 from discord.ui import Button, View
 from discord import ButtonStyle
-import help
+import view.help
 from config import *
 class Info(commands.Cog):
     def __init__(self, bot):
@@ -48,7 +48,7 @@ class Info(commands.Cog):
         emb.set_footer(text=self.bot.user.name)
 
 
-        await ctx.send(embed = emb, view = help.SelectView())
+        await ctx.send(embed = emb, view = view.help.SelectView())
     @commands.command()
     async def bug(self, ctx: commands.Context, *, bug):
         async with ctx.typing():
