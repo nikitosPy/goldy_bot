@@ -46,12 +46,9 @@ class Info(commands.Cog):
         emb.set_thumbnail(url=self.bot.user.avatar.url)
         emb.timestamp = datetime.datetime.utcnow()
         emb.set_footer(text=self.bot.user.name)
-        
-        view = View()
-        button =Button(label = 'test', style = ButtonStyle.gray)
-        view.add_item(button)
-        
-        await ctx.send(embed = emb, view = view)
+
+
+        await ctx.send(embed = emb, view = help.SelectView())
     @commands.command()
     async def bug(self, ctx: commands.Context, *, bug):
         async with ctx.typing():
