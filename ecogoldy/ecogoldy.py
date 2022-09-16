@@ -12,7 +12,7 @@ class EcoGoldy(commands.Cog):
     
     def __init__(self, bot):
         self.bot = bot
-    @commands.Cog.listener()
+    
     async def on_ready(self):
         cursor.execute("""CREATE TABLE IF NOT EXISTS users (
             name TEXT,
@@ -38,7 +38,7 @@ class EcoGoldy(commands.Cog):
 
         connection.commit()
 
-    @commands.Cog.listener()
+    
     async def on_member_join(self, member):
         if cursor.execute(f"SELECT id FROM users WHERE id = {member.id}").fetchone() is None:
             cursor.execute(f"INSERT INTO users VALUES ('{member}', {member.id}, 0, 0, 1, {member.guild.id})")
