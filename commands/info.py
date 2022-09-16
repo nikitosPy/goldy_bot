@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 import datetime
-from discord. uiimport Button, View
+from discord.ui import Button, View, ButtonStyle
 from config import *
 class Info(commands.Cog):
     def __init__(self, bot):
@@ -44,9 +44,12 @@ class Info(commands.Cog):
         emb.set_thumbnail(url=self.bot.user.avatar.url)
         emb.timestamp = datetime.datetime.utcnow()
         emb.set_footer(text=self.bot.user.name)
-        button = Button(label = 'test')
-        await ctx.send(embed = emb, view = View())
-      c view.add_item(button)
+        
+        view = View()
+        button =Button(label = 'test', style = ButtonStyle.grey)
+        view.add_item(button)
+        
+        await ctx.send(embed = emb, view = view)
     @commands.command()
     async def bug(self, ctx: commands.Context, *, bug):
         async with ctx.typing():
