@@ -6,40 +6,15 @@ import random
 import sqlite3
 from rapidfuzz import fuzz, process
 class Message(commands.Cog):
-    global admin_connected
-    admin_connected = False
     ##
     def __init__(self, bot):
         self.bot = bot
-    @commands.command()
-    async def ticket(self, ctx: commands.Context):
-        channel = await ctx.guild.create_text_channel(f"ticket")
-        admin_connected = True
-    @commands.command()
-    async def close(self, ctx: commands.Context):
-        await discord.utils.get(ctx.guild.channels, name=f"ticket").delete()
-        admin_connected = False
     @commands.Cog.listener()
     async def on_message(self, message):
         admin1 = self.bot.get_user(self.bot.owner_id)
         admin2 = self.bot.get_user(goldy)
         if message.author == self.bot.user: 
             return
-        elif isinstance(message.channel,discord.DMChannel):
-            if admin_connected:
-                channel = discord.utils.get(self.bot.get_all_channels(), name="ticket")
-                await channel.send(f"**{message.author.name}**: {message.content}")
-            else:
-                await message.channel.send("Создаю сессию...")
-                global amogus
-                amogus = message.author.id
-                await message.channel.send(f"Вы создали тикет. Ожидайте связи с оператором")  
-            
-        elif message.channel.name.startswith("ticket"):
-            try:
-              await self.bot.get_user(amogus).send(f"**{message.author.name}**: {message.content}")
-            except:
-              pass
         elif self.bot.user.mention in message.content:
             await message.channel.send(f"""
 Привет! Я бот {self.bot.user.name}!
