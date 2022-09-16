@@ -3,6 +3,7 @@ from discord.ext import commands
 import datetime
 from discord.ui import Button, View
 from discord import ButtonStyle
+import help
 from config import *
 class Info(commands.Cog):
     def __init__(self, bot):
