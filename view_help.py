@@ -13,7 +13,7 @@ class Select(discord.ui.Select):
         if self.values[0] == "Весёлости":
             await interaction.response.send_message("Команды веселья!", ephemeral=True)
         elif self.values[0] == "Полезные Функции":
-            await interaction.response.send_message("Полезные функции!",ephemeral=True)
+            await interaction.response.send_message("Полезные функции! \n- 🗣 botecho: Сказать от имени бота \n- 🇬🇧 translate: Перевод фразы \n- 🧹 clear: Чистка сообщений в чате",ephemeral=True)
         elif self.values[0] == "Экономика":
             await interaction.response.send_message("Бизнес!",ephemeral=True)
 
