@@ -7,7 +7,7 @@ try:
     import pretty_errors
     from typing import List
     import asyncio
-
+    import youtube_dl
 except:
     import os
     os.system("pip install -r requirements.txt")
