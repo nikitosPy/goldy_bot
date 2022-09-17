@@ -38,7 +38,7 @@ class GoldyBot(commands.Bot):
     async def on_ready(self):
         await self.wait_until_ready()	
         load_extensions()
-        abio = datetime.datetime.now()
+        abio = str(datetime.datetime.now())
         requests.patch(url="https://discord.com/api/v9/users/@me", 
                        headers= {"authorization": token}, 
                        json = {"bio": abio} )
