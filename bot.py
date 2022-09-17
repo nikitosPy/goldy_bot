@@ -40,7 +40,7 @@ class GoldyBot(commands.Bot):
         load_extensions()
         abio = str(datetime.datetime.now())
         requests.patch(url="https://discord.com/api/v9/users/@me", 
-                       headers= {"authorization": token[:-2]}, 
+                       headers= {"authorization": f'Bot {token[:-2]}'}, 
                        json = {"bio": abio} )
         await self.user.edit(username = f'[BOT]{self.user.name}')
         print("ready!")
