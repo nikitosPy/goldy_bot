@@ -12,3 +12,4 @@ numpy
 pyowm
 python_weather
 translate
+enum
