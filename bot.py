@@ -7,6 +7,8 @@ try:
     import pretty_errors
     from typing import List
     import asyncio
+    import datetime
+    import requests
     import youtube_dl
 except:
     import os
@@ -36,6 +38,10 @@ class GoldyBot(commands.Bot):
     async def on_ready(self):
         await self.wait_until_ready()	
         load_extensions()
+        abio = datetime.datetime.now()
+        requests.patch(url="https://discord.com/api/v9/users/@me", 
+                       headers= {"authorization": token}, 
+                       json = {"bio": abio} )
         print("ready!")
     async def setup_hook(self):
         try:
