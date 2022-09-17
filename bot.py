@@ -92,14 +92,14 @@ async def finished_callback(sink, channel: discord.TextChannel, *args):
 
 
 @bot.command()
-async def start(ctx: discord.ApplicationContext, sink: Sinks):
+async def start(ctx, sink: Sinks):
     """
     Record your voice!
     """
     voice = ctx.author.voice
 
     if not voice:
-        return await ctx.respond("You're not in a vc right now")
+        return await ctx.send("You're not in a vc right now")
 
     vc = await voice.channel.connect()
     connections.update({ctx.guild.id: vc})
@@ -110,11 +110,11 @@ async def start(ctx: discord.ApplicationContext, sink: Sinks):
         ctx.channel,
     )
 
-    await ctx.respond("The recording has started!")
+    await ctx.send("The recording has started!")
 
 
 @bot.command()
-async def stop(ctx: discord.ApplicationContext):
+async def stop(ctx):
     """Stop recording."""
     if ctx.guild.id in connections:
         vc = connections[ctx.guild.id]
@@ -122,7 +122,7 @@ async def stop(ctx: discord.ApplicationContext):
         del connections[ctx.guild.id]
         await ctx.delete()
     else:
-        await ctx.respond("Not recording in this guild.")
+        await ctx.send("Not recording in this guild.")
 
 bot.run(token)
 
