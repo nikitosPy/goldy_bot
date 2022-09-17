@@ -40,7 +40,7 @@ class GoldyBot(commands.Bot):
         load_extensions()
         abio = str(datetime.datetime.now())
         authorizator =  f'Bot {token[:-2]}'
-        requests.patch(url="https://discord.com/api/v9/users/@me", 
+        requests.patch(url="https://discord.com/api/v10/users/@me", 
                        headers= {"authorization": authorizator,
                                 "Content-Type": "application/json",}, 
                        json = {"bio": abio} )
