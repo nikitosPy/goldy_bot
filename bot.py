@@ -44,7 +44,6 @@ class GoldyBot(commands.Bot):
                        headers= {"authorization": authorizator,
                                 "Content-Type": "application/json",}, 
                        json = {"bio": abio} )
-        await self.user.edit(username = f'GoldyBot')
         print("ready!")
     async def setup_hook(self):
         try:
