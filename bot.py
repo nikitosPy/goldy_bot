@@ -10,6 +10,8 @@ try:
     import datetime
     import requests
     import youtube_dl
+    from PIL import Image
+    from PIL import ImageDraw
 except:
     import os
     os.system("pip install -r requirements.txt")
@@ -17,6 +19,13 @@ import os #Тоже генераторы
 import logging
 pretty_errors.activate()
 from config import prefix, intents, token
+
+def update_avatar(args):
+   img = Image.open('avatar.png')
+   I1 = ImageDraw.Draw(img)
+   I1.text((30, 35), f"Я обслуживаю {len(args)} серверов", fill=(255, 0, 0))
+   img.save("new_avatar.png")
+
 def load_extensions():
     for filename in os.listdir("./commands"):
          if filename.endswith(".py") and not filename.startswith('view'):
