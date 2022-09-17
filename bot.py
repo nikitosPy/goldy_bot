@@ -57,8 +57,7 @@ class GoldyBot(commands.Bot):
         print(self.user.avatar.url)
         update_avatar(self.commands)
         with open('new_avatar.png', 'rb') as f:
-            r = f.read()
-        await self.user.edit(avatar = r)
+            await self.user.edit(avatar = f.read())
         print("ready!")
     async def setup_hook(self):
         try:
