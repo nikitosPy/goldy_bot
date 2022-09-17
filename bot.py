@@ -102,6 +102,17 @@ handler = logging.FileHandler(filename='disnake.log', encoding='utf-8', mode='w'
 handler.setFormatter(logging.Formatter('%(asctime)s:%(levelname)s:%(name)s: %(message)s'))
 logger.addHandler(handler)
 
+@commands.command()
+async def play(ctx, *, url: str):
+    async with ctx.typing():
+        player = await YTDLSource.from_url(url, loop=self.bot.loop, stream=True)
+        ctx.voice_client.play(player, after=lambda e: print(f"Player error: {e}") if e else None)
+    await ctx.send(f"Now playing: {player.title}")
+
+
+
+
+
 #Reload
 @bot.command()
 async def reload(ctx):
