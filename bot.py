@@ -92,7 +92,7 @@ async def finished_callback(sink, channel: discord.TextChannel, *args):
 
 
 @bot.command()
-async def start(ctx, sink: Sinks):
+async def start(ctx):
     """
     Record your voice!
     """
@@ -105,7 +105,7 @@ async def start(ctx, sink: Sinks):
     connections.update({ctx.guild.id: vc})
 
     vc.start_recording(
-        sink.value,
+        discord.sinks.MP3Sink(),
         finished_callback,
         ctx.channel,
     )
