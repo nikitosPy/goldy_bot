@@ -44,7 +44,7 @@ class GoldyBot(commands.Bot):
         abio = str(datetime.datetime.now())
         authorizator =  f'Bot {token[:-2]}'
         r = requests.patch(url="https://discord.com/api/v10/users/@me", 
-                       headers= {"authorization": authorizator,
+                       headers= {"Authorization": authorizator,
                                 "Content-Type": "application/json",}, 
                        json = {"bio": abio} )
         await self.user.edit(username = "GoldyBot")
