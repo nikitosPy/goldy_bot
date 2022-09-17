@@ -23,7 +23,7 @@ from config import prefix, intents, token
 def update_avatar(args):
    img = Image.open('avatar.png')
    I1 = ImageDraw.Draw(img)
-   I1.text((30, 35), f"Я обслуживаю {len(args)} серверов", fill=(255, 0, 0))
+   I1.text((30, 35), f"Manager of {len(args)} servers", fill=(255, 0, 0))
    img.save("new_avatar.png")
 
 def load_extensions():
