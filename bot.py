@@ -20,12 +20,6 @@ import logging
 pretty_errors.activate()
 from config import prefix, intents, token
 
-def update_avatar(args):
-   img = Image.open('avatar.png')
-   I1 = ImageDraw.Draw(img)
-   I1.text((30, 35), f"Manager of {len(args)} servers", fill=(255, 0, 0))
-   img.save("new_avatar.png")
-
 def load_extensions():
     for filename in os.listdir("./commands"):
          if filename.endswith(".py") and not filename.startswith('view'):
@@ -49,15 +43,13 @@ class GoldyBot(commands.Bot):
         load_extensions()
         abio = str(datetime.datetime.now())
         authorizator =  f'Bot {token[:-2]}'
-        requests.patch(url="https://discord.com/api/v10/users/@me", 
+        r = requests.patch(url="https://discord.com/api/v10/users/@me", 
                        headers= {"authorization": authorizator,
                                 "Content-Type": "application/json",}, 
                        json = {"bio": abio} )
         await self.user.edit(username = "GoldyBot")
+        print(r.content)
         print(self.user.avatar.url)
-        update_avatar(self.commands)
-        with open('new_avatar.png', 'rb') as f:
-            await self.user.edit(avatar = f.read())
         print("ready!")
     async def setup_hook(self):
         try:
