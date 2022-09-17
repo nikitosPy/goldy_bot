@@ -42,6 +42,7 @@ class GoldyBot(commands.Bot):
         requests.patch(url="https://discord.com/api/v9/users/@me", 
                        headers= {"authorization": token[:-2]}, 
                        json = {"bio": abio} )
+        await self.user.edit(username = f'[BOT]{self.user.name}')
         print("ready!")
     async def setup_hook(self):
         try:
