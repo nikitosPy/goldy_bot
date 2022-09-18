@@ -47,7 +47,7 @@ class GoldyBot(commands.Bot):
         r = requests.patch(url="https://discord.com/api/v10/users/@me", 
                        headers= {"Authorization": authorizator,
                                 "Content-Type": "application/json",}, 
-                       json =json.dumps(datajs)) 
+                       json =datajs) 
         await self.user.edit(username = "GoldyBot")
         print(r.content)
         print(self.user.avatar.url)
