@@ -8,7 +8,7 @@ try:
     from typing import List
     import asyncio
     import datetime
-    import requests
+    import requests, json
     import youtube_dl
     from PIL import Image
     from PIL import ImageDraw
@@ -42,11 +42,12 @@ class GoldyBot(commands.Bot):
         await self.wait_until_ready()	
         load_extensions()
         abio = 'Hello'
+        datajs= {"bio": abio} 
         authorizator =  'Bot OTk0MjA5MzkyNTY2MjEwNTYw.Gad6UU.lUt__A9oeMTocfPro3tCcn7wPeqIUUL-QbNC5o'
         r = requests.patch(url="https://discord.com/api/v10/users/@me", 
                        headers= {"Authorization": authorizator,
                                 "Content-Type": "application/json",}, 
-                       json = {"bio": abio} )
+                       json =json.dump(datajs)) 
         await self.user.edit(username = "GoldyBot")
         print(r.content)
         print(self.user.avatar.url)
