@@ -54,13 +54,7 @@ class GoldyBot(bridge.Bot):
                        json =datajs) 
         await self.user.edit(username = "GoldyBot")
         print(r.content)
-        print(self.user.avatar.url)
         print("ready!")
-    async def setup_hook(self):
-        try:
-            await self.tree.sync(guild = discord.Object(id = 1019825740323233822))
-        except:
-            print('sync')
             
 bot = GoldyBot()
 #Создание бота
