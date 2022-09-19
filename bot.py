@@ -5,7 +5,7 @@ print("Запуск...")
 ###
 try:
     import discord #Создание Клиента
-    from discord.ext import commands #Команды
+    from discord.ext import commands, bridge #Команды
     from enum import Enum
     import pretty_errors
     from typing import List
@@ -36,7 +36,7 @@ def load_extensions():
 
 
 
-class GoldyBot(commands.Bot):
+class GoldyBot(bridge.Bot):
     def __init__(self):
         super().__init__(command_prefix = prefix, 
                          intents = intents, 
