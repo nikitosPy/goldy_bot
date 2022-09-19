@@ -51,7 +51,7 @@ load_exts()
 #Логи discord
 logger = logging.getLogger('discord')
 logger.setLevel(logging.INFO)
-handler = logging.FileHandler(filename='disnake.log', encoding='utf-8', mode='w')
+handler = logging.FileHandler(filename='pycord.log', encoding='utf-8', mode='w')
 handler.setFormatter(logging.Formatter('%(name)s: %(message)s'))
 logger.addHandler(handler)
 
