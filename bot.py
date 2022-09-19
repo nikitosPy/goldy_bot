@@ -1,5 +1,3 @@
-from os import system as clearer
-clearer("clear")
 
 print("Запуск...") 
 ###
@@ -44,16 +42,6 @@ class GoldyBot(bridge.Bot):
                 help_command = None)
     async def on_ready(self):
         await self.wait_until_ready()	
-        
-        abio = 'Hello'
-        datajs= {"bio": abio} 
-        authorizator =  'Bot OTk0MjA5MzkyNTY2MjEwNTYw.Gad6UU.lUt__A9oeMTocfPro3tCcn7wPeqIUUL-QbNC5o'
-        r = requests.patch(url="https://discord.com/api/v10/users/@me", 
-                       headers= {"Authorization": authorizator,
-                                "Content-Type": "application/json",}, 
-                       json =datajs) 
-        await self.user.edit(username = "GoldyBot")
-        print(r.content)
         print("ready!")
             
 bot = GoldyBot()
@@ -64,7 +52,7 @@ load_exts()
 logger = logging.getLogger('discord')
 logger.setLevel(logging.INFO)
 handler = logging.FileHandler(filename='disnake.log', encoding='utf-8', mode='w')
-handler.setFormatter(logging.Formatter('%(asctime)s:%(levelname)s:%(name)s: %(message)s'))
+handler.setFormatter(logging.Formatter('%(name)s: %(message)s'))
 logger.addHandler(handler)
 
 #
