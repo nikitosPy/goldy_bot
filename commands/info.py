@@ -21,7 +21,7 @@ class Info(commands.Cog):
     @bridge.bridge_command()
     async def ping(self, ctx: bridge.BridgeContext):
         await ctx.send(f'Задержка бота: {round(self.bot.latency*1000)/1000} секунд')
-    @bridge.bridge_command()
+    @bridge.bridge_command(name = 'help', description = 'Меню помощи')
     async def help(self, ctx: bridge.BridgeContext):
         title = 'Меню помощи'
         emb = discord.Embed(
