@@ -1,5 +1,6 @@
 import discord
 from discord.ext.commands import Context, Cog
+from discord.ext import commands
 class Reload(Cog):
   def __init__(self, bot):
     self.bot = bot
