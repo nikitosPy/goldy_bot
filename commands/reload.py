@@ -1,10 +1,10 @@
 import discord
 from discord.ext.commands import Context, Cog
-from discord.ext import commands
+from discord.ext import commands, bridge
 class Reload(Cog):
   def __init__(self, bot):
     self.bot = bot
-  @commands.bridge_command(name = 'reload', with_app_command = True)
+  @bridge.bridge_command(name = 'reload', with_app_command = True)
   async def reload(self, ctx: Context):
     if ctx.author.id == bot.owner_id:
         async with ctx.typing():
