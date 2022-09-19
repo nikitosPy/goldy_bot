@@ -1,5 +1,5 @@
 import discord
-from discord.ext import commands
+from discord.ext import commands, bridge
 import datetime
 from discord.ui import Button, View
 from discord import ButtonStyle
@@ -18,11 +18,11 @@ class Info(commands.Cog):
     async def botcommands(self, ctx: commands.Context):
         cmnds = '\n- '.join([c.name for c in self.bot.commands])
         await ctx.send(f"```\n{cmnds}\n```")
-    @commands.command()
-    async def ping(self, ctx: commands.Context):
+    @bridge.bridge_command()
+    async def ping(self, ctx: bridge.BridgeContext):
         await ctx.send(f'Задержка бота: {round(self.bot.latency*1000)/1000} секунд')
-    @commands.command()
-    async def help(self, ctx: commands.Context):
+    @bridge.bridge_command()
+    async def help(self, ctx: bridge.BridgeContext):
         title = 'Меню помощи'
         emb = discord.Embed(
             title = title)
