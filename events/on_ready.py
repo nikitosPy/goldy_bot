@@ -8,7 +8,7 @@ start = round(time.time())
 class Ready(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
-    @commands.Cog.listener()
+    @commands.Cog.listener('on_ready')
     async def on_ready(self):
         print('Бот запущен!')
         print('Готов под именем ---->', self.bot.user)
