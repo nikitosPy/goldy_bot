@@ -5,7 +5,7 @@ class Reload(Cog):
   def __init__(self, bot):
     self.bot = bot
   @bridge.bridge_command(name = 'reload', with_app_command = True)
-  async def reload(self, ctx: Context):
+  async def reload(self, ctx: bridge.BridgeContext):
     if ctx.author.id == self.bot.owner_id:
         async with ctx.typing():
             load_extensions()
