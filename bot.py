@@ -58,7 +58,7 @@ class GoldyBot(commands.Bot):
         print("ready!")
     async def setup_hook(self):
         try:
-            await self.tree.sync()
+            await self.tree.sync(guild = discord.Object(id = 1019825740323233822))
         except:
             print('sync')
             
