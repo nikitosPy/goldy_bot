@@ -1,3 +1,6 @@
+from os import system as clearer
+clearer("clear")
+
 print("Запуск...") 
 ###
 try:
