@@ -37,7 +37,8 @@ class GoldyBot(commands.Bot):
     def __init__(self):
         super().__init__(command_prefix = prefix, 
                          intents = intents, 
-                         case_insensitive = True)
+                         case_insensitive = True, 
+                help_command = None)
     async def on_ready(self):
         await self.wait_until_ready()	
         load_extensions()
@@ -59,7 +60,6 @@ class GoldyBot(commands.Bot):
             print('sync')
             
 bot = GoldyBot()
-bot.remove_command('help')
 #Создание бота
 ### ?
 #Логи discord
