@@ -69,15 +69,6 @@ handler = logging.FileHandler(filename='disnake.log', encoding='utf-8', mode='w'
 handler.setFormatter(logging.Formatter('%(asctime)s:%(levelname)s:%(name)s: %(message)s'))
 logger.addHandler(handler)
 
-#Reload
-@bot.hybrid_command(name = 'reload', with_app_command = True)
-async def reload(ctx):
-    if ctx.author.id == bot.owner_id:
-        async with ctx.typing():
-            load_extensions()
-        await ctx.send("logs updated")
-    else:
-        await ctx.send("Не похож ты на моего разработчика...")
 #
 
 bot.run(token)
