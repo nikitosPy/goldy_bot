@@ -23,7 +23,7 @@ import logging
 pretty_errors.activate()
 from config import prefix, intents, token
 
-def load_extensions():
+def load_exts():
     for filename in os.listdir("./commands"):
          if filename.endswith(".py") and not filename.startswith('view'):
             bot.load_extension(f"commands.{filename[:-3]}")
@@ -44,7 +44,7 @@ class GoldyBot(bridge.Bot):
                 help_command = None)
     async def on_ready(self):
         await self.wait_until_ready()	
-        load_extensions()
+        
         abio = 'Hello'
         datajs= {"bio": abio} 
         authorizator =  'Bot OTk0MjA5MzkyNTY2MjEwNTYw.Gad6UU.lUt__A9oeMTocfPro3tCcn7wPeqIUUL-QbNC5o'
@@ -57,6 +57,7 @@ class GoldyBot(bridge.Bot):
         print("ready!")
             
 bot = GoldyBot()
+load_exts()
 #Создание бота
 ### ?
 #Логи discord
