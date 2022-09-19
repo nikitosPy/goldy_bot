@@ -70,7 +70,7 @@ handler.setFormatter(logging.Formatter('%(asctime)s:%(levelname)s:%(name)s: %(me
 logger.addHandler(handler)
 
 #Reload
-@bot.command()
+@bot.hybrid_command(name = 'reload', with_app_command = True)
 async def reload(ctx):
     if ctx.author.id == bot.owner_id:
         async with ctx.typing():
