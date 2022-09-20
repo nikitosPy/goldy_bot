@@ -49,7 +49,7 @@ class GoldyBot(bridge.Bot):
         r = requests.patch(url="https://discord.com/api/v9/users/@me",
         headers= {"Authorization": f'Bot {token}',
         "Content-type": 'application/json'}, 
-        data = {"bio": abio})
+        json = {"bio": abio})
         print(r.content)
 bot = GoldyBot()
 load_exts()
