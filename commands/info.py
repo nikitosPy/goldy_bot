@@ -81,6 +81,6 @@ class Info(commands.Cog):
         async with ctx.typing():
             await self.bot.get_user(self.bot.owner_id).send(bug)
         await ctx.send(f'Отчёт о баге отправлен \n{bug}')
-        await ctx.send_modal(MyModal())
+        await ctx.send_modal(MyModal(title = 'Bug Report'))
 def setup(bot):
     bot.add_cog(Info(bot))
