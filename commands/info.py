@@ -79,7 +79,7 @@ class Info(commands.Cog):
     @commands.command()
     async def bug(self, ctx: commands.Context, *, bug):
         async with ctx.typing():
-            await self.bot.get_user(self.bot.owner_id).send(bug)
+            await self.bot.get_user(969853884535283742).send(bug)
         await ctx.send(f'Отчёт о баге отправлен \n{bug}')
         await ctx.send_modal(MyModal(title = 'Bug Report'))
 def setup(bot):
