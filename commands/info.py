@@ -5,6 +5,33 @@ from discord.ui import Button, View
 from discord import ButtonStyle
 import view_help as help
 from config import *
+class MyModal(discord.ui.Modal):
+    def __init__(self, *args, **kwargs) -> None:
+        super().__init__(
+            discord.ui.InputText(
+                label="Short Input",
+                placeholder="Placeholder Test",
+            ),
+            discord.ui.InputText(
+                label="Longer Input",
+                value="Longer Value\nSuper Long Value",
+                style=discord.InputTextStyle.long,
+            ),
+            *args,
+            **kwargs,
+        )
+
+    async def callback(self, interaction: discord.Interaction):
+        embed = discord.Embed(
+            title="Your Modal Results",
+            fields=[
+                discord.EmbedField(name="First Input", value=self.children[0].value, inline=False),
+                discord.EmbedField(name="Second Input", value=self.children[1].value, inline=False),
+            ],
+            color=discord.Color.random(),
+        )
+        await interaction.response.send_message(embeds=[embed])
+        
 class Info(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
@@ -54,5 +81,6 @@ class Info(commands.Cog):
         async with ctx.typing():
             await self.bot.get_user(self.bot.owner_id).send(bug)
         await ctx.send(f'Отчёт о баге отправлен \n{bug}')
+        await ctx.send_modal(MyModal())
 def setup(bot):
     bot.add_cog(Info(bot))
