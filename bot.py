@@ -51,6 +51,10 @@ class GoldyBot(bridge.Bot):
         "Content-type": 'application/json'}, 
         json = {"bio": abio})
         print(r.content)
+    async def on_command_completion(self, ctx):
+        await ctx.message.add_reaction('✅')
+    async def on_command_error(self, ctx, error):
+        await ctx.message.add_reaction('❎')
 bot = GoldyBot()
 load_exts()
 #Создание бота
