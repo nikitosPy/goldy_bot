@@ -3,6 +3,7 @@ from discord.ext import commands
 import json, aiohttp
 joke = 'https://geek-jokes.sameerkumar.website/api?format=json'
 from translate import Translator
+from easy_pil import Editor, load_image
 translator= Translator(to_lang="ru")
 class Fun(commands.Cog):
     def __init__(self, bot):
@@ -57,16 +58,16 @@ class Fun(commands.Cog):
         background.ellipse((325, 90), 150, 150, outline="gold", stroke_width=4)
         background.text((400, 260), "WELCOME", color="white", font=poppins, align="center")
         background.text(
-    (400, 325), "Shahriyar#9770", color="white", font=poppins_small, align="center"
+    (400, 325), ctx.author.name, color="white", font=poppins_small, align="center"
 )
         background.text(
     (400, 360),
-    "You are the 457th Member",
+    "You are the Member",
     color="#0BE7F5",
     font=poppins_small,
     align="center",
 )
-        awwit ctx.send(file = discord.File(fp=background)
+        awwit ctx.send(file = discord.File(fp=background.image_bytes, filename = 'user.png')
         
 def setup(bot):
     bot.add_cog(Fun(bot))
