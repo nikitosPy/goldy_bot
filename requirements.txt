@@ -13,3 +13,4 @@ pyowm
 python_weather
 translate
 youtube_dl
+easy_pil
