@@ -3,7 +3,7 @@ from discord.ext import commands
 import json, aiohttp
 joke = 'https://geek-jokes.sameerkumar.website/api?format=json'
 from translate import Translator
-from easy_pil import Editor, load_image
+from easy_pil import Editor, load_image, Font
 translator= Translator(to_lang="ru")
 class Fun(commands.Cog):
     def __init__(self, bot):
@@ -47,7 +47,7 @@ class Fun(commands.Cog):
     @commands.command()
     async def user(self, ctx: commands.Context):
         background = Editor("wlcbg.jpg")
-        profile_image = load_image(str(ctx.author.avatar_url))
+        profile_image = load_image(str(ctx.author.avatar.url))
         profile = Editor(profile_image).resize((150, 150)).circle_image()
 
         poppins = Font.poppins(size=50, variant="bold")
