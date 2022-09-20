@@ -46,7 +46,7 @@ class Fun(commands.Cog):
         
     @commands.command()
     async def user(self, ctx: commands.Context):
-        background = Editor("assets/wlcbg.jpg")
+        background = Editor("wlcbg.jpg")
         profile_image = load_image(str(ctx.author.avatar_url))
         profile = Editor(profile_image).resize((150, 150)).circle_image()
 
