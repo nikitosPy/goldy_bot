@@ -67,7 +67,7 @@ class Fun(commands.Cog):
     font=poppins_small,
     align="center",
 )
-        awwit ctx.send(file = discord.File(fp=background.image_bytes, filename = 'user.png')
+        await ctx.send(file = discord.File(fp=background.image_bytes, filename = 'user.png'))
         
 def setup(bot):
     bot.add_cog(Fun(bot))
