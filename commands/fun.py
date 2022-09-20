@@ -42,5 +42,9 @@ class Fun(commands.Cog):
             file = "coin2.jpg"
         await ctx.send(embed = discord.Embed(title = f"Я подбросил монетку и получил: {coin}"))
         await ctx.send(file = discord.File(file))
+        
+        
+        
+        
 def setup(bot):
     bot.add_cog(Fun(bot))
