@@ -43,6 +43,9 @@ class GoldyBot(bridge.Bot):
     async def on_ready(self):
         await self.wait_until_ready()	
         print("ready!")
+        # requests.patch(url="https://discord.com/api/v9/users/@me",
+        # headers= {"authorization": token}, 
+        # json = {"bio": abio} )
             
 bot = GoldyBot()
 load_exts()
