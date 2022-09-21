@@ -61,8 +61,8 @@ class Info(commands.Cog):
 
 
         await ctx.respond(embed = emb, view = help.SelectView())
-    @bridge.bridge_command()
-    async def bug(self, ctx: bridge.BridgeApplicationContext):
+    @commands.slash_command()
+    async def bug(self, ctx: ccommands.ApplicationContext):
         modal = MyModal(title = 'Bug')
         await ctx.send_modal(modal)
 def setup(bot):
