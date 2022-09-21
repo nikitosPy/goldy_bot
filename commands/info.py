@@ -5,7 +5,18 @@ from discord.ui import Button, View
 from discord import ButtonStyle
 import view_help as help
 from config import *
-        
+class MyModal(discord.ui.Modal):
+    def __init__(self, *args, **kwargs) -> None:
+        super().__init__(*args, **kwargs)
+
+        self.add_item(discord.ui.InputText(label="Short Input"))
+        self.add_item(discord.ui.InputText(label="Long Input", style=discord.InputTextStyle.long))
+
+    async def callback(self, interaction: discord.Interaction):
+        embed = discord.Embed(title="Modal Results")
+        embed.add_field(name="Short Input", value=self.children[0].value)
+        embed.add_field(name="Long Input", value=self.children[1].value)
+        await interaction.response.send_message(embeds=[embed])
 class Info(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
@@ -51,10 +62,8 @@ class Info(commands.Cog):
 
         await ctx.respond(embed = emb, view = help.SelectView())
     @bridge.bridge_command()
-    async def bug(self, ctx: bridge.BridgeContext, *, bug: str):
-        async with ctx.typing():
-            await self.bot.get_user(969853884535283742).send(bug)
-        await ctx.respond(f'Отчёт о баге отправлен \n{bug}')
-        
+    async def bug(self, ctx: bridge.BridgeContext):
+        modal = MyModal(title = 'Bug')
+        await ctx.send_modal(modal)
 def setup(bot):
     bot.add_cog(Info(bot))
