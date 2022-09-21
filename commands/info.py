@@ -31,7 +31,7 @@ class Info(commands.Cog):
         cmnds = '\n- '.join([c.name for c in self.bot.commands])
         await ctx.send(f"```\n{cmnds}\n```")
     @bridge.bridge_command(name = 'ping', description = "Задержка бота")
-    async def ping(self, ctx: bridge.BridgeContext):
+    async def ping(self, ctx: bridge.BridgeApplicationContext):
         await ctx.respond(f'Задержка бота: {round(self.bot.latency*1000)/1000} секунд')
     @bridge.bridge_command(name = 'help', description = 'Меню помощи')
     async def help(self, ctx: bridge.BridgeContext):
