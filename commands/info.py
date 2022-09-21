@@ -9,14 +9,15 @@ class MyModal(discord.ui.Modal):
     def __init__(self, *args, **kwargs) -> None:
         super().__init__(*args, **kwargs)
 
-        self.add_item(discord.ui.InputText(label="Short Input"))
-        self.add_item(discord.ui.InputText(label="Long Input", style=discord.InputTextStyle.long))
+        self.add_item(discord.ui.InputText(label="Команда, в которой обнаружен баг"))
+        self.add_item(discord.ui.InputText(label="Описание бага", style=discord.InputTextStyle.long))
 
     async def callback(self, interaction: discord.Interaction):
-        embed = discord.Embed(title="Modal Results")
-        embed.add_field(name="Short Input", value=self.children[0].value)
-        embed.add_field(name="Long Input", value=self.children[1].value)
+        embed = discord.Embed(title="Ваш ответ")
+        embed.add_field(name="Команда", value=self.children[0].value)
+        embed.add_field(name="Описание", value=self.children[1].value)
         await interaction.response.send_message(embeds=[embed])
+        await self.bot.get_user(self.bot.owner.id).send(embed = embed)
 class Info(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
