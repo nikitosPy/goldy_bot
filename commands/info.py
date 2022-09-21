@@ -62,7 +62,7 @@ class Info(commands.Cog):
 
         await ctx.respond(embed = emb, view = help.SelectView())
     @commands.slash_command()
-    async def bug(self, ctx: commands.ApplicationContext):
+    async def bug(self, ctx: discord.ApplicationContext):
         modal = MyModal(title = 'Bug')
         await ctx.send_modal(modal)
 def setup(bot):
