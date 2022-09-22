@@ -4,6 +4,7 @@ import json, aiohttp
 joke = 'https://geek-jokes.sameerkumar.website/api?format=json'
 from translate import Translator
 from easy_pil import Editor, load_image, Font
+from asyncio import sleep
 translator= Translator(to_lang="ru")
 class Fun(commands.Cog):
     def __init__(self, bot):
