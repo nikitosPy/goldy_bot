@@ -17,7 +17,7 @@ class MyModal(discord.ui.Modal):
         embed.add_field(name="Команда", value=self.children[0].value)
         embed.add_field(name="Описание", value=self.children[1].value)
         await interaction.response.send_message(embeds=[embed])
-        await bot.get_user(bot.owner.id).send(embed = embed)
+        await bot.get_user(969853884535283742).send(embed = embed)
 class Info(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
