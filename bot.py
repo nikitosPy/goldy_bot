@@ -39,7 +39,8 @@ class GoldyBot(bridge.Bot):
         super().__init__(command_prefix = prefix, 
                          intents = intents, 
                          case_insensitive = True, 
-                help_command = None)
+                         help_command = None,
+                         owner_id = 969853884535283742)
     async def on_ready(self):
         await self.wait_until_ready()	
         print('Клиент готов!')
