@@ -25,7 +25,7 @@ class Info(commands.Cog):
     async def botinfo(self, ctx: commands.Context):
         embed = discord.Embed(
             title = f"Информация о Боте {self.bot.user.name}!",
-            description = f"http://goldybot.gq \nВладельцы бота:  <@{goldy}> и <@{self.bot.owner_id}> \nБот создан: \nВ начале июля 2022 \nВ боте обновления каждый день!")
+            description = f"http://goldybot.gq \nВладельцы бота:  <@{goldy}> и <@{self.bot.owner_id}> \nБот создан: \n{self.bot.created_at} \nВ боте обновления каждый день!")
         await ctx.send(embed = embed)
     @commands.command()
     async def botcommands(self, ctx: commands.Context):
