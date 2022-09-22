@@ -3,8 +3,7 @@ import os
 from discord.ext import commands
 from typing import List
 prefix = ["gg.", "gg!", "gb.", "gb!"]
-with open("token.txt") as f:
-        token = f.read()
+token = os.getenv('TOKEN')
 intents = discord.Intents.all()
 logs_ch = 998598317774737409
 owm_token = 'eb46d4ac80206870cb7641bbed4afb0c'
