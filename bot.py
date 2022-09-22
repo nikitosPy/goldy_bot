@@ -42,15 +42,7 @@ class GoldyBot(bridge.Bot):
                 help_command = None)
     async def on_ready(self):
         await self.wait_until_ready()	
-        abio = "._."
-        from config import token
-        token = token.replace("\n", "")
-        print("ready!")
-        r = requests.patch(url="https://discord.com/api/v9/users/@me",
-        headers= {"Authorization": f'Bot {token}',
-        "Content-type": 'application/json'}, 
-        json = {"bio": abio})
-        print(r.content)
+        print('Клиент готов!')
     async def on_command_completion(self, ctx):
         await ctx.message.add_reaction('✅')
     async def on_command_error(self, ctx, error):
