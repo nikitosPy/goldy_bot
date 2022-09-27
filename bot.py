@@ -12,6 +12,8 @@ try:
     import requests, json
     import youtube_dl
     from PIL import Image
+    import speech_recognition as sr
+    from os import path
     from PIL import ImageDraw
 except:
     import os
@@ -20,6 +22,14 @@ import os #Тоже генераторы
 import logging
 pretty_errors.activate()
 from config import prefix, intents, token
+
+"""
+НОВИНКА
+r = sr.Recognizer()
+with sr.AudioFile(AUDIO_FILE) as source:
+    audio = r.record(source)
+r.recognize_google(audio, language = 'ru-RU')
+"""
 
 def load_exts():
     for filename in os.listdir("./commands"):
