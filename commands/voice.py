@@ -17,7 +17,7 @@ class Voice(Cog):
       if voice_channel != None:
           channel = voice_channel.name
           vc = await voice_channel.connect()    
-          vc.play(discord.FFmpegPCMAudio(source='text.mp3')       
+          vc.play(discord.FFmpegPCMAudio(source='text.mp3'))
           while vc.is_playing():
               sleep(1)
           await vc.disconnect()
