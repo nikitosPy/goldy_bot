@@ -12,7 +12,7 @@ class Voice(Cog):
         os.remove('text.mp3')
       tts = gTTS(text = text1, lang = 'ru')
       tts.save('text.mp3')
-      voice_channel = ctx.author.channel
+      voice_channel = ctx.author.voice.channel
       channel = None
       if voice_channel != None:
           channel = voice_channel.name
