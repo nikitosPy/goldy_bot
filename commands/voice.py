@@ -7,7 +7,7 @@ class Voice(Cog):
   def __init__(self, bot):
     self.bot = bot
   @commands.command()
-  async def play(ctx, *, text1):    
+  async def play(self, ctx: commands.Context, *, text1):    
       if exists('text.mp3'):
         os.remove('text.mp3')
       tts = gTTS(text = text1, lang = 'ru')
