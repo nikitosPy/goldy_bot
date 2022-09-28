@@ -26,7 +26,7 @@ class Error(commands.Cog):
         else:
             emb = discord.Embed(title = "Ошибка: ", description = f"{error}")
             await ctx.send(embed = emb)
-            owner = self.bot.get_user(self.bot.owner.id)
+            owner = self.bot.get_user(self.bot.owner_id)
             await owner.send(embed = emb) 
 def setup(bot):
    bot.add_cog(Error(bot))
