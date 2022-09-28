@@ -23,13 +23,8 @@ import logging
 pretty_errors.activate()
 from config import prefix, intents, token
 
-"""
-НОВИНКА
+#TODO: распознавание речи ._.
 r = sr.Recognizer()
-with sr.AudioFile(AUDIO_FILE) as source:
-    audio = r.record(source)
-r.recognize_google(audio, language = 'ru-RU')
-"""
 
 def load_exts():
     for filename in os.listdir("./commands"):
