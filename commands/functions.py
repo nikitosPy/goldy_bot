@@ -8,6 +8,7 @@ class Functions(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
     @commands.command()
+    @commands.has_permissions(administrator = True)
     async def clear(self, ctx: commands.Context, n: int):
         await ctx.channel.purge(limit = n+1)
         await ctx.send(embed = discord.Embed(title=f"Очищено {n} сообщений"))
@@ -16,6 +17,7 @@ class Functions(commands.Cog):
          trans = translator.translate(words)
          await ctx.send(trans)
     @commands.command()
+    @commands.has_permissions(administrator = True)
     async def botecho(self, ctx: commands.Context, member: str, *, content: str):
         
         await ctx.message.delete()
