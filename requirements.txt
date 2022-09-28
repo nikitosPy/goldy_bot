@@ -15,3 +15,4 @@ translate
 youtube_dl
 easy_pil
 SpeechRecognition
+gTTS
