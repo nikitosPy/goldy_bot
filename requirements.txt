@@ -9,10 +9,10 @@ pillow
 requests
 bs4
 numpy
-pyowm
 python_weather
 translate
 youtube_dl
 easy_pil
 SpeechRecognition
 gTTS
+ffmpeg
