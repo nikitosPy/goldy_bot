@@ -2,6 +2,7 @@ import discord
 from discord.ext.commands import Context, Cog
 from discord.ext import commands, bridge
 from gtts import gTTS
+import os
 from os.path import exists
 class Voice(Cog):
   def __init__(self, bot):
