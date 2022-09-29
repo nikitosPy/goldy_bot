@@ -24,7 +24,8 @@ class Error(commands.Cog):
         elif isinstance(error, commands.MissingRequiredArgument):
             await ctx.send("Укажите необходимые аргументы!")
         else:
-            emb = discord.Embed(title = "Ошибка: ", description = f"{error}")
+            emb = discord.Embed(title = "Произошла Ошибка: ", description = f"{error}")
+            emb.set_footer('Я уже сообщил админам')
             await ctx.send(embed = emb)
             owner = self.bot.get_user(self.bot.owner_id)
             await owner.send(embed = emb) 
