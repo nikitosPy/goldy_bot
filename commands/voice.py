@@ -4,6 +4,7 @@ from discord.ext import commands, bridge
 from gtts import gTTS
 import os
 from os.path import exists
+from pathlib import Path
 class Voice(Cog):
   def __init__(self, bot):
     self.bot = bot
@@ -18,7 +19,8 @@ class Voice(Cog):
       if voice_channel != None:
           channel = voice_channel.name
           vc = await voice_channel.connect()    
-          audio = discord.FFmpegPCMAudio(executable = 'ffmpeg.exe', source='text.mp3')
+          ffmpeg = Path(__file__).parent
+          audio = discord.FFmpegPCMAudio(executable = f'{ffmpeg}/ffmpeg.exe', source='text.mp3')
           vc.play(audio)
           while vc.is_playing():
               sleep(1)
