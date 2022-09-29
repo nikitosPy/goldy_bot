@@ -50,9 +50,15 @@ class GoldyBot(bridge.Bot):
         await self.wait_until_ready()	
         print('Клиент готов!')
     async def on_command_completion(self, ctx):
-        await ctx.message.add_reaction('✅')
+        try:
+          await ctx.message.add_reaction('✅')
+        except:
+          pass
     async def on_command_error(self, ctx, error):
-        await ctx.message.add_reaction('❎')
+        try:
+          await ctx.message.add_reaction('❎')
+        except:
+          pass
 bot = GoldyBot()
 load_exts()
 #Создание бота
