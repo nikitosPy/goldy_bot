@@ -11,8 +11,7 @@ class Voice(Cog):
   @commands.command()
   async def play(self, ctx: commands.Context, *, text1):   
       discord.opus.load_opus()
-      if exists('text.mp3'):
-        os.remove('text.mp3')
+      
       tts = gTTS(text = text1, lang = 'ru')
       tts.save('text.mp3')
       voice_channel = ctx.author.voice.channel
