@@ -6,6 +6,18 @@ import os
 from asyncio import sleep
 from os.path import exists
 from pathlib import Path
+
+async def finished_callback(sink, channel: discord.TextChannel, *args):
+    recorded_users = [f"<@{user_id}>" for user_id, audio in sink.audio_data.items()]
+    await sink.vc.disconnect()
+    files = [
+        discord.File(audio.file, f"{user_id}.{sink.encoding}")
+        for user_id, audio in sink.audio_data.items()
+    ]
+    await channel.send(
+        f"Finished! Recorded audio for {', '.join(recorded_users)}.", files=files
+    )
+
 class Voice(Cog):
   def __init__(self, bot):
     self.bot = bot
@@ -30,18 +42,6 @@ class Voice(Cog):
       await vc.disconnect()
       await ctx.send('Конец')
   
-async def finished_callback(sink, channel: discord.TextChannel, *args):
-    recorded_users = [f"<@{user_id}>" for user_id, audio in sink.audio_data.items()]
-    await sink.vc.disconnect()
-    files = [
-        discord.File(audio.file, f"{user_id}.{sink.encoding}")
-        for user_id, audio in sink.audio_data.items()
-    ]
-    await channel.send(
-        f"Finished! Recorded audio for {', '.join(recorded_users)}.", files=files
-    )
-
-
   @commands.command()
   async def start(self, ctx: commands.Context):
       """
