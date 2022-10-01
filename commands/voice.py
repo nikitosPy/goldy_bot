@@ -6,7 +6,7 @@ import os
 from asyncio import sleep
 from os.path import exists
 from pathlib import Path
-
+connections = {}
 async def finished_callback(sink, channel: discord.TextChannel, *args):
     recorded_users = [f"<@{user_id}>" for user_id, audio in sink.audio_data.items()]
     await sink.vc.disconnect()
