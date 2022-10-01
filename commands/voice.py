@@ -3,6 +3,7 @@ from discord.ext.commands import Context, Cog
 from discord.ext import commands, bridge
 from gtts import gTTS
 import os
+from asyncio import sleep
 from os.path import exists
 from pathlib import Path
 class Voice(Cog):
@@ -21,7 +22,7 @@ class Voice(Cog):
           audio = discord.FFmpegPCMAudio(source='text.mp3')
           vc.play(audio)
           while vc.is_playing():
-              sleep(1)
+              sleep(.1)
           await vc.disconnect()
       else:
           await ctx.send(str(ctx.author.name) + "is not in a channel.")
