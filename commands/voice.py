@@ -6,6 +6,8 @@ import os
 from asyncio import sleep
 from os.path import exists
 from pathlib import Path
+import speech_recognition as sr
+r = sr.Recognizer()
 connections = {}
 async def finished_callback(sink, channel: discord.TextChannel, *args):
     recorded_users = [f"<@{user_id}>" for user_id, audio in sink.audio_data.items()]
@@ -17,6 +19,11 @@ async def finished_callback(sink, channel: discord.TextChannel, *args):
     await channel.send(
         f"Finished! Recorded audio for {', '.join(recorded_users)}.", files=files
     )
+    stt = sr.AudioFile(f"{user_id}.{sink.encoding}")
+    with stt as source:
+        audio = r.record(source)
+    text = r.recognize_google(audio)
+    await channel.send(str(text))
 
 class Voice(Cog):
   def __init__(self, bot):
