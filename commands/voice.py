@@ -63,7 +63,6 @@ class Voice(Cog):
 
       await ctx.respond("The recording has started!")
 
-
   @commands.command()
   async def stop(self, ctx: commands.Context):
       """Stop recording."""
