@@ -6,7 +6,7 @@ from translate import Translator
 from easy_pil import Editor, load_image, Font
 from asyncio import sleep
 translator= Translator(to_lang="ru")
-
+codes = ['test']
 class Fun(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
