@@ -6,6 +6,7 @@ from translate import Translator
 from easy_pil import Editor, load_image, Font
 from asyncio import sleep
 translator= Translator(to_lang="ru")
+
 class Fun(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
@@ -18,6 +19,18 @@ class Fun(commands.Cog):
                         js = await r.json()
                         joke_t = translator.translate(js['joke'])
                 await ctx.send(joke_t)
+    @commands.command()
+    async def code(self, ctx: commands.Context):
+        def is_valid_guess(m: discord.Message):
+            return m.author == ctx.author and m.content.lower() in codes
+        try:
+            guess: discord.Message = await bot.wait_for("message", check=is_valid_guess, timeout=30.0)
+        except TimeoutError:
+            return await ctx.send_followup(f"Тут есть кто живой?")
+        if guess.content.lower() in codes:
+            await guess.reply("Вы угадали!", mention_author=True)
+        else:
+            await guess.reply(f"Вы не угадали!", mention_author=True)
     @commands.command()
     async def random(self, ctx: commands.Context):
         await ctx.send(f'Случайное число от 0 до 1000: \n{random.randint(0,1001)}')
@@ -33,6 +46,7 @@ class Fun(commands.Cog):
         await sleep(300)
         await ctx.message.author.remove_roles(role)
         await role.delete()
+        
     @commands.command()
     async def coin(self, ctx: commands.Context):
         rand = random.randrange(0,2)
