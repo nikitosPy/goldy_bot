@@ -17,8 +17,11 @@ class Voice(Cog):
       channel = None
       if voice_channel != None:
           channel = voice_channel.name
-      if self.bot.user.voice.channel == None:
-          vc = await voice_channel.connect()    
+      if ctx.voice_client is None:
+            vc = await voice_channel.connect()
+        else:
+            await ctx.voice_client.move_to(voice_channel)
+            vc = ctx.voice_client 
          
       audio = discord.FFmpegPCMAudio(source='text.mp3')
       vc.play(audio)
