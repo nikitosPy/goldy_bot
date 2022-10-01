@@ -19,7 +19,7 @@ class Voice(Cog):
           channel = voice_channel.name
       if ctx.voice_client is None:
             vc = await voice_channel.connect()
-        else:
+      else:
             await ctx.voice_client.move_to(voice_channel)
             vc = ctx.voice_client 
          
