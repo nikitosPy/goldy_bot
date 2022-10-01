@@ -10,22 +10,21 @@ class Voice(Cog):
   def __init__(self, bot):
     self.bot = bot
   @commands.command()
-  async def play(self, ctx: commands.Context, *, text1):   
+  async def say(self, ctx: commands.Context, *, text1):   
       tts = gTTS(text = text1, lang = 'ru')
       tts.save('text.mp3')
       voice_channel = ctx.author.voice.channel
       channel = None
       if voice_channel != None:
           channel = voice_channel.name
+      if self.bot.user.voice.channel == None:
           vc = await voice_channel.connect()    
-          
-          audio = discord.FFmpegPCMAudio(source='text.mp3')
-          vc.play(audio)
-          while vc.is_playing():
-              sleep(.1)
-          await vc.disconnect()
-      else:
-          await ctx.send(str(ctx.author.name) + "is not in a channel.")
+         
+      audio = discord.FFmpegPCMAudio(source='text.mp3')
+      vc.play(audio)
+      while vc.is_playing():
+          sleep(.1)
+      await vc.disconnect()
       await ctx.send('Конец')
 def setup(bot):
   bot.add_cog(Voice(bot))
