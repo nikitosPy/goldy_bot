@@ -24,7 +24,7 @@ class Fun(commands.Cog):
         def is_valid_guess(m: discord.Message):
             return m.author == ctx.author and m.content.lower() in codes
         try:
-            guess: discord.Message = await bot.wait_for("message", check=is_valid_guess, timeout=30.0)
+            guess: discord.Message = await self.bot.wait_for("message", check=is_valid_guess, timeout=30.0)
         except TimeoutError:
             return await ctx.send_followup(f"Тут есть кто живой?")
         if guess.content.lower() in codes:
