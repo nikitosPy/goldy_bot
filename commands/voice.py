@@ -134,7 +134,7 @@ class Voice(Cog):
           await ctx.respond("Not recording in this guild.")
             
   @commands.command()
-    async def play(self, ctx: commands.Context, *, url: str):
+  async def play(self, ctx: commands.Context, *, url: str):
         """Streams from a url (same as yt, but doesn't predownload)"""
 
         async with ctx.typing():
