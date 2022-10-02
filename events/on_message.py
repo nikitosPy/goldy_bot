@@ -6,7 +6,6 @@ import random
 import sqlite3
 from rapidfuzz import fuzz, process
 class Message(commands.Cog):
-    ##
     def __init__(self, bot):
         self.bot = bot
     @commands.Cog.listener('on_message')
@@ -48,8 +47,8 @@ class Message(commands.Cog):
                 await message.channel.purge(limit = 1)
                 await message.channel.send(f"Не упоминай пинги everyone и here")
                 break
-   @commands.Cog.listener()  # equivalent to discord.Event
-   async def on_message(self, message):
+    @commands.Cog.listener()  # equivalent to discord.Event
+    async def on_message(self, message):
 
         if type(message.channel) == discord.DMChannel:
             user = message.author
