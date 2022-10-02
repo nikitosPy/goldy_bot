@@ -29,7 +29,7 @@ class Message(commands.Cog):
                 break
         for content in str(message.content).lower().split():
             difference = process.extractOne(content, bad_words)
-            if difference[1] >= 95:
+            if difference[1] >= 90:
                 await message.channel.purge(limit = 1)
                 await message.channel.send(f"<@{message.author.id}>, Не матерись! || Админы, он сказал: {message.content}, я подумал что {difference[0]}, Шанс: {difference[1]} ||")
                 break
@@ -99,5 +99,5 @@ class Message(commands.Cog):
 
             # now send the message to the new channel
             await user_support.send(message.content)  # sends what the user sent to the command
-async def setup(bot):
-    await bot.add_cog(Message(bot))
+def setup(bot):
+    bot.add_cog(Message(bot))
