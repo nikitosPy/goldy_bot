@@ -47,8 +47,8 @@ class Message(commands.Cog):
                 await message.channel.purge(limit = 1)
                 await message.channel.send(f"Не упоминай пинги everyone и here")
                 break
-    @commands.Cog.listener()  # equivalent to discord.Event
-    async def on_message(self, message):
+    @commands.Cog.listener('on_message')  # equivalent to discord.Event
+    async def on_message2(self, message):
 
         if type(message.channel) == discord.DMChannel:
             user = message.author
