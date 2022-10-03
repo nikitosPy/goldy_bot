@@ -14,5 +14,5 @@ class Guild(commands.Cog):
     Если возникнут вопросы / пожелания / идеи - 
     Пишите в Л / С и я это передам моим админам.
     """)
-async def setup(bot):
-    await bot.add_cog(Guild(bot))
+def setup(bot):
+    bot.add_cog(Guild(bot))
