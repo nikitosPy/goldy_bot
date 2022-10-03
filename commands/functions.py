@@ -35,7 +35,7 @@ class Functions(commands.Cog):
             content=content, username=member, avatar_url = avatar_url
         )
     @commands.command()
-    async def google(self, ctx: commands.Context, query: str):
+    async def google(self, ctx: commands.Context, *, query: str):
         for url in search(query, tld="com", lang = 'ru', num=1, stop=None):
             reqs = requests.get(url)
             results = []
