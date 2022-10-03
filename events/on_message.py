@@ -3,6 +3,7 @@ from discord.ext import commands
 from time import time
 from config import *
 import random
+from discord.utils import get
 import sqlite3
 from rapidfuzz import fuzz, process
 class Message(commands.Cog):
