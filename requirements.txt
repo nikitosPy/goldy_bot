@@ -16,3 +16,4 @@ easy_pil
 SpeechRecognition
 gTTS
 ffmpeg
+google
