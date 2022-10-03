@@ -34,5 +34,14 @@ class Functions(commands.Cog):
         await webhook.send(
             content=content, username=member, avatar_url = avatar_url
         )
+    @commands.command()
+    async def google(self, ctx: commands.Context, query: str):
+        for url in search(query, tld="com", lang = 'ru', num=1, stop=None):
+            reqs = requests.get(url)
+            results = []
+            soup = BeautifulSoup(reqs.text, 'html.parser')
+            for title in soup.find_all('title'):
+                results.append(title.get_text())
+        await ctx.send(f'Результаты поиска: {"".join(results)}')
 def setup(bot):
     bot.add_cog(Functions(bot))
