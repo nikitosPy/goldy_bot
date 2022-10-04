@@ -50,11 +50,8 @@ class Message(commands.Cog):
                 break
     @commands.Cog.listener('on_message')  # equivalent to discord.Event
     async def on_message2(self, message):
-        if message.channel.name == message.author.name.lower():
-            with open('users.txt', 'r') as u:
-                user = self.bot.get_user(u.read())
-                await user.send(message.content)
-        elif type(message.channel) == discord.DMChannel and message.author.id != self.bot.user.id:
+        
+        if type(message.channel) == discord.DMChannel and message.author.id != self.bot.user.id:
             user = message.author
             guild_id = 1019825740323233822 # fill it up with your support guild id
             support_server = self.bot.get_guild(guild_id)
@@ -104,5 +101,9 @@ class Message(commands.Cog):
 
             # now send the message to the new channel
             await user_support.send(message.content)  # sends what the user sent to the command
+        elif message.channel.name == message.author.name.lower():
+            with open('users.txt', 'r') as u:
+                user = self.bot.get_user(u.read())
+                await user.send(message.content)
 def setup(bot):
     bot.add_cog(Message(bot))
