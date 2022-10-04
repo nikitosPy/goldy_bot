@@ -100,10 +100,10 @@ class Message(commands.Cog):
                     user_support = get(support_server.text_channels, name = user.name.lower())  # redefine the support channel
 
             # now send the message to the new channel
-            await user_support.send(message.content)  # sends what the user sent to the command
+            await user_support.send(f'**{user.name}**: {message.content}')  # sends what the user sent to the command
         elif type(message.channel) != discord.DMChannel and message.channel.name == message.author.name.lower():
             with open('users.txt', 'r') as u:
                 user = self.bot.get_user(int(u.read()))
-                await user.send(message.content)
+                await user.send(f'**{message.author.name}**: {message.content}')
 def setup(bot):
     bot.add_cog(Message(bot))
