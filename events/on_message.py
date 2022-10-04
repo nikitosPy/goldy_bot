@@ -50,12 +50,16 @@ class Message(commands.Cog):
                 break
     @commands.Cog.listener('on_message')  # equivalent to discord.Event
     async def on_message2(self, message):
-
-        if type(message.channel) == discord.DMChannel:
+        if message.channel.name == message.author.name.lower():
+            with open('users.txt', 'r') as u:
+                user = self.bot.get_user(u.read())
+                await user.send(message.content)
+        elif type(message.channel) == discord.DMChannel and message.author.id != self.bot.user.id:
             user = message.author
             guild_id = 1019825740323233822 # fill it up with your support guild id
             support_server = self.bot.get_guild(guild_id)
-
+            with open('users.txt', 'w') as u:
+               u.write(user.id)
             # try to match with a channel name
             match = False
 
