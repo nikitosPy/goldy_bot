@@ -56,7 +56,7 @@ class Message(commands.Cog):
             guild_id = 1019825740323233822 # fill it up with your support guild id
             support_server = self.bot.get_guild(guild_id)
             with open('users.txt', 'w') as u:
-               u.write(user.id)
+               u.write(str(user.id))
             # try to match with a channel name
             match = False
 
@@ -103,7 +103,7 @@ class Message(commands.Cog):
             await user_support.send(message.content)  # sends what the user sent to the command
         elif type(message.channel) != discord.DMChannel and message.channel.name == message.author.name.lower():
             with open('users.txt', 'r') as u:
-                user = self.bot.get_user(u.read())
+                user = self.bot.get_user(int(u.read()))
                 await user.send(message.content)
 def setup(bot):
     bot.add_cog(Message(bot))
