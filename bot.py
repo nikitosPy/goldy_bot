@@ -48,6 +48,7 @@ class GoldyBot(bridge.Bot):
                          owner_id = 969853884535283742)
     async def on_ready(self):
         await self.wait_until_ready()	
+        await load_nodes()
         print('Клиент готов!')
     async def on_command_completion(self, ctx):
         try:
@@ -60,6 +61,14 @@ class GoldyBot(bridge.Bot):
         except:
           pass
 bot = GoldyBot()
+async def load_nodes():
+    await bot.wait_until_ready()
+    await wavelink.NodePool.create_node(
+    bot=bot,
+    host='0.0.0.0',
+    port=2333,
+    password='youshallnotpass'
+  )
 load_exts()
 #Создание бота
 ### ?
