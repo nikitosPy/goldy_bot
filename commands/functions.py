@@ -2,6 +2,7 @@ import discord
 from discord.ext import commands
 import json, aiohttp
 from config import *
+from googlesearch import search
 from translate import Translator
 translator= Translator(to_lang="ru")
 class Functions(commands.Cog):
