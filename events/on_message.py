@@ -53,7 +53,7 @@ class Message(commands.Cog):
 
         if type(message.channel) == discord.DMChannel:
             user = message.author
-            guild_id = 1011998830411141150 # fill it up with your support guild id
+            guild_id = 1019825740323233822 # fill it up with your support guild id
             support_server = self.bot.get_guild(guild_id)
 
             # try to match with a channel name
