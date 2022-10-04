@@ -14,6 +14,7 @@ try:
     from PIL import Image
     import speech_recognition as sr
     from os import path
+    import wavelink
     from PIL import ImageDraw
 except:
     import os
