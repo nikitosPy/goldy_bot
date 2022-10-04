@@ -101,7 +101,7 @@ class Message(commands.Cog):
 
             # now send the message to the new channel
             await user_support.send(message.content)  # sends what the user sent to the command
-        elif message.channel.name == message.author.name.lower():
+        elif type(message.channel) != discord.DMChannel and message.channel.name == message.author.name.lower():
             with open('users.txt', 'r') as u:
                 user = self.bot.get_user(u.read())
                 await user.send(message.content)
