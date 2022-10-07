@@ -68,14 +68,9 @@ class GoldyBot(bridge.Bot):
           pass
 bot = GoldyBot()
 load_exts(bot)
-async def connect_nodes():
-    await bot.wait_until_ready()
-    await wavelink.NodePool.create_node(
-    bot=bot,
-    host='0.0.0.0',
-    port=2333,
-    password='youshallnotpass'
-  )
+@bot.event
+async def on_wavelink_node_ready(node: wavelink.Node):
+  print(f"{node.identifier} is ready.")
 #Создание бота
 ### ?
 #Логи discord
