@@ -27,7 +27,7 @@ from config import prefix, intents, token
 #TODO: распознавание речи ._.
 r = sr.Recognizer()
 
-def load_exts():
+def load_exts(bot):
     for filename in os.listdir("./commands"):
          if filename.endswith(".py") and not filename.startswith('view'):
             bot.load_extension(f"commands.{filename[:-3]}")
@@ -37,9 +37,14 @@ def load_exts():
     for filename in os.listdir("./ecogoldy"):
          if filename.endswith(".py"):
             bot.load_extension(f"ecogoldy.{filename[:-3]}")
-
-
-
+async def connect_nodes():
+    await bot.wait_until_ready()
+    await wavelink.NodePool.create_node(
+    bot=bot,
+    host='0.0.0.0',
+    port=2333,
+    password='youshallnotpass'
+  )
 class GoldyBot(bridge.Bot):
     def __init__(self):
         super().__init__(command_prefix = prefix, 
@@ -49,7 +54,7 @@ class GoldyBot(bridge.Bot):
                          owner_id = 969853884535283742)
     async def on_ready(self):
         await self.wait_until_ready()	
-        await load_nodes()
+        await connect_nodes()
         print('Клиент готов!')
     async def on_command_completion(self, ctx):
         try:
@@ -62,7 +67,8 @@ class GoldyBot(bridge.Bot):
         except:
           pass
 bot = GoldyBot()
-async def load_nodes():
+load_exts(bot)
+async def connect_nodes():
     await bot.wait_until_ready()
     await wavelink.NodePool.create_node(
     bot=bot,
@@ -70,7 +76,6 @@ async def load_nodes():
     port=2333,
     password='youshallnotpass'
   )
-load_exts()
 #Создание бота
 ### ?
 #Логи discord
