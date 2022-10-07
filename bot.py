@@ -41,10 +41,7 @@ async def connect_nodes():
     await bot.wait_until_ready()
     await wavelink.NodePool.create_node(
     bot=bot,
-    host='127.0.0.1',
-    port=5000,
-    password='youshallnotpass'
-  )
+    )
 class GoldyBot(bridge.Bot):
     def __init__(self):
         super().__init__(command_prefix = prefix, 
