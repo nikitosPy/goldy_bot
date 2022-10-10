@@ -50,7 +50,7 @@ async def connect_nodes():
     await bot.wait_until_ready()
     await wavelink.NodePool.create_node(
     bot=bot,
-        host = 'http://g0ldyb0t1.herokuapp.com/',
+        host = '0.0.0.0',
         port = 80,
         password = 'youshallnotpass',
         
