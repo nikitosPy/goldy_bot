@@ -41,10 +41,10 @@ async def connect_nodes():
     await bot.wait_until_ready()
     await wavelink.NodePool.create_node(
     bot=bot,
-        host = 'https://g0ldyb0t1.herokuapp.com/',
+        host = 'http://g0ldyb0t1.herokuapp.com/',
         port = 80,
         password = 'youshallnotpass',
-        ssl = False
+        
     )
 class GoldyBot(bridge.Bot):
     def __init__(self):
