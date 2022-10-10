@@ -62,6 +62,7 @@ async def connect_nodes():
         host = ip_address,
         port = 5000,
         password = 'youshallnotpass',
+        http = False
         
     )
 class GoldyBot(bridge.Bot):
