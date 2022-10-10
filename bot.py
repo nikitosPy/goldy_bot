@@ -60,7 +60,7 @@ async def connect_nodes():
     await wavelink.NodePool.create_node(
     bot=bot,
         host = ip_address,
-        port = 80,
+        port = 5000,
         password = 'youshallnotpass',
         
     )
