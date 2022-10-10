@@ -9,6 +9,15 @@ print(f"Release: {uname.release}")
 print(f"Version: {uname.version}")
 print(f"Machine: {uname.machine}")
 print(f"Processor: {uname.processor}")
+## importing socket module
+import socket
+## getting the hostname by socket.gethostname() method
+hostname = socket.gethostname()
+## getting the IP address using socket.gethostbyname() method
+ip_address = socket.gethostbyname(hostname)
+## printing the hostname and ip_address
+print(f"Hostname: {hostname}")
+print(f"IP Address: {ip_address}")
 ###
 try:
     import discord #Создание Клиента
@@ -50,7 +59,7 @@ async def connect_nodes():
     await bot.wait_until_ready()
     await wavelink.NodePool.create_node(
     bot=bot,
-        host = '0.0.0.0',
+        host = ip_address,
         port = 80,
         password = 'youshallnotpass',
         
