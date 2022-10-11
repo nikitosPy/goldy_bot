@@ -10,15 +10,17 @@ codes = ['test']
 class Fun(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
-    @bridge.bridge_command(name = "joke", descriprion = "Шутка")
+    @bridge.bridge_command(name = "joke", description = "Шутка")
     async def joke(self, ctx: bridge.BridgeContext):
+        jokes = []
         async with aiohttp.ClientSession() as cs:
             for i in range(5):
                 async with cs.get(joke) as r:
                     if r.status == 200:
                         js = await r.json()
                         joke_t = translator.translate(js['joke'])
-                await ctx.respond(joke_t)
+                        jokes.append(joke_t)
+                await ctx.respond('\n'.join(jokes))
     @commands.command()
     async def code(self, ctx: commands.Context):
         def is_valid_guess(m: discord.Message):
