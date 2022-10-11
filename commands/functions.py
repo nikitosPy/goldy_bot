@@ -1,6 +1,7 @@
 import discord
 from discord.ext import commands
 import json, aiohttp
+from asyncio import sleep
 from config import *
 from googlesearch import search
 from translate import Translator
@@ -13,6 +14,7 @@ class Functions(commands.Cog):
     async def clear(self, ctx: commands.Context, n: int):
         async with ctx.typing():
             for msg in await ctx.channel.history(limit = n).flatten():
+                await sleep(0)
                 await msg.delete()
         await ctx.send(embed = discord.Embed(title=f"Очищено {n} сообщений"))
     @commands.command()
