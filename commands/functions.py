@@ -11,7 +11,9 @@ class Functions(commands.Cog):
     @commands.command()
     @commands.has_permissions(administrator = True)
     async def clear(self, ctx: commands.Context, n: int):
-        await ctx.channel.purge(limit = n+1)
+        async with ctx.typing():
+            for msg in await ctx.channel.history(limit = n).flatten():
+                await msg.delete()
         await ctx.send(embed = discord.Embed(title=f"Очищено {n} сообщений"))
     @commands.command()
     async def translate(self, ctx: commands.Context, *, words):
