@@ -1,5 +1,5 @@
 import discord
-from discord.ext import commands
+from discord.ext import commands, bridge
 import json, aiohttp
 joke = 'https://geek-jokes.sameerkumar.website/api?format=json'
 from translate import Translator
@@ -10,15 +10,15 @@ codes = ['test']
 class Fun(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
-    @commands.command()
-    async def joke(self, ctx: commands.Context):
+    @bridge.bridge_command(name = "joke", descriprion = "Шутка")
+    async def joke(self, ctx: bridge.BridgeContext):
         async with aiohttp.ClientSession() as cs:
             for i in range(5):
                 async with cs.get(joke) as r:
                     if r.status == 200:
                         js = await r.json()
                         joke_t = translator.translate(js['joke'])
-                await ctx.send(joke_t)
+                await ctx.respond(joke_t)
     @commands.command()
     async def code(self, ctx: commands.Context):
         def is_valid_guess(m: discord.Message):
