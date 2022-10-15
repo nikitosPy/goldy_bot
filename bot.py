@@ -73,7 +73,7 @@ class GoldyBot(bridge.Bot):
                          owner_id = 969853884535283742)
     async def on_ready(self):
         await self.wait_until_ready()	
-        await connect_nodes()
+        
         print('Клиент готов!')
     async def on_command_completion(self, ctx):
         try:
