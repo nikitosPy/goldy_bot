@@ -1,6 +1,6 @@
 import discord
 from discord.ext import commands
-class Panel(discord.ui.Button):
+class Panel(discord.ui.View):
     def __init__(self, bot, *args, **kwargs):
       self.bot = bot
       super().__init__(*args, **kwargs)
