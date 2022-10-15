@@ -6,9 +6,9 @@ from discord import ButtonStyle
 import view_help as help
 from config import *
 class MyModal(discord.ui.Modal):
-    def __init__(self, *args, **kwargs) -> None:
+    def __init__(self, bot, *args, **kwargs) -> None:
         super().__init__(*args, **kwargs)
-
+        self.bot = bot
         self.add_item(discord.ui.InputText(label="Команда, в которой обнаружен баг"))
         self.add_item(discord.ui.InputText(label="Описание бага", style=discord.InputTextStyle.long))
 
@@ -17,7 +17,7 @@ class MyModal(discord.ui.Modal):
         embed.add_field(name="Команда", value=self.children[0].value)
         embed.add_field(name="Описание", value=self.children[1].value)
         await interaction.response.send_message(embeds=[embed])
-        await self.get_user(969853884535283742).send(embed = embed)
+        await self.bot.get_user(969853884535283742).send(embed = embed)
 class Info(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
@@ -64,7 +64,7 @@ class Info(commands.Cog):
         await ctx.respond(embed = emb, view = help.SelectView())
     @commands.slash_command()
     async def bug(self, ctx: discord.ApplicationContext):
-        modal = MyModal(title = 'Bug')
+        modal = MyModal(bot = self.bot, title = 'Bug')
         await ctx.send_modal(modal)
 def setup(bot):
     bot.add_cog(Info(bot))
