@@ -21,12 +21,7 @@ class MyModal(discord.ui.Modal):
 class Info(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
-    @commands.command()
-    async def botinfo(self, ctx: commands.Context):
-        embed = discord.Embed(
-            title = f"Информация о Боте {self.bot.user.name}!",
-            description = f"http://goldybot.gq \nВладельцы бота:  <@{goldy}> и <@{self.bot.owner_id}> \nБот создан: \n{self.bot.user.created_at} \nВ боте обновления каждый день!")
-        await ctx.send(embed = embed)
+    
     @commands.command()
     async def botcommands(self, ctx: commands.Context):
         cmnds = '\n- '.join([c.name for c in self.bot.commands])
