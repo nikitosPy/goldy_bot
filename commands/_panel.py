@@ -6,6 +6,6 @@ class PanelCog(commands.Cog):
     self.bot = bot
   @commands.command()
   async def panel(self, ctx: commands.Context):
-    await ctx.send('Панель Goldybot!', view = Panel(timeout = None))
+    await ctx.send('Панель Goldybot!', view = Panel(bot, timeout = None))
 def setup(bot):
   bot.add_cog(PanelCog(bot))
