@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands
 class Panel(discord.ui.Button):
     def __init__(self, bot, *args, **kwargs):
-      self.bot = bo5
+      self.bot = bot
       super().__init__(*args, **kwargs)
     @discord.ui.button(label = 'botinfo', style = discord.ButtonStyle.primary)
     async def botinfo(self, button, interaction):
