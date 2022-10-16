@@ -10,4 +10,4 @@ class Panel(discord.ui.View):
         embed = discord.Embed(
             title = f"Информация о Боте {self.bot.user.name}!",
             description = f"http://goldybot.gq \nВладельцы бота:  <@{goldy}> и <@{self.bot.owner_id}> \nБот создан: \n{self.bot.user.created_at} \nВ боте обновления каждый день!")
-        await interaction.response.send_message(embed = embed)
+        await interaction.response.send_message(embed = embed, ephemeral = True)
