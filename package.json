@@ -1,0 +1,20 @@
+{
+    "name": "goldy_bot",
+    "version": "1.0.0",
+    "description": "",
+    "scripts": {
+        "build": "echo \"No build specified\" && exit 1",
+        "test": "echo \"No test specified\" && exit 1",
+        "start": "python bot.py"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/nikitosPy/goldy_bot.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/nikitosPy/goldy_bot/issues"
+    },
+    "homepage": "https://github.com/nikitosPy/goldy_bot#readme"
+}
