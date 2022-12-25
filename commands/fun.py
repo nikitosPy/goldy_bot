@@ -54,10 +54,10 @@ class Fun(commands.Cog):
         rand = random.randrange(0,2)
         if rand == 0:
             coin = "Орёл"
-            file = "coin1.jpg"
+            file = "assets/coin1.jpg"
         else:
             coin = "Решка"
-            file = "coin2.jpg"
+            file = "assets/coin2.jpg"
         await ctx.send(embed = discord.Embed(title = f"Я подбросил монетку и получил: {coin}"))
         await ctx.send(file = discord.File(file))
         
